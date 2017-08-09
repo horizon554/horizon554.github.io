@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
+<title>README</title>
 
 
 <style type="text/css">
@@ -336,9 +336,7 @@ kbd {
 
 <h3 id="toc_2">1.1.导入SDK资源</h3>
 
-<p>
-下载“XDSDK For Unity 3D”版本的SDK包。将其中的XDSDKForUnity.unitypackage文件导入到Unity工程里面（如果无法导入，请再次确认文件是放置于非中文路径下的），如下图所示:
-</p>
+<p> 下载“XDSDK For Unity 3D”版本的SDK包。将其中的XDSDKForUnity.unitypackage文件导入到Unity工程里面（如果无法导入，请再次确认文件是放置于非中文路径下的），如下图所示： </p>
 
 <p><img src="img/1.png"></img></p>
 
@@ -371,10 +369,34 @@ kbd {
 <td>Plugins/Android/res</td>
 <td>心动SDK Android资源文件</td>
 </tr>
+<tr>
+<td>Plugins/iOS/libRMStore</td>
+<td>心动SDK iOS支付库组建</td>
+</tr>
+<tr>
+<td>Plugins/iOS/libWeChatSDK</td>
+<td>心动SDK iOS微信依赖库</td>
+</tr>
+<tr>
+<td>Plugins/iOS/libXDSDKiOSWrapper</td>
+<td>心动SDK iOS桥接组建</td>
+</tr>
+<tr>
+<td>Library／TencentOpenAPI.framework</td>
+<td>心动SDK iOSQQ登录库文件</td>
+</tr>
+<tr>
+<td>Library／XdComPlatform.framework</td>
+<td>心动SDK iOS核心依赖库</td>
+</tr>
+<tr>
+<td>Library／XDStore.framework</td>
+<td>心动SDK iOS支付组建</td>
+</tr>
 </tbody>
 </table>
 
-<p> 导入后，将Plugins/script下面的XDSDK.cs脚本文件拖动到任意对象中进行脚本挂接。 </p>
+<p> 导入后，将Plugins/script下面的XDSDKListener.cs脚本文件拖动到长生命周期的对象中进行脚本挂接。 </p>
 
 <h3 id="toc_3">1.2.实现并设置回调方法</h3>
 
@@ -382,50 +404,62 @@ kbd {
 
 <div><pre><code class="language-none">public class XDSDKHandler : XDCallback {
 
+    //初始化成功回调
     public override void OnInitSucceed (){
 
     }
-
+    
+    //初始化失败回调
     public override void OnInitFailed (string msg){
 
     }
 
+    //登录成功回调
     public override void OnLoginSucceed (string token){
 
     }
 
+    //登录失败回调
     public override void OnLoginFailed (string msg){
 
     }
-
+    
+    //登录取消回调
     public override void OnLoginCanceled (){
 
     }
 
+    //游客绑定成功回调
     public override void OnGuestBindSucceed (string token){
 
     }
 
+    //登出回调
     public override void OnLogoutSucceed (){
 
     }
 
+    //支付完成回调
     public override void OnPayCompleted (){
 
     }
 
+    //支付失败回调
     public override void OnPayFailed (string msg){
 
     }
 
+    //支付取消回调
     public override void OnPayCanceled (){
 
     }
 
+    //Android 退出回调
     public override void OnExitConfirm (){
 
     }
 
+    //Android 取消退出回调
     public override void OnExitCancel (){
 
     }
@@ -749,11 +783,11 @@ XDSDK.Logout();
 
 <h3 id="toc_16">2.2.生成APK</h3>
 
-<p>在Unity中生成APK，或将工程导出至Android Studio进行打包。</p>
+<p>在Unity中生成APK，或将工程导出至Android Studio进行打包。
 
-<p><img src="img/2.png"></img></p>
+<img src="img/2.png"></img>
 
-<h3 id="toc_17">2.3.接入微信分享</h3>
+### 2.3.接入微信分享
 
 <p>心动SDK目前仅提供微信登录功能，如果游戏需要使用微信分享功能，需要自行接入微信分享功能。需要注意下面几点。</p>
 
@@ -833,37 +867,38 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         }
 
         if (arg0 instanceof SendAuth.Resp) {
-            if (XDPlatform.isLoggedIn() && !XDUser.getUser().isGuester()) return;
+        if (XDPlatform.isLoggedIn() &amp;&amp; !XDUser.getUser().isGuester()) return;
             XDPlatform.isIn3rdActivity = false;
             switch (arg0.errCode) {
-                case BaseResp.ErrCode.ERR_OK:
-                    String code = ((SendAuth.Resp) arg0).code;
-                    //调用平台登录
-                    XDCore.getInstance().wxLogin(code, "app");
-                    break;
-                case BaseResp.ErrCode.ERR_USER_CANCEL:
-                    XDPlatform.dismissProgressBar();
-                    Log.d("微信登录", "ERR_USER_CANCEL");
-                    break;
-                case BaseResp.ErrCode.ERR_AUTH_DENIED:
-                    XDPlatform.dismissProgressBar();
-                    Log.d("微信登录", "ERR_AUTH_DENIED");
-                    break;
-                default:
-                    break;
+            case BaseResp.ErrCode.ERR_OK:
+                String code = ((SendAuth.Resp)arg0).code;
+                Log.d(&quot;微信code&quot;,code);
+                //调用平台登录
+                XDCore.getInstance().wxLogin(code, &quot;app&quot;);
+                break;
+            case BaseResp.ErrCode.ERR_USER_CANCEL:
+            XDPlatform.dismissProgressBar();
+                Log.d(&quot;微信登录&quot;,&quot;ERR_USER_CANCEL&quot;);
+                break;
+            case BaseResp.ErrCode.ERR_AUTH_DENIED:
+            XDPlatform.dismissProgressBar();
+                Log.d(&quot;微信登录&quot;,&quot;ERR_AUTH_DENIED&quot;);
+                break;
+            default:
+                break;
             }
         }
         finish();
     }
 }</code></pre></div>
 
-<h2 id="toc_18">3.iOS</h2>
+<h2 id="toc_17">3.iOS</h2>
 
 <p>用Unity导出Xcode工程并打开</p>
 
-<h3 id="toc_19">3.1. 导入SDK文件</h3>
+<h3 id="toc_18">3.1. 导入SDK文件</h3>
 
-<p>从心动平台处获取SDK，其中主要的文件或目录用途如下。</p>
+<p>从心动平台处获取SDK资源文件，其中主要的文件或目录用途如下。</p>
 
 <table>
 <thead>
@@ -875,31 +910,15 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
 <tbody>
 <tr>
-<td>XdComPlatform.framework</td>
-<td>心动SDK的主要库文件，需要添加到项目依赖中</td>
-</tr>
-<tr>
-<td>XDStore.framework</td>
-<td>心动SDK支付组建，需要添加到项目依赖库中</td>
-</tr>
-<tr>
 <td>resource</td>
 <td>心动SDK需要或依赖的资源文件，需要保证所有文件都被添加到了Xcode的“Copy Bundle Resources”中</td>
-</tr>
-<tr>
-<td>libs</td>
-<td>心动SDK依赖的其它库文件，需要添加到项目依赖中</td>
-</tr>
-<tr>
-<td>wrapper</td>
-<td>Unity ObjC 桥接文件</td>
 </tr>
 </tbody>
 </table>
 
 <p>将以上文件导入Xcode工程。</p>
 
-<h3 id="toc_20">3.2. 添加系统依赖库</h3>
+<h3 id="toc_19">3.2. 添加系统依赖库</h3>
 
 <div><pre><code class="language-none">libz.tbd
 libsqlite3.tbd
@@ -916,7 +935,7 @@ SystemConfiguration.framework
 libiconv.tbd
 libstdc++.tbd</code></pre></div>
 
-<h3 id="toc_21">3.3. 设置 URL Types</h3>
+<h3 id="toc_20">3.3. 设置 URL Types</h3>
 
 <p>需要在Xcode中设置多个URL Types，URL Types主要是需要设置URL Schemes，其它选项可任意填写。按照下面表格的内容填写，注意替换其中的各项AppID。</p>
 
@@ -952,7 +971,7 @@ libstdc++.tbd</code></pre></div>
 </tbody>
 </table>
 
-<h3 id="toc_22">3.4. 配置 info.plist</h3>
+<h3 id="toc_21">3.4. 配置 info.plist</h3>
 
 <p>修改项目的info.plist，在<dict>节点中添加下列内容。修改的内容主要为了保证QQ和微信登录能够正常运行。</p>
 
@@ -979,7 +998,7 @@ libstdc++.tbd</code></pre></div>
 &lt;/dict&gt;
 </code></pre></div>
 
-<h3 id="toc_23">3.5. 处理第三发应用跳回事件</h3>
+<h3 id="toc_22">3.5. 处理第三发应用跳回事件</h3>
 
 <p style="color:red">
 在UnityAppController.mm中增加如下两个方法，如果已经存在这些方法，在其中追加相应的处理代码即可。请务必添加下列代码，否则将影响第三方登录的授权回调。
@@ -1000,15 +1019,15 @@ libstdc++.tbd</code></pre></div>
     return [XDCore HandleXDOpenURL:url];
 }</code></pre></div>
 
-<h3 id="toc_24">3.6. Buid Settings</h3>
+<h3 id="toc_23">3.6. Buid Settings</h3>
 
 <p>Enable Bitcode = NO</p>
 
-<h5 id="toc_25">完成以上配置即可进行编译打包。</h5>
+<h5 id="toc_24">完成以上配置即可进行编译打包。</h5>
 
-<h2 id="toc_26">4. 服务端对接</h2>
+<h2 id="toc_25">4. 服务端对接</h2>
 
-<h3 id="toc_27">4.1 获取用户信息</h3>
+<h3 id="toc_26">4.1 获取用户信息</h3>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1025,7 +1044,7 @@ name：用户的账号名称
 friendly_name：用户的昵称，如果游戏想要展现用户名称，建议使用该字段
 client_id：该用户首次在该游戏登录时使用的心动AppID</code></pre></div>
 
-<h3 id="toc_28">4.2.    处理支付回调</h3>
+<h3 id="toc_27">4.2.    处理支付回调</h3>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>
