@@ -370,6 +370,7 @@ kbd {
 <li><a href="#59%E7%99%BB%E5%87%BA">5.9登出</a></li>
 <li><a href="#510%E6%B8%B8%E5%AE%A2%E5%8D%87%E7%BA%A7">5.10游客升级</a></li>
 <li><a href="#511%E9%80%80%E5%87%BA">5.11退出</a></li>
+<li><a href="#512%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB">5.12微信分享</a></li>
 </ul></li>
 <li><a href="#6%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AF%B9%E6%8E%A5">6服务端对接</a>
 
@@ -409,7 +410,7 @@ kbd {
 
 <p>参阅“心动AppID申请介绍”文档，申请心动AppID，获得心动AppID、心动AppKey、微信AppID、QQ AppID、Ping++ ID。其中心动AppID主要是客户端对接时使用，AppKey主要是服务端对接支付回调时使用。</p>
 
-<p style="color:red">注意，如果游戏需要使用微信分享功能，必须使用心动提供的微信AppID，否则会导致微信登录失败。
+<p style="color:red">注意，如果游戏需要自行接入微信分享功能，必须使用心动提供的微信AppID，否则会导致微信登录失败。
 </p>
 
 <p><span id="3需要遵守的规则"></p>
@@ -488,12 +489,12 @@ kbd {
 <div><pre><code class="language-diff">&lt;application&gt;
     &lt;activity
         android:name=&quot;com.xd.sdklib.helper.XDStartView&quot;
-        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; 
         android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot; /&gt;
     &lt;activity
         android:name=&quot;com.xd.sdklib.helper.XDPayActivity&quot;
         android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
-        android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot; /&gt;
+        android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;  /&gt;
     &lt;activity
         android:name=&quot;com.xd.sdklib.helper.XDViewActivity&quot;
         android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
@@ -505,18 +506,18 @@ kbd {
         android:name=&quot;com.xd.sdklib.helper.WXEntryActivity&quot;
         android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
 
-    <font color="red">&lt;!-- 微信登录，仅在游戏不接入其它微信分享SDK时使用该方法 --&gt;</font>
+    <font color="red">&lt;!-- 微信登录，仅在游戏不接入其它微信分享SDK时使用该方法 --&gt; </font>
     &lt;activity-alias
         android:name=&quot;.wxapi.WXEntryActivity&quot;
         android:exported=&quot;true&quot;
         android:targetActivity=&quot;com.xd.sdklib.helper.WXEntryActivity&quot;/&gt;
 
-    <font color="red">&lt;!-- 微信登录和分享，游戏接入了其它微信分享SDK时必须使用该方法，并按照文章后面的内容进行处理</font>
+    <font color="red">&lt;!-- 微信登录和分享，游戏接入了其它微信分享SDK时必须使用该方法，并按照文章后面的内容进行处理 </font>
     &lt;activity
         android:name=&quot;.wxapi.WXEntryActivity&quot;
         android:label=&quot;@string/app_name&quot;
         android:exported=&quot;true&quot;/&gt;
-    <font color="red">--&gt;</font>
+    <font color="red">--&gt; </font>
 
     &lt;!-- Ping++ SDK --&gt;
     &lt;activity
@@ -570,10 +571,10 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 <p><span id="46接入微信分享处理"></p>
 
-<h4 id="toc_15">4.6.接入微信分享处理</h4>
+<h4 id="toc_15">4.6.接入微信分享的处理</h4>
 
-<p>心动SDK目前仅提供微信登录功能，如果游戏需要使用微信分享功能，需要自行接入微信分享功能。需要注意下面几点。</p>
-
+<p style="color:red">使用心动SDK提供的分享功能，可略过该部分。</p>
+<p style="color:red">如果游戏仍需要自行接入微信分享，需进行以下处理。</p>
 <p style="color:red">微信分享的微信AppID必须使用心动提供的微信AppID，否则会导致微信登录失败</p>
 
 <p>接入其它SDK提供的微信分享功能时，会被要求在项目中增加一个类“{游戏包名}.wxapi.WXEntryActivity”，这个类可能是复制SDK提供的一个类，或者继承SDK的一个类。无论如何，将其修改为另一个名字，比如“{游戏包名}.wxapi.MYWXEntryActivity”。</p>
@@ -633,21 +634,22 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         }
 
         if (arg0 instanceof SendAuth.Resp) {
-            if (XDPlatform.isLoggedIn() && !XDUser.getUser().isGuester()) return;
+            if (XDPlatform.isLoggedIn() &amp;&amp; !XDUser.getUser().isGuester()) return;
             XDPlatform.isIn3rdActivity = false;
             switch (arg0.errCode) {
                 case BaseResp.ErrCode.ERR_OK:
                     String code = ((SendAuth.Resp) arg0).code;
+                    //Log.e(&quot;微信code&quot;,code);
                     //调用平台登录
-                    XDCore.getInstance().wxLogin(code, "app");
+                    XDCore.getInstance().wxLogin(code, &quot;app&quot;);
                     break;
                 case BaseResp.ErrCode.ERR_USER_CANCEL:
                     XDPlatform.dismissProgressBar();
-                    Log.d("微信登录", "ERR_USER_CANCEL");
+                    Log.d(&quot;微信登录&quot;, &quot;ERR_USER_CANCEL&quot;);
                     break;
                 case BaseResp.ErrCode.ERR_AUTH_DENIED:
                     XDPlatform.dismissProgressBar();
-                    Log.d("微信登录", "ERR_AUTH_DENIED");
+                    Log.d(&quot;微信登录&quot;, &quot;ERR_AUTH_DENIED&quot;);
                     break;
                 default:
                     break;
@@ -1042,13 +1044,143 @@ XDSDK.logout();
     }
 });</code></pre></div>
 
+<p><span id="512微信分享"></p>
+
+<h4 id="toc_28">5.12.微信分享</h4>
+
+<p>调用心动SDK微信分享功能后，通过该回调通知分享结果。</p>
+
+<p>示例代码 </p>
+
+<div><pre><code class="language-none">XDWXShare.setWXShareCallBack(new XDWXShare.XDWXShareCallback() {
+    @Override
+    public void onWXShareSucceed() {
+
+    }
+    @Override
+    public void onWXShareFailed(String msg) {
+
+    }
+});</code></pre></div>
+
+<p>分享或收藏的目标场景，通过调用setScene()设置scene场景值实现。</p>
+
+<table>
+<thead>
+<tr>
+<th>场景值</th>
+<th>目标场景</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>XDWXShareObject.SCENE_SESSION</td>
+<td>发送到聊天界面</td>
+</tr>
+<tr>
+<td>XDWXShareObject.SCENE_TIMELINE</td>
+<td>发送到朋友圈</td>
+</tr>
+<tr>
+<td>XDWXShareObject.SCENE_FAVOURITE</td>
+<td>添加到微信收藏</td>
+</tr>
+</tbody>
+</table>
+
+<p>调用setType()设置分享类型。</p>
+
+<table>
+<thead>
+<tr>
+<th>类型值</th>
+<th>分享类型</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>XDWXShareObject.TYPE_TEXT</td>
+<td>文字分享</td>
+</tr>
+<tr>
+<td>XDWXShareObject.TYPE_IMAGE</td>
+<td>图片分享</td>
+</tr>
+<tr>
+<td>XDWXShareObject.TYPE_MUSIC</td>
+<td>音乐分享</td>
+</tr>
+<tr>
+<td>XDWXShareObject.TYPE_VIDEO</td>
+<td>视频分享</td>
+</tr>
+<tr>
+<td>XDWXShareObject.TYPE_WEB</td>
+<td>网页分享</td>
+</tr>
+</tbody>
+</table>
+
+<p>示例代码</p>
+
+<div><pre><code class="language-none">//分享文字
+XDWXShareObject wxShareContent = new XDWXShareObject();
+wxShareContent.setTitle(&quot;文字标题&quot;);
+wxShareContent.setText(&quot;文字内容&quot;);
+wxShareContent.setDescription(&quot;文字描述&quot;);
+wxShareContent.setScene(XDWXShareObject.SCENE_TIMELINE); //设置目标场景
+wxShareContent.setType(XDWXShareObject.TYPE_TEXT);
+XDWXShare.share(wxShareContent);
+
+//分享图片 (支持传入本地路径和Bitmap)
+XDWXShareObject wxShareContent = new XDWXShareObject();
+wxShareContent.setTitle(&quot;图片标题&quot;);
+wxShareContent.setDescription(&quot;图片描述&quot;);
+wxShareContent.setImage(path + &quot;/1.png&quot;);  //需要分享的图片，可传入Bitmap或本地路径
+wxShareContent.setThumb(path + &quot;/2.png&quot;); //预览图，可传入Bitmap或本地路径
+wxShareContent.setScene(XDWXShareObject.SCENE_TIMELINE); //设置目标场景
+wxShareContent.setType(XDWXShareObject.TYPE_IMAGE);
+XDWXShare.share(wxShareContent);
+
+//分享音乐
+XDWXShareObject wxShareContent = new XDWXShareObject();
+wxShareContent.setTitle(&quot;音乐标题&quot;);
+wxShareContent.setDescription(&quot;音乐描述&quot;);
+wxShareContent.setMusicUrl(&quot;音乐url&quot;);
+wxShareContent.setThumb(path + &quot;/2.png&quot;); //预览图，可传入Bitmap或本地路径
+wxShareContent.setScene(XDWXShareObject.SCENE_TIMELINE); //设置目标场景
+wxShareContent.setType(XDWXShareObject.TYPE_MUSIC);
+XDWXShare.share(wxShareContent);
+
+//分享视频
+XDWXShareObject wxShareContent = new XDWXShareObject();
+wxShareContent.setTitle(&quot;视频标题&quot;);
+wxShareContent.setDescription(&quot;视频描述&quot;);
+wxShareContent.setVideoUrl(&quot;视频url&quot;);
+wxShareContent.setThumb(path + &quot;/2.png&quot;); //预览图，可传入Bitmap或本地路径
+wxShareContent.setScene(XDWXShareObject.SCENE_TIMELINE); //设置目标场景
+wxShareContent.setType(XDWXShareObject.TYPE_VIDEO);
+XDWXShare.share(wxShareContent);
+
+//分享网页
+XDWXShareObject wxShareContent = new XDWXShareObject();
+wxShareContent.setTitle(&quot;网页标题&quot;);
+wxShareContent.setDescription(&quot;网页描述&quot;);
+wxShareContent.setWebPageUrl(&quot;网页url&quot;);
+wxShareContent.setThumb(path + &quot;/2.png&quot;);//预览图，可传入Bitmap或本地路径
+wxShareContent.setScene(XDWXShareObject.SCENE_SESSION); //设置目标场景
+wxShareContent.setType(XDWXShareObject.TYPE_WEB);
+XDWXShare.share(wxShareContent);</code></pre></div>
+
 <p><span id="6服务端对接"></p>
 
-<h3 id="toc_28">6.服务端对接</h3>
+<h3 id="toc_29">6.服务端对接</h3>
 
 <p><span id="61获取用户信息"></p>
 
-<h4 id="toc_29">6.1.获取用户信息</h4>
+<h4 id="toc_30">6.1.获取用户信息</h4>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1071,7 +1203,7 @@ site：账号类型, 0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号�
 
 <p><span id="62处理支付回调"> </p>
 
-<h4 id="toc_30">6.2.处理支付回调</h4>
+<h4 id="toc_31">6.2.处理支付回调</h4>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>
