@@ -1,6 +1,6 @@
 (function($) {
         var sdkList={
-            "ios":[
+            "iOS":[
                 {
                 	"time":"2017-9-17",
                 	"size":"2.01M",
@@ -34,7 +34,7 @@
                     "doc":"./xdsdk_docs/iOS/V3.0.0/xd_doc_ios.html"
                 },],
 
-            "android":[
+            "Android":[
                 {
                 	"time":"2017-9-17",
                 	"size":"2.01M",
@@ -68,7 +68,7 @@
                     "doc":"./xdsdk_docs/Android/V3.1.1/xd_doc_android.html"
                 },],
 
-            "unity3d":[
+            "Unity":[
                 {
                 	"time":"2017-9-17",
                 	"size":"2.01M",
@@ -102,7 +102,7 @@
                     "<td>"+sdkList[item][i].time+"</td>"+
                     "<td>"+sdkList[item][i].size+"</td>"+
                     "<td>"+sdkList[item][i].version+"</td>"+
-                    "<td><a href=\""+sdkList[item][i].demo+"\"target=\"_blank\">demo</a></td>"+
+                    "<td><a href=\""+sdkList[item][i].demo+"\"target=\"_blank\">Demo</a></td>"+
                     "<td><a class=\"text-sdk\" href=\""+sdkList[item][i].sdk+"\"target=\"_blank\">"+item+"_SDK</a></td>"+
                     "<td><a href=\""+sdkList[item][i].doc+"\"target=\"_blank\">查看文档</a></td>"+
                 "</tr>"
