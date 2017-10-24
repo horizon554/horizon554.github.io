@@ -29,8 +29,8 @@
                 	"time":"2017-9-17",
                 	"size":"2.01M",
                 	"version":"3.0.0",
-                    "demo":"./xdsdk_docs/iOS/V3.0.0/xd_doc_ios.html",
-                    "sdk":"./xdsdk_docs/iOS/V3.0.0/xd_doc_ios.html",
+                    "demo":"./xdsdk_docs/iOS/V3.0.0/XDSDK_Demo.zip",
+                    "sdk":"./xdsdk_docs/iOS/V3.0.0/XDSDK-iOS-3.0.0-20170706.zip",
                     "doc":"./xdsdk_docs/iOS/V3.0.0/xd_doc_ios.html"
                 },],
 
