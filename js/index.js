@@ -2,96 +2,80 @@
         var sdkList={
             "iOS":[
                 {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
+                	"time":"2017-10-18",
+                	"size":"5.7M",
                 	"version":"3.2.0",
-                	"demo":"./xdsdk_docs/iOS/V3.2.0/xd_doc_ios.html",
-                	"sdk":"./xdsdk_docs/iOS/V3.2.0/xd_doc_ios.html",
+                	"demo":"./xdsdk_docs/iOS/V3.2.0/XDSDK_Demo.zip",
+                	"sdk":"./xdsdk_docs/iOS/V3.2.0/XDSDK-iOS-3.2.0-20171018.zip",
                 	"doc":"./xdsdk_docs/iOS/V3.2.0/xd_doc_ios.html"
                 },
                 {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
-                	"version":"3.1.2",
-                    "demo":"./xdsdk_docs/iOS/V3.1.2/xd_doc_ios.html",
-                    "sdk":"./xdsdk_docs/iOS/V3.1.2/xd_doc_ios.html",
-                    "doc":"./xdsdk_docs/iOS/V3.1.2/xd_doc_ios.html"
+                	"time":"2017-9-27",
+                	"size":"5.7M",
+                	"version":"3.1.7",
+                    "demo":"./xdsdk_docs/iOS/V3.1.7/XDSDK_Demo.zip",
+                    "sdk":"./xdsdk_docs/iOS/V3.1.7/XDSDK-iOS-3.1.7-20170927.zip",
+                    "doc":"./xdsdk_docs/iOS/V3.1.7/xd_doc_ios.html"
                 },
                 {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
-                	"version":"3.1.1",
-                    "demo":"./xdsdk_docs/iOS/V3.1.1/xd_doc_ios.html",
-                    "sdk":"./xdsdk_docs/iOS/V3.1.1/xd_doc_ios.html",
-                    "doc":"./xdsdk_docs/iOS/V3.1.1/xd_doc_ios.html"
-                },
-                {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
-                	"version":"3.0.0",
-                    "demo":"./xdsdk_docs/iOS/V3.0.0/XDSDK_Demo.zip",
-                    "sdk":"./xdsdk_docs/iOS/V3.0.0/XDSDK-iOS-3.0.0-20170706.zip",
-                    "doc":"./xdsdk_docs/iOS/V3.0.0/xd_doc_ios.html"
-                },],
+                	"time":"2017-9-19",
+                	"size":"5.6M",
+                	"version":"3.1.6",
+                    "demo":"./xdsdk_docs/iOS/V3.1.6/XDSDK_Demo.zip",
+                    "sdk":"./xdsdk_docs/iOS/V3.1.6/XDSDK-iOS-3.1.6-20170919.zip",
+                    "doc":"./xdsdk_docs/iOS/V3.1.6/xd_doc_ios.html"
+                }],
 
             "Android":[
                 {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
+                	"time":"2017-10-19",
+                	"size":"5.2M",
                 	"version":"3.2.0",
-                    "demo":"./xdsdk_docs/Android/V3.2.0/xd_doc_android.html",
-                    "sdk":"./xdsdk_docs/Android/V3.2.0/xd_doc_android.html",
+                    "demo":"./xdsdk_docs/Android/V3.2.0/Demo.zip",
+                    "sdk":"./xdsdk_docs/Android/V3.2.0/XDSDK-Android-3.2.0.zip",
                     "doc":"./xdsdk_docs/Android/V3.2.0/xd_doc_android.html"
                 },
                 {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
-                	"version":"3.1.3",
-                    "demo":"./xdsdk_docs/Android/V3.1.3/xd_doc_android.html",
-                    "sdk":"./xdsdk_docs/Android/V3.1.3/xd_doc_android.html",
-                    "doc":"./xdsdk_docs/Android/V3.1.3/xd_doc_android.html"
+                	"time":"2017-9-4",
+                	"size":"5.3M",
+                	"version":"3.1.5",
+                    "demo":"./xdsdk_docs/Android/V3.1.5/Demo.zip",
+                    "sdk":"./xdsdk_docs/Android/V3.1.5/XDSDK-Android-3.1.5.zip",
+                    "doc":"./xdsdk_docs/Android/V3.1.5/xd_doc_android.html"
                 },
                 {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
-                	"version":"3.1.2",
-                    "demo":"./xdsdk_docs/Android/V3.1.2/xd_doc_android.html",
-                    "sdk":"./xdsdk_docs/Android/V3.1.2/xd_doc_android.html",
-                    "doc":"./xdsdk_docs/Android/V3.1.2/xd_doc_android.html"
-                },
-                {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
-                	"version":"3.1.1",
-                    "demo":"./xdsdk_docs/Android/V3.1.1/xd_doc_android.html",
-                    "sdk":"./xdsdk_docs/Android/V3.1.1/xd_doc_android.html",
-                    "doc":"./xdsdk_docs/Android/V3.1.1/xd_doc_android.html"
+                	"time":"2017-8-29",
+                	"size":"5.3M",
+                	"version":"3.1.4",
+                    "demo":"./xdsdk_docs/Android/V3.1.4/Demo.zip",
+                    "sdk":"./xdsdk_docs/Android/V3.1.4/xd_doc_android.html",
+                    "doc":"./xdsdk_docs/Android/V3.1.4/XDSDK-Android-3.1.4.zip"
                 },],
 
             "Unity3d":[
                 {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
+                	"time":"2017-10-20",
+                	"size":"10.9M",
                 	"version":"1.0.8",
-                    "demo":"./xdsdk_docs/Unity/V1.0.8/XDSDK-Unity3d.html",
-                    "sdk":"./xdsdk_docs/Unity/V1.0.8/XDSDK-Unity3d.html",
+                    "demo":"./xdsdk_docs/Unity/V1.0.8/UnityDemo.zip",
+                    "sdk":"./xdsdk_docs/Unity/V1.0.8/UnitySDK.zip",
                     "doc":"./xdsdk_docs/Unity/V1.0.8/XDSDK-Unity3d.html"
                 },
                 {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
-                	"version":"1.0.1",
-                    "demo":"./xdsdk_docs/Unity/V1.0.1/XDSDK-Unity3d.html",
-                    "sdk":"./xdsdk_docs/Unity/V1.0.1/XDSDK-Unity3d.html",
-                    "doc":"./xdsdk_docs/Unity/V1.0.1/XDSDK-Unity3d.html"
+                	"time":"2017-9-19",
+                	"size":"10.9M",
+                	"version":"1.0.7",
+                    "demo":"./xdsdk_docs/Unity/V1.0.7/UnityDemo.zip",
+                    "sdk":"./xdsdk_docs/Unity/V1.0.7/UnitySDK.zip",
+                    "doc":"./xdsdk_docs/Unity/V1.0.7/XDSDK-Unity3d.html"
                 },
                 {
-                	"time":"2017-9-17",
-                	"size":"2.01M",
-                	"version":"1.0.0",
-                    "demo":"./xdsdk_docs/Unity/V1.0.0/XDSDK-Unity3d.html",
-                    "sdk":"./xdsdk_docs/Unity/V1.0.0/XDSDK-Unity3d.html",
-                    "doc":"./xdsdk_docs/Unity/V1.0.0/XDSDK-Unity3d.html"
+                	"time":"2017-9-14",
+                    "size":"10.9M",
+                	"version":"1.0.6",
+                    "demo":"./xdsdk_docs/Unity/V1.0.6/UnityDemo.zip",
+                    "sdk":"./xdsdk_docs/Unity/V1.0.6/UnitySDK.zip",
+                    "doc":"./xdsdk_docs/Unity/V1.0.6/XDSDK-Unity3d.html"
                 },],
         };
 
