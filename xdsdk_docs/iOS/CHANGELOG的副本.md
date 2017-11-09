@@ -2,6 +2,33 @@
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
 
+## 3.2.1 - 2017-11-09
+
+- 新增用户问题反馈接口
+- 新增TapTap登录接口
+
+```
+//新游戏使用TapTap登录请调用此接口
++ (void)showTapTap; 
+
+//在用户已登录状态下使用该接口调用用户反馈功能
++ (void)userFeedback;
+
+```
+- TapTap相关配置
+	* URLType:URL Schemes= "tt" + "你的taptap appid"。如"ttxxxxxxxxxxxxx"
+	* LSApplicationQueriesSchemes:添加 "tapsdk"
+
+- 文件变更
+	* ./lib/TapTapSDK.framework
+	* ./resource
+	* XdComPlatform.framework
+	* XDStore.framework
+
+
+## 3.1.8 - 2017-11-01
+
+- 修复首次游客登录token返回异常问题
 
 ## 3.2.0 - 2017-10-18
 
@@ -9,10 +36,6 @@
 - 针对iOS11优化了部分UI（务必替换resource文件夹下所有文件）
 - 低版本Xcode在编译时报“Compilling IB documents for earlier than iOS7”,请修改storyboard-> Interface Builder Document -> Build for -> iOS8.0 and Later
 - 编译时报“FileProvider  framework not found”错误，建议升级Xcode
-
-## 3.1.8 - 2017-11-01
-
-- 修复首次游客登录token返回异常问题
 
 ## 3.1.7 - 2017-09-27
 
