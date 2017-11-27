@@ -2,6 +2,11 @@
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
 
+###Unity 1.0.9 - 2017-11-27（iOS-3.2.1&Android-3.2.0）
+- 更新 iOS SDK
+- 修复包验证参数缺失
+- 适配iPhoneX
+
 ###Unity 1.0.8 - 2017-10-20（iOS-3.2.0&Android-3.2.0）
 - 更新 iOS&Android SDK 新增强制实名制功能
 
