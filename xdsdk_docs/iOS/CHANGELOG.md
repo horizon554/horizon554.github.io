@@ -2,6 +2,14 @@
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
 
+## 3.2.2 - 2017-12-12
+
+- 修复游客支付实名认证，支付取消回调异常问题
+
+## 3.2.1 - 2017-11-27
+
+- 修复游客退出bug
+- 修复包验证参数缺失问题
 
 ## 3.2.0 - 2017-10-18
 
@@ -9,10 +17,6 @@
 - 针对iOS11优化了部分UI（务必替换resource文件夹下所有文件）
 - 低版本Xcode在编译时报“Compilling IB documents for earlier than iOS7”,请修改storyboard-> Interface Builder Document -> Build for -> iOS8.0 and Later
 - 编译时报“FileProvider  framework not found”错误，建议升级Xcode
-
-## 3.1.8 - 2017-11-01
-
-- 修复首次游客登录token返回异常问题
 
 ## 3.1.7 - 2017-09-27
 
