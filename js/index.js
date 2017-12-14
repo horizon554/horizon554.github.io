@@ -1,6 +1,14 @@
 (function($) {
     var sdkList = {
         "iOS": [{
+            "time": "2017-12-14",
+            "size": "5.7M",
+            "version": "3.2.3",
+            "demo": "./xdsdk_docs/iOS/V3.2.3/XDSDK_Demo.zip",
+            "sdk": "./xdsdk_docs/iOS/V3.2.3/XDSDK-iOS-3.2.3-20171214.zip",
+            "doc": "./xdsdk_docs/iOS/V3.2.3/xd_doc_ios.html",
+            "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
+        },{
             "time": "2017-12-12",
             "size": "5.7M",
             "version": "3.2.2",
@@ -77,6 +85,14 @@
         }, ],
 
         "Unity3d": [{
+            "time": "2017-12-14",
+            "size": "10.9M",
+            "version": "1.0.11",
+            "demo": "./xdsdk_docs/Unity/V1.0.11/UnityDemo.zip",
+            "sdk": "./xdsdk_docs/Unity/V1.0.11/UnitySDK.zip",
+            "doc": "./xdsdk_docs/Unity/V1.0.11/XDSDK-Unity3d.html",
+            "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+        },{
             "time": "2017-12-13",
             "size": "10.9M",
             "version": "1.0.10",
