@@ -511,6 +511,7 @@ pre[class*="language-"] {
 <li><a href="#510%E6%B8%B8%E5%AE%A2%E5%8D%87%E7%BA%A7">5.10游客升级</a></li>
 <li><a href="#511%E9%80%80%E5%87%BA">5.11退出</a></li>
 <li><a href="#512%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB">5.12微信分享</a></li>
+<li><a href="#513%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81">5.13实名认证</a></li>
 </ul></li>
 <li><a href="#6%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AF%B9%E6%8E%A5">6服务端对接</a>
 
@@ -1314,13 +1315,49 @@ wxShareContent.setScene(XDWXShareObject.SCENE_SESSION); //设置目标场景
 wxShareContent.setType(XDWXShareObject.TYPE_WEB);
 XDWXShare.share(wxShareContent);</code></pre></div>
 
+<p><span id="513实名认证"></p>
+
+<h4 id="toc_29">5.13.实名认证</h4>
+
+<p>在用户登录成功状态下，调用该接口打开实名认证窗口。</p>
+
+<div><pre><code class="language-none">/*实名认证*/
+public static void openRealName() 
+</code></pre></div>
+
+<p>调用该接口会触发下列回调。</p>
+
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>回调方法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>认证成功</td>
+<td>public void onRealNameSucceed();</td>
+</tr>
+<tr>
+<td>认证失败</td>
+<td>public void onRealNameFailed(string error_msg);</td>
+</tr>
+</tbody>
+</table>
+
+<p style = "color:red">
+注意: 用户的实名认证状态以服务端接口（6.1）authoriz_state参数为准。
+</p>
+
 <p><span id="6服务端对接"></p>
 
-<h3 id="toc_29">6.服务端对接</h3>
+<h3 id="toc_30">6.服务端对接</h3>
 
 <p><span id="61获取用户信息"></p>
 
-<h4 id="toc_30">6.1.获取用户信息</h4>
+<h4 id="toc_31">6.1.获取用户信息</h4>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1345,7 +1382,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 
 <p><span id="62处理支付回调"> </p>
 
-<h4 id="toc_31">6.2.处理支付回调</h4>
+<h4 id="toc_32">6.2.处理支付回调</h4>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>

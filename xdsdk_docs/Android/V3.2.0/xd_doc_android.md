@@ -28,6 +28,7 @@
 	* [5.10游客升级](#510游客升级)
 	* [5.11退出](#511退出)
 	* [5.12微信分享](#512微信分享)
+	* [5.13实名认证](#513实名认证)
 * [6服务端对接](#6服务端对接)
 	* [6.1获取用户信息](#61获取用户信息)
 	* [6.2处理支付回调](#62处理支付回调)
@@ -692,7 +693,28 @@ wxShareContent.setType(XDWXShareObject.TYPE_WEB);
 XDWXShare.share(wxShareContent);
 ```
 
+<span id="513实名认证">
 
+#### 5.13.实名认证
+
+在用户登录成功状态下，调用该接口打开实名认证窗口。
+
+```
+/*实名认证*/
+public static void openRealName() 
+
+```
+
+调用该接口会触发下列回调。
+
+类别 | 回调方法
+--- | ---
+认证成功 | public void onRealNameSucceed();
+认证失败 | public void onRealNameFailed(string error_msg);
+
+<p style = "color:red">
+注意: 用户的实名认证状态以服务端接口（6.1）authoriz_state参数为准。
+</p>
 
 
 <span id="6服务端对接">

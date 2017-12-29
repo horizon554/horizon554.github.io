@@ -1,6 +1,24 @@
 Change Log
 ==========
 
+## 3.2.2
+
+- 增加实名认证接口
+- 回调接口中增加实名认证
+
+- 文件变更： 
+
+```
+modified:   libs/SDKLib.jar
+
+```
+- 接口变更：
+
+```
+新增 public static void openRealName()
+修改 public interface XDCallback()
+```
+
 ## 3.2.0
 
 - 增加实名认证
