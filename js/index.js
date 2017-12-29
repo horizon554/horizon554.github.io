@@ -83,6 +83,14 @@
             "doc": "./xdsdk_docs/Android/V3.2.2/xd_doc_android.html",
             "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
         },{
+            "time": "2017-12-21",
+            "size": "5.2M",
+            "version": "3.2.1",
+            "demo": "./xdsdk_docs/Android/V3.2.1/Demo.zip",
+            "sdk": "./xdsdk_docs/Android/V3.2.1/XDSDK-Android-3.2.1.zip",
+            "doc": "./xdsdk_docs/Android/V3.2.1/xd_doc_android.html",
+            "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
+        },{
             "time": "2017-10-19",
             "size": "5.2M",
             "version": "3.2.0",

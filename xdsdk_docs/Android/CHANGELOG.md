@@ -19,6 +19,19 @@ modified:   libs/SDKLib.jar
 修改 public interface XDCallback()
 ```
 
+## 3.2.1
+
+- 修复游客充值回调
+- 修改部分游戏游客充值无法弹出实名
+
+- 文件变更： 
+
+```
+modified:   libs/SDKLib.jar
+
+```
+
+
 ## 3.2.0
 
 - 增加实名认证
