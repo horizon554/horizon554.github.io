@@ -495,7 +495,7 @@ pre[class*="language-"] {
 <li><a href="#44%E9%85%8D%E7%BD%AEinfoplist">4.4配置info.plist</a></li>
 <li><a href="#45%E5%A4%84%E7%90%86%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%94%E7%94%A8%E8%B7%B3%E5%9B%9E%E4%BA%8B%E4%BB%B6">4.5处理第三方应用跳回事件</a></li>
 </ul></li>
-<li><a href="#5%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8">5.接口调用</a>
+<li><p><a href="#5%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8">5.接口调用</a></p>
 
 <ul>
 <li><a href="#51%E9%85%8D%E7%BD%AEsdk%E7%99%BB%E5%BD%95%E9%80%89%E9%A1%B9">5.1配置SDK登录选项</a></li>
@@ -509,8 +509,9 @@ pre[class*="language-"] {
 <li><a href="#59%E7%99%BB%E5%87%BA">5.9登出</a></li>
 <li><a href="#510%E6%B8%B8%E5%AE%A2%E5%8D%87%E7%BA%A7">5.10游客升级</a></li>
 <li><a href="#511%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB">5.11微信分享</a></li>
+<li><a href="#512%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81">5.12实名认证</a></li>
 </ul></li>
-<li><a href="#6%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AF%B9%E6%8E%A5">6服务端对接</a>
+<li><p><a href="#6%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AF%B9%E6%8E%A5">6服务端对接</a></p>
 
 <ul>
 <li><a href="#61%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF">6.1获取用户信息</a></li>
@@ -961,7 +962,7 @@ return [XDCore HandleXDOpenURL:url];
 <tr>
 <td>EXT</td>
 <td>否</td>
-<td>额外信息，最长512个字符，服务端支付回调会包含该字段。</td>
+<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@&quot;{\&quot;payCallbackCode\&quot;:1}&quot; forKey:@&quot;EXT&quot;];</td>
 </tr>
 </tbody>
 </table>
@@ -1302,13 +1303,49 @@ obj.title = &quot;title&quot;;
 注意: 在进行分享时，若用户选择留在微信，则无法收到分享回调，此处不可以完全依赖上述回调事件。
 </p>
 
+<p><span id="512实名认证"></p>
+
+<h4 id="toc_27">5.12.实名认证</h4>
+
+<p>在用户登录成功状态下，调用该接口打开实名认证窗口。</p>
+
+<div><pre><code class="language-none">/*实名认证*/
++ (void)openRealName;
+</code></pre></div>
+
+<p>调用该接口会触发下列回调。</p>
+
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>回调方法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>认证成功</td>
+<td>- (void)onRealNameSucceed;</td>
+</tr>
+<tr>
+<td>认证失败</td>
+<td>- (void)onRealNameFailed:(nullable NSString*)error_msg;</td>
+</tr>
+</tbody>
+</table>
+
+<p style = "color:red">
+注意: 用户的实名认证状态以服务端接口（6.1）authoriz_state参数为准。
+</p>
+
 <p><span id="61服务端对接"></p>
 
-<h3 id="toc_27">6.服务端对接</h3>
+<h3 id="toc_28">6.服务端对接</h3>
 
 <p><span id="61获取用户信息"></p>
 
-<h4 id="toc_28">6.1.获取用户信息</h4>
+<h4 id="toc_29">6.1.获取用户信息</h4>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1332,7 +1369,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 
 <p><span id="62处理支付回调"></p>
 
-<h4 id="toc_29">6.2.处理支付回调</h4>
+<h4 id="toc_30">6.2.处理支付回调</h4>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>

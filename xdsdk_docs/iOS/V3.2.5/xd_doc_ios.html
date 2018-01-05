@@ -962,7 +962,7 @@ return [XDCore HandleXDOpenURL:url];
 <tr>
 <td>EXT</td>
 <td>否</td>
-<td>额外信息，最长512个字符，服务端支付回调会包含该字段。</td>
+<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@&quot;{\&quot;payCallbackCode\&quot;:1}&quot; forKey:@&quot;EXT&quot;];</td>
 </tr>
 </tbody>
 </table>
