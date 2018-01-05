@@ -1066,7 +1066,7 @@ public static boolean pay(Map&lt;String, String&gt; info) </code></pre></div>
 <tr>
 <td>EXT</td>
 <td>否</td>
-<td>额外信息，最长512个字符，服务端支付回调会包含该字段。</td>
+<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：info.put("EXT", "{\"payCallbackCode\":2}");</td>
 </tr>
 </tbody>
 </table>
