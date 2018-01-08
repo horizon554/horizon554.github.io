@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>README</title>
+<title>XDSDK-Unity3d</title>
 
 
 <style type="text/css">
@@ -323,6 +323,146 @@ kbd {
 }
 </style>
 
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
 
 </head>
 
@@ -470,7 +610,7 @@ kbd {
     }
 
     //微信分享失败回调（可选）
-    public override void OnWXShareFailed (string msg){
+    public override void OnWXShareFailed (){
 
     }
 
@@ -997,7 +1137,7 @@ content.Add (&quot;scene&quot;, &quot;SESSION&quot;); //scene场景值
 content.Add (&quot;shareType&quot;, &quot;IMAGE&quot;);  //分享类型 图片
 xdsdk.XDSDK.Share (content);
 
-//分享音乐
+//分享音乐
 Dictionary&lt;string, string&gt; content = new Dictionary&lt;string, string&gt; ();
 content.Add (&quot;title&quot;, &quot;***title***&quot;); //标题
 content.Add (&quot;description&quot;, &quot;***description***&quot;); //描述
@@ -1053,9 +1193,45 @@ xdsdk.XDSDK.Share (content);</code></pre></div>
 注意：分享过程中，若用户选择留在微信，则不会产生分享回调。游戏不应当完全依赖分享回调。
 </p> 
 
-<h2 id="toc_15">2.Android</h2>
+<h3 id="toc_15">1.14.实名认证</h3>
 
-<h3 id="toc_16">2.1.按需要修改AndroidManifest</h3>
+<p>调用该方法时，弹出实名认证窗口。</p>
+
+<div><pre><code class="language-none">public static void OpenRealName()</code></pre></div>
+
+<p>示例代码</p>
+
+<div><pre><code class="language-none">XDSDK.OpenRealName();</code></pre></div>
+
+<p>调用该接口会触发下列回调</p>
+
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>回调方法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>确认退出</td>
+<td>public void OnRealNameSucceed()</td>
+</tr>
+<tr>
+<td>取消退出</td>
+<td>public void OnRealNameFailed(string error_msg)</td>
+</tr>
+</tbody>
+</table>
+
+<p style = "color : red"> 
+注意：实名认证结果以服务端authoriz_state参数为准（见4.1）。
+</p> 
+
+<h2 id="toc_16">2.Android</h2>
+
+<h3 id="toc_17">2.1.按需要修改AndroidManifest</h3>
 
 <p> 可以根据需要,参照如下示例修改Plugins/Android/AndroidManifest.xml。
 </p>
@@ -1160,13 +1336,13 @@ xdsdk.XDSDK.Share (content);</code></pre></div>
     &lt;/application&gt;
 &lt;/manifest&gt;</code></pre></div>
 
-<h3 id="toc_17">2.2.生成APK</h3>
+<h3 id="toc_18">2.2.生成APK</h3>
 
 <p>在Unity中生成APK，或将工程导出至Android Studio进行打包。</p>
 
 <p><img src="img/2.png"></img></p>
 
-<h3 id="toc_18">2.3.接入微信分享</h3>
+<h3 id="toc_19">2.3.接入微信分享</h3>
 
 <p>心动SDK目前集成了微信分享功能，需要注意下面几点。</p>
 
@@ -1273,11 +1449,11 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     }
 }</code></pre></div>
 
-<h2 id="toc_19">3.iOS</h2>
+<h2 id="toc_20">3.iOS</h2>
 
 <p>用Unity导出Xcode工程并打开</p>
 
-<h3 id="toc_20">3.1. 导入SDK文件</h3>
+<h3 id="toc_21">3.1. 导入SDK文件</h3>
 
 <p>从心动平台处获取SDK资源文件，其中主要的文件或目录用途如下。</p>
 
@@ -1299,7 +1475,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
 <p>将以上文件导入Xcode工程。</p>
 
-<h3 id="toc_21">3.2. 添加系统依赖库</h3>
+<h3 id="toc_22">3.2. 添加系统依赖库</h3>
 
 <div><pre><code class="language-none">libz.tbd
 libsqlite3.tbd
@@ -1316,7 +1492,7 @@ SystemConfiguration.framework
 libiconv.tbd
 libstdc++.tbd</code></pre></div>
 
-<h3 id="toc_22">3.3. 设置 URL Types</h3>
+<h3 id="toc_23">3.3. 设置 URL Types</h3>
 
 <p>需要在Xcode中设置多个URL Types，URL Types主要是需要设置URL Schemes，其它选项可任意填写。按照下面表格的内容填写，注意替换其中的各项AppID。</p>
 
@@ -1352,7 +1528,7 @@ libstdc++.tbd</code></pre></div>
 </tbody>
 </table>
 
-<h3 id="toc_23">3.4. 配置 info.plist</h3>
+<h3 id="toc_24">3.4. 配置 info.plist</h3>
 
 <p>修改项目的info.plist，在<dict>节点中添加下列内容。修改的内容主要为了保证QQ和微信登录能够正常运行。</p>
 
@@ -1379,7 +1555,7 @@ libstdc++.tbd</code></pre></div>
 &lt;/dict&gt;
 </code></pre></div>
 
-<h3 id="toc_24">3.5. 处理第三发应用跳回事件</h3>
+<h3 id="toc_25">3.5. 处理第三发应用跳回事件</h3>
 
 <p style="color:red">
 在UnityAppController.mm中增加如下两个方法，如果已经存在这些方法，在其中追加相应的处理代码即可。请务必添加下列代码，否则将影响第三方登录的授权回调。
@@ -1400,15 +1576,15 @@ libstdc++.tbd</code></pre></div>
     return [XDCore HandleXDOpenURL:url];
 }</code></pre></div>
 
-<h3 id="toc_25">3.6. Buid Settings</h3>
+<h3 id="toc_26">3.6. Buid Settings</h3>
 
 <p>Enable Bitcode = NO</p>
 
-<h5 id="toc_26">完成以上配置即可进行编译打包。</h5>
+<h5 id="toc_27">完成以上配置即可进行编译打包。</h5>
 
-<h2 id="toc_27">4. 服务端对接</h2>
+<h2 id="toc_28">4. 服务端对接</h2>
 
-<h3 id="toc_28">4.1 获取用户信息</h3>
+<h3 id="toc_29">4.1 获取用户信息</h3>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1419,13 +1595,50 @@ method：GET
 成功判断：返回的HTTP Code为200时表示成功，否则失败
 返回数据格式：application/json
 返回值示例：
-{&quot;id&quot;:”a13”,&quot;name&quot;:&quot;xdname&quot;,&quot;friendly_name&quot;:&quot;xdfriendly_name&quot;,&quot;client_id&quot;:&quot;abc&quot;}
+{&quot;id&quot;:&quot;1&quot;&quot;name&quot;:&quot;xdname&quot;,&quot;friendly_name&quot;:&quot;xdfriendly_name&quot;,&quot;client_id&quot;:&quot;abc&quot;,&quot;phone&quot;:&quot;1&quot;,&quot;safety&quot;:false,&quot;site&quot;:&quot;1&quot;}
 id：用户的ID，注意类型是字符串
 name：用户的账号名称
 friendly_name：用户的昵称，如果游戏想要展现用户名称，建议使用该字段
-client_id：该用户首次在该游戏登录时使用的心动AppID</code></pre></div>
+client_id：该用户在该游戏登录时使用的心动AppID
+phone： 绑定的手机号码
+safety： 账号是否安全/通过设备二次验证（true：安全，false：不安全）
+site：账号类型, 0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号，8 =&gt; 微信账号，9 =&gt; TapTap账号，注意类型是字符串
+fcm：0/1（0：无需防沉迷，1：需要防沉迷）
+authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名认证）</code></pre></div>
 
-<h3 id="toc_29">4.2.    处理支付回调</h3>
+<table>
+<thead>
+<tr>
+<th>应用场景</th>
+<th>参数以及使用方法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>判断是否游客账号</td>
+<td>游客账号的name和id相同</td>
+</tr>
+<tr>
+<td>判断是否通过二次验证</td>
+<td>safety（0未实名，&gt;0 都表示已实名认证）</td>
+</tr>
+<tr>
+<td>判断账号类型</td>
+<td>site（0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号，8 =&gt; 微信账号，9 =&gt; TapTap账号，注意类型是字符串）</td>
+</tr>
+<tr>
+<td>判断防沉迷状态</td>
+<td>fcm（0：无需防沉迷，1：需要防沉迷）</td>
+</tr>
+<tr>
+<td>判断是否实名认证</td>
+<td>authoriz_state（0未实名，&gt;0 都表示已实名认证）</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_30">4.2.    处理支付回调</h3>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>
@@ -1540,6 +1753,10 @@ return strcasecmp($sign, md5(http_build_query($tmp) . $appKey)) == 0;
 </p>
 
 
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
 
 
 </body>

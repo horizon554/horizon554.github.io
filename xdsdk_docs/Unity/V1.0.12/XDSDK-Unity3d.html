@@ -1193,9 +1193,45 @@ xdsdk.XDSDK.Share (content);</code></pre></div>
 注意：分享过程中，若用户选择留在微信，则不会产生分享回调。游戏不应当完全依赖分享回调。
 </p> 
 
-<h2 id="toc_15">2.Android</h2>
+<h3 id="toc_15">1.14.实名认证</h3>
 
-<h3 id="toc_16">2.1.按需要修改AndroidManifest</h3>
+<p>调用该方法时，弹出实名认证窗口。</p>
+
+<div><pre><code class="language-none">public static void OpenRealName()</code></pre></div>
+
+<p>示例代码</p>
+
+<div><pre><code class="language-none">XDSDK.OpenRealName();</code></pre></div>
+
+<p>调用该接口会触发下列回调</p>
+
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>回调方法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>确认退出</td>
+<td>public void OnRealNameSucceed()</td>
+</tr>
+<tr>
+<td>取消退出</td>
+<td>public void OnRealNameFailed(string error_msg)</td>
+</tr>
+</tbody>
+</table>
+
+<p style = "color : red"> 
+注意：实名认证结果以服务端authoriz_state参数为准（见4.1）。
+</p> 
+
+<h2 id="toc_16">2.Android</h2>
+
+<h3 id="toc_17">2.1.按需要修改AndroidManifest</h3>
 
 <p> 可以根据需要,参照如下示例修改Plugins/Android/AndroidManifest.xml。
 </p>
@@ -1300,13 +1336,13 @@ xdsdk.XDSDK.Share (content);</code></pre></div>
     &lt;/application&gt;
 &lt;/manifest&gt;</code></pre></div>
 
-<h3 id="toc_17">2.2.生成APK</h3>
+<h3 id="toc_18">2.2.生成APK</h3>
 
-<p>在Unity中生成APK，或将工程导出至Android Studio进行打包。
+<p>在Unity中生成APK，或将工程导出至Android Studio进行打包。</p>
 
-<img src="img/2.png"></img>
+<p><img src="img/2.png"></img></p>
 
-### 2.3.接入微信分享
+<h3 id="toc_19">2.3.接入微信分享</h3>
 
 <p>心动SDK目前集成了微信分享功能，需要注意下面几点。</p>
 
@@ -1413,11 +1449,11 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     }
 }</code></pre></div>
 
-<h2 id="toc_18">3.iOS</h2>
+<h2 id="toc_20">3.iOS</h2>
 
 <p>用Unity导出Xcode工程并打开</p>
 
-<h3 id="toc_19">3.1. 导入SDK文件</h3>
+<h3 id="toc_21">3.1. 导入SDK文件</h3>
 
 <p>从心动平台处获取SDK资源文件，其中主要的文件或目录用途如下。</p>
 
@@ -1439,7 +1475,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
 <p>将以上文件导入Xcode工程。</p>
 
-<h3 id="toc_20">3.2. 添加系统依赖库</h3>
+<h3 id="toc_22">3.2. 添加系统依赖库</h3>
 
 <div><pre><code class="language-none">libz.tbd
 libsqlite3.tbd
@@ -1456,7 +1492,7 @@ SystemConfiguration.framework
 libiconv.tbd
 libstdc++.tbd</code></pre></div>
 
-<h3 id="toc_21">3.3. 设置 URL Types</h3>
+<h3 id="toc_23">3.3. 设置 URL Types</h3>
 
 <p>需要在Xcode中设置多个URL Types，URL Types主要是需要设置URL Schemes，其它选项可任意填写。按照下面表格的内容填写，注意替换其中的各项AppID。</p>
 
@@ -1492,7 +1528,7 @@ libstdc++.tbd</code></pre></div>
 </tbody>
 </table>
 
-<h3 id="toc_22">3.4. 配置 info.plist</h3>
+<h3 id="toc_24">3.4. 配置 info.plist</h3>
 
 <p>修改项目的info.plist，在<dict>节点中添加下列内容。修改的内容主要为了保证QQ和微信登录能够正常运行。</p>
 
@@ -1519,7 +1555,7 @@ libstdc++.tbd</code></pre></div>
 &lt;/dict&gt;
 </code></pre></div>
 
-<h3 id="toc_23">3.5. 处理第三发应用跳回事件</h3>
+<h3 id="toc_25">3.5. 处理第三发应用跳回事件</h3>
 
 <p style="color:red">
 在UnityAppController.mm中增加如下两个方法，如果已经存在这些方法，在其中追加相应的处理代码即可。请务必添加下列代码，否则将影响第三方登录的授权回调。
@@ -1540,15 +1576,15 @@ libstdc++.tbd</code></pre></div>
     return [XDCore HandleXDOpenURL:url];
 }</code></pre></div>
 
-<h3 id="toc_24">3.6. Buid Settings</h3>
+<h3 id="toc_26">3.6. Buid Settings</h3>
 
 <p>Enable Bitcode = NO</p>
 
-<h5 id="toc_25">完成以上配置即可进行编译打包。</h5>
+<h5 id="toc_27">完成以上配置即可进行编译打包。</h5>
 
-<h2 id="toc_26">4. 服务端对接</h2>
+<h2 id="toc_28">4. 服务端对接</h2>
 
-<h3 id="toc_27">4.1 获取用户信息</h3>
+<h3 id="toc_29">4.1 获取用户信息</h3>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1570,7 +1606,39 @@ site：账号类型, 0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号�
 fcm：0/1（0：无需防沉迷，1：需要防沉迷）
 authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名认证）</code></pre></div>
 
-<h3 id="toc_28">4.2.    处理支付回调</h3>
+<table>
+<thead>
+<tr>
+<th>应用场景</th>
+<th>参数以及使用方法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>判断是否游客账号</td>
+<td>游客账号的name和id相同</td>
+</tr>
+<tr>
+<td>判断是否通过二次验证</td>
+<td>safety（0未实名，&gt;0 都表示已实名认证）</td>
+</tr>
+<tr>
+<td>判断账号类型</td>
+<td>site（0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号，8 =&gt; 微信账号，9 =&gt; TapTap账号，注意类型是字符串）</td>
+</tr>
+<tr>
+<td>判断防沉迷状态</td>
+<td>fcm（0：无需防沉迷，1：需要防沉迷）</td>
+</tr>
+<tr>
+<td>判断是否实名认证</td>
+<td>authoriz_state（0未实名，&gt;0 都表示已实名认证）</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_30">4.2.    处理支付回调</h3>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>

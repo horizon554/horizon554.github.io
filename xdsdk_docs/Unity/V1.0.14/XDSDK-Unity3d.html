@@ -1606,6 +1606,38 @@ site：账号类型, 0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号�
 fcm：0/1（0：无需防沉迷，1：需要防沉迷）
 authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名认证）</code></pre></div>
 
+<table>
+<thead>
+<tr>
+<th>应用场景</th>
+<th>参数以及使用方法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>判断是否游客账号</td>
+<td>游客账号的name和id相同</td>
+</tr>
+<tr>
+<td>判断是否通过二次验证</td>
+<td>safety（0未实名，&gt;0 都表示已实名认证）</td>
+</tr>
+<tr>
+<td>判断账号类型</td>
+<td>site（0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号，8 =&gt; 微信账号，9 =&gt; TapTap账号，注意类型是字符串）</td>
+</tr>
+<tr>
+<td>判断防沉迷状态</td>
+<td>fcm（0：无需防沉迷，1：需要防沉迷）</td>
+</tr>
+<tr>
+<td>判断是否实名认证</td>
+<td>authoriz_state（0未实名，&gt;0 都表示已实名认证）</td>
+</tr>
+</tbody>
+</table>
+
 <h3 id="toc_30">4.2.    处理支付回调</h3>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
