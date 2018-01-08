@@ -1,6 +1,10 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+
+###Unity 1.0.14 - 2018-01-08（iOS-3.2.6&Android-3.2.2）
+- 修复iOS登录页面密码无法输入符号问题
+
 ###Unity 1.0.13 - 2017-12-29（iOS-3.2.5&Android-3.2.2）
 - 新增用户实名认证接口
 
