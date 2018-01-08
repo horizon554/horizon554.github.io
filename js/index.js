@@ -125,6 +125,14 @@
         }, ],
 
         "Unity3d": [{
+            "time": "2018-01-08",
+            "size": "10.9M",
+            "version": "1.0.14",
+            "demo": "./xdsdk_docs/Unity/V1.0.14/UnityDemo.zip",
+            "sdk": "./xdsdk_docs/Unity/V1.0.14/UnitySDK.zip",
+            "doc": "./xdsdk_docs/Unity/V1.0.14/XDSDK-Unity3d.html",
+            "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+        },{
             "time": "2017-12-27",
             "size": "10.9M",
             "version": "1.0.13",
