@@ -662,6 +662,12 @@ libicucore.tbd</code></pre></div>
 <td>tencent317081</td>
 <td>如果给到的心动AppID没有对应的QQ AppID，可以不配置该项</td>
 </tr>
+<tr>
+<td>tt{TapTap AppID}</td>
+<td>用户TapTap授权登录后跳回</td>
+<td>tt123456</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -673,6 +679,7 @@ libicucore.tbd</code></pre></div>
 
 <div><pre><code class="language-none">&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
 &lt;array&gt;
+&lt;string&gt;tapsdk&lt;/string&gt;
 &lt;string&gt;mqq&lt;/string&gt;
 &lt;string&gt;mqqapi&lt;/string&gt;
 &lt;string&gt;wtloginmqq2&lt;/string&gt;
@@ -806,10 +813,17 @@ return [XDCore HandleXDOpenURL:url];
 <p>初始化心动SDK，调用该接口是调用其它功能接口的必要条件。</p>
 
 <div><pre><code class="language-none">/**
-* @param app_id 心动AppID
-* @param aOrientation 屏幕方向，0表示横屏，1表示竖屏
-*/
-+ (void)init:(NSString *)app_id orientation:(int)aOrientation;
+ 初始化sdk，包含心动SDK，TapDB统计SDK
+
+ @param appid 心动appid
+ @param orientation 屏幕方向
+ @param channel 渠道号
+ @param version 版本号
+ @param enableTapdb 是否开启TapDB
+ */
++ (void)init:(nonnull NSString*)appid orientation:(int)orientation
+     channel:(nonnull NSString*)channel version:(nonnull NSString*)version
+ enableTapdb:(BOOL)enableTapdb;
 </code></pre></div>
 
 <p>调用该接口会触发下列回调。</p>
@@ -1382,7 +1396,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 </tr>
 <tr>
 <td>判断是否通过二次验证</td>
-<td>safety（0未实名，&gt;0 都表示已实名认证）</td>
+<td>safety（true：安全，false：不安全）</td>
 </tr>
 <tr>
 <td>判断账号类型</td>

@@ -131,6 +131,7 @@ URL Schemes | 用途 |示例 |备注
 XD-{心动AppID}|用于支付宝支付后跳回|XD-ci2dos1ktzsca4f
 {微信AppID}| 用于微信授权登录后跳回|wx19f231d77ac408d9
 tencent{QQ AppID}|用于QQ授权登录后跳回|tencent317081|如果给到的心动AppID没有对应的QQ AppID，可以不配置该项
+tt{TapTap AppID}|用户TapTap授权登录后跳回|tt123456
 
 <span id="44配置infoplist">
 
@@ -141,6 +142,7 @@ tencent{QQ AppID}|用于QQ授权登录后跳回|tencent317081|如果给到的心
 ```
 <key>LSApplicationQueriesSchemes</key>
 <array>
+<string>tapsdk</string>
 <string>mqq</string>
 <string>mqqapi</string>
 <string>wtloginmqq2</string>
@@ -282,10 +284,17 @@ return [XDCore HandleXDOpenURL:url];
 
 ```
 /**
-* @param app_id 心动AppID
-* @param aOrientation 屏幕方向，0表示横屏，1表示竖屏
-*/
-+ (void)init:(NSString *)app_id orientation:(int)aOrientation;
+ 初始化sdk，包含心动SDK，TapDB统计SDK
+
+ @param appid 心动appid
+ @param orientation 屏幕方向
+ @param channel 渠道号
+ @param version 版本号
+ @param enableTapdb 是否开启TapDB
+ */
++ (void)init:(nonnull NSString*)appid orientation:(int)orientation
+     channel:(nonnull NSString*)channel version:(nonnull NSString*)version
+ enableTapdb:(BOOL)enableTapdb;
 
 ```
 
@@ -560,7 +569,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，>0 都表示已实名认�
 应用场景 | 参数以及使用方法
 --- | ---
 判断是否游客账号 | 游客账号的name和id相同
-判断是否通过二次验证 | safety（0未实名，>0 都表示已实名认证）
+判断是否通过二次验证 | safety（true：安全，false：不安全）
 判断账号类型 | site（0 => vc账号，1 => 心动账号，3 => qq账号，8 => 微信账号，9 => TapTap账号，注意类型是字符串）
 判断防沉迷状态 | fcm（0：无需防沉迷，1：需要防沉迷）
 判断是否实名认证 | authoriz_state（0未实名，>0 都表示已实名认证）
