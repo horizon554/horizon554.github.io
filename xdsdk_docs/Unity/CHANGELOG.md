@@ -1,6 +1,8 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 1.0.15 - 2018-01-29（iOS-3.2.9&Android-3.2.2）
+- 修复15版本iOS7闪退问题
 
 ###Unity 1.0.15 - 2018-01-29（iOS-3.2.8&Android-3.2.2）
 - 修复iOS手机二次验证问题，修复苹果审核私有API问题
