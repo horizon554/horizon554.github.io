@@ -3,6 +3,14 @@
         "iOS": [{
             "time": "2018-01-29",
             "size": "6.5M",
+            "version": "3.2.9",
+            "demo": "./xdsdk_docs/iOS/V3.2.9/XDSDK_Demo.zip",
+            "sdk": "./xdsdk_docs/iOS/V3.2.9/XDSDK-iOS-3.2.9-20180129.zip",
+            "doc": "./xdsdk_docs/iOS/V3.2.9/xd_doc_ios.html",
+            "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
+        },{
+            "time": "2018-01-29",
+            "size": "6.5M",
             "version": "3.2.8",
             "demo": "./xdsdk_docs/iOS/V3.2.8/XDSDK_Demo.zip",
             "sdk": "./xdsdk_docs/iOS/V3.2.8/XDSDK-iOS-3.2.8-20180129.zip",
