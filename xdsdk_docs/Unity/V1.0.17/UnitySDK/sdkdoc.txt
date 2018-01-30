@@ -1,0 +1,7 @@
+
+文档链接 http://sdk-docs.xindong.com/XDSDK.html
+
+文件说明 
+（1）XDSDKForUnity.unitypackage Unity包文件，此文件导入Unity工程
+
+（2）resource 文件夹下所有文件，导入Xcode工程
