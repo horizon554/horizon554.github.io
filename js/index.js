@@ -1,6 +1,15 @@
 (function($) {
     var sdkList = {
-        "iOS": [{
+        "iOS": [
+        {
+            "time": "2018-02-23",
+            "size": "6.5M",
+            "version": "3.2.12",
+            "demo": "./xdsdk_docs/iOS/V3.2.12/XDSDK_Demo.zip",
+            "sdk": "./xdsdk_docs/iOS/V3.2.12/XDSDK-iOS-3.2.12-20180223.zip",
+            "doc": "./xdsdk_docs/iOS/V3.2.12/xd_doc_ios.html",
+            "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
+        },{
             "time": "2018-02-06",
             "size": "6.5M",
             "version": "3.2.11",
@@ -123,6 +132,14 @@
         }],
 
         "Android": [{
+            "time": "2018-02-23",
+            "size": "5.2M",
+            "version": "3.2.6",
+            "demo": "./xdsdk_docs/Android/V3.2.6/Demo.zip",
+            "sdk": "./xdsdk_docs/Android/V3.2.6/XDSDK-Android-3.2.6.zip",
+            "doc": "./xdsdk_docs/Android/V3.2.6/xd_doc_android.html",
+            "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
+        },{
             "time": "2017-12-27",
             "size": "5.2M",
             "version": "3.2.2",
@@ -165,6 +182,14 @@
         }, ],
 
         "Unity3d": [{
+            "time": "2018-02-23",
+            "size": "10.9M",
+            "version": "1.1.0",
+            "demo": "./xdsdk_docs/Unity/V1.1.0/UnityDemo.zip",
+            "sdk": "./xdsdk_docs/Unity/V1.1.0/UnitySDK.zip",
+            "doc": "./xdsdk_docs/Unity/V1.1.0/XDSDK-Unity3d.html",
+            "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+        },{
             "time": "2018-02-06",
             "size": "10.9M",
             "version": "1.0.18",

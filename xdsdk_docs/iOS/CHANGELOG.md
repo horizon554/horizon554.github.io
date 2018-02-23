@@ -2,6 +2,18 @@
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
 
+## 3.2.12 - 2018-02-23
+
+###Changed
+
+-	支付API[XDCore pay:]更名为[XDCore requestProduct:],具体参数不变。
+
+###Added
+- [XDCore hideTapTap];3.2.12版本SDK默认登录方式为TapTap登录，老游戏需要调用该方法切换至心动账号登陆。
+- [XDCore init:@"xx" orientation:0 channel:@"" version:@"" enableTapdb:YES];
+	新增初始化方法，用于SDK接入TapDB统计系统使用。若游戏希望手动接入TapDB，请将enableTapdb设为FALSE。
+- [XDCore userFeedback];客服中心功能，游戏可在平台进行客服页面配置，直接打开客服页面。
+
 ## 3.2.11 - 2018-02-06
 
 - 删除代码以及注释中alipay相关字符
