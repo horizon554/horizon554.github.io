@@ -904,16 +904,16 @@ XDSDK.setWXWeb()    //设置微信为Web 扫码登录方式</code></pre></div>
 <div><pre><code class="language-none">/**
  * @param activity 游戏的主activity
  * @param appid 心动AppID
+ * @param aOrientation 屏幕方向，0表示横屏，1表示竖屏
  * @param channel 渠道号
  * @param version 版本号
  * @param enableTapdb 是否开启TapDB，true表示开启，false表示不开启
- * @param aOrientation 屏幕方向，0表示横屏，1表示竖屏
  */
-public static void initSDK(Activity activity, String appid, String channel, String version, boolean enableTapdb, int aOrientation) </code></pre></div>
+public static void initSDK(Activity activity, String appid, int aOrientation, String channel, String version, boolean enableTapdb) </code></pre></div>
 
 <p>示例代码
 <code>
-XDSDK.initSDK(this, &quot;xxxxxxxxxxxxxx&quot;, &quot;channel&quot;, &quot;version&quot;, false, 0);
+XDSDK.initSDK(this, &quot;xxxxxxxxxxxxxx&quot;, 0, &quot;channel&quot;, &quot;version&quot;, false);
 </code>
 <p>调用该接口会触发下列回调。</p>
 <p style="color:red">其他接口请在获取到初始化成功回调之后进行调用。</p></p>

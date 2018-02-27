@@ -415,17 +415,17 @@ XDSDK.setCallback(new XDCallback() {
 /**
  * @param activity 游戏的主activity
  * @param appid 心动AppID
+ * @param aOrientation 屏幕方向，0表示横屏，1表示竖屏
  * @param channel 渠道号
  * @param version 版本号
  * @param enableTapdb 是否开启TapDB，true表示开启，false表示不开启
- * @param aOrientation 屏幕方向，0表示横屏，1表示竖屏
  */
-public static void initSDK(Activity activity, String appid, String channel, String version, boolean enableTapdb, int aOrientation) 
+public static void initSDK(Activity activity, String appid, int aOrientation, String channel, String version, boolean enableTapdb) 
 ```
 
 示例代码
 ```
-XDSDK.initSDK(this, "xxxxxxxxxxxxxx", "channel", "version", false, 0);
+XDSDK.initSDK(this, "xxxxxxxxxxxxxx", 0, "channel", "version", false);
 ```
 <p>调用该接口会触发下列回调。</p>
 <p style="color:red">其他接口请在获取到初始化成功回调之后进行调用。</p>
