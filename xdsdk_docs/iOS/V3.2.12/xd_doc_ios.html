@@ -740,6 +740,7 @@ return [XDCore HandleXDOpenURL:url];
 [XDCore showVC];//显示VeryCD登录（此接口供老游戏兼容，新游戏不建议调用）
 [XDCOre setQQWeb]; //设置QQ为Web登录方式
 [XDCore setWXWeb];//设置微信为Web 扫码登录方式
+[XDCore hideTapTap];//隐藏TapTap登录
 </code></pre></div>
 
 <p><span id="52实现sdk协议"></p>
@@ -928,7 +929,7 @@ return [XDCore HandleXDOpenURL:url];
 <div><pre><code class="language-none">/**
 * @param info 支付相关信息，注意key和value都是字符串类型
 */
-+ (void)pay:(nonull NSDictionary*)info
++ (void)requestProduct:(nonull NSDictionary*)productInfo
 </code></pre></div>
 
 <p>其中info的字段如下。</p>
@@ -1396,7 +1397,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 </tr>
 <tr>
 <td>判断是否通过二次验证</td>
-<td>safety（true：安全，false：不安全）</td>
+<td>safety（0未验证，&gt;0已验证）</td>
 </tr>
 <tr>
 <td>判断账号类型</td>
