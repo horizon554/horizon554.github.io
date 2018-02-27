@@ -666,6 +666,14 @@ pre[class*="language-"] {
         android:configChanges=&quot;orientation|screenSize&quot;
         android:launchMode=&quot;singleTop&quot;
         android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
+        
+    &lt;!-- TapTap登录 --&gt;
+    &lt;activity
+        android:name=&quot;com.taptap.sdk.TapTapActivity&quot;
+        android:exported=&quot;false&quot;
+        android:screenOrientation=&quot;portrait&quot;
+        android:configChanges=&quot;keyboard|keyboardHidden|screenLayout|screenSize|orientation&quot;
+        android:theme=&quot;@android:style/Theme.NoTitleBar&quot; /&gt;
 
     &lt;!-- 支付宝 --&gt;
     &lt;activity
@@ -896,13 +904,16 @@ XDSDK.setWXWeb()    //设置微信为Web 扫码登录方式</code></pre></div>
 <div><pre><code class="language-none">/**
  * @param activity 游戏的主activity
  * @param appid 心动AppID
+ * @param channel 渠道号
+ * @param version 版本号
+ * @param enableTapdb 是否开启TapDB，true表示开启，false表示不开启
  * @param aOrientation 屏幕方向，0表示横屏，1表示竖屏
  */
-public static void initSDK(Activity activity, String appid, int aOrientation)</code></pre></div>
+public static void initSDK(Activity activity, String appid, String channel, String version, boolean enableTapdb, int aOrientation) </code></pre></div>
 
 <p>示例代码
 <code>
-XDSDK.initSDK(this, &quot;xxxxxxxxxxxxxx&quot;, 0);
+XDSDK.initSDK(this, &quot;xxxxxxxxxxxxxx&quot;, &quot;channel&quot;, &quot;version&quot;, false, 0);
 </code>
 <p>调用该接口会触发下列回调。</p>
 <p style="color:red">其他接口请在获取到初始化成功回调之后进行调用。</p></p>
@@ -1066,7 +1077,7 @@ public static boolean pay(Map&lt;String, String&gt; info) </code></pre></div>
 <tr>
 <td>EXT</td>
 <td>否</td>
-<td>额外信息，最长512个字符，服务端支付回调会包含该字段。</td>
+<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：info.put(&quot;EXT&quot;, &quot;{&quot;payCallbackCode&quot;:2}&quot;);</td>
 </tr>
 </tbody>
 </table>
@@ -1379,38 +1390,6 @@ safety： 账号是否安全/通过设备二次验证（true：安全，false：
 site：账号类型, 0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号，8 =&gt; 微信账号，9 =&gt; TapTap账号，注意类型是字符串
 fcm：0/1（0：无需防沉迷，1：需要防沉迷）
 authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名认证）</code></pre></div>
-
-<table>
-<thead>
-<tr>
-<th>应用场景</th>
-<th>参数以及使用方法</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>判断是否游客账号</td>
-<td>游客账号的name和id相同</td>
-</tr>
-<tr>
-<td>判断是否通过二次验证</td>
-<td>safety（true：安全，false：不安全）</td>
-</tr>
-<tr>
-<td>判断账号类型</td>
-<td>site（0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号，8 =&gt; 微信账号，9 =&gt; TapTap账号，注意类型是字符串）</td>
-</tr>
-<tr>
-<td>判断防沉迷状态</td>
-<td>fcm（0：无需防沉迷，1：需要防沉迷）</td>
-</tr>
-<tr>
-<td>判断是否实名认证</td>
-<td>authoriz_state（0未实名，&gt;0 都表示已实名认证）</td>
-</tr>
-</tbody>
-</table>
 
 <p><span id="62处理支付回调"> </p>
 
