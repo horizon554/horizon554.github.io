@@ -1,11 +1,16 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+
+###Unity 1.1.1 - 2018-03-09（iOS-3.2.13&Android-3.2.7）
+- 修改实名认证策略
+
 ###Unity 1.1.0 - 2018-02-06（iOS-3.2.12&Android-3.2.6）
 - 更新TapTap版本iOS AndroidSDK
 - 修复安卓8.0设备TapTap闪退
 - 修复安卓切换后台登录异常
 - 删除、变更iOS版本可疑关键字方法名类名
+- 详细变更请参考Android iOS CHANGELOG
 
 ###Unity 1.0.18 - 2018-02-06（iOS-3.2.11&Android-3.2.2）
 - 删除代码以及注释中alipay相关字符串
