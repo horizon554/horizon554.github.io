@@ -1,10 +1,44 @@
 Change Log
 ==========
 
+
+## 3.2.7
+
+- 修改实名认证策略
+
+- 文件变更：
+
+```
+modified:   libs/SDKLib.jar
+```
+
+
 ## 3.2.6
 
 - 修复8.0设备TapTap闪退
 - 修复切换后台导致的登录异常
+
+Breaking changes：
+
+- 新增并默认使用了TapTap登录，使用心动登录的游戏需要调用XDSDK.hideTapTap()切换
+- 集成了TapDB，并将初始化方法修改为
+  initSDK(Activity activity, String appid, int aOrientation, String channel, String version, boolean enableTapdb) 
+  如果游戏已经自行接入TapDB，将enableTapdb置为false，channel和version传任意值
+- 为避免TapTap登录在4.4以下的设备出现闪退，请使用gradle构建工程
+- TapTap SDK依赖新版的v4支持库，使用时请移除工程内原有的v4支持库
+  参考：https://developer.android.com/topic/libraries/support-library/features.html
+
+- 文件变更：
+
+```
+new file:   libs/libTyrantdbGameTracker.jar
+new file:   libs/taptap.jar
+new file:   libs/android-support-compat.jar
+new file:   libs/android-support-fragment.jar
+modified:   libs/SDKLib.jar
+modified:   res/*
+```
+
 
 ## 3.2.3
 
