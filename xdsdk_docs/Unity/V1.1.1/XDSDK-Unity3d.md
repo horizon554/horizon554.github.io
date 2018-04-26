@@ -782,6 +782,7 @@ tt{TapTap AppID}|用户TapTap授权登录后跳回|tt123456
 ```
 <key>LSApplicationQueriesSchemes</key>
 <array>
+<string>tapsdk</string>
 <string>mqq</string>
 <string>mqqapi</string>
 <string>wtloginmqq2</string>
