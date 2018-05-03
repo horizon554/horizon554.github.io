@@ -1,0 +1,2 @@
+sdk-ios 文档链接：
+http://sdk-docs.xindong.com/XDSDK.html
