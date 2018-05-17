@@ -119,6 +119,7 @@ libsqlite3.tbd
 libstdc++.tbd
 libz.tbd
 libicucore.tbd
+webkit.framework
 ```
 <span id="43设置url-types">
 
