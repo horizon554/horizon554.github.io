@@ -1,6 +1,11 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 3.2.16 - 2018-05-11 b919917caeaf65b4c7cb3cec546bcc4998a72e34
+- 修复QQ Web无法登录问题
+- 移除XDStore.framework,只需引入XdComPlatform.framework
+- TapTapSDK更新，需要添加新依赖库webkit.framework
+
 
 ## 3.2.15 - 2018-05-03
 
