@@ -3,7 +3,7 @@
         "iOS": [
         {
                 "time": "2018-05-15",
-                "size": "7.2M",
+                "size": "8.1M",
                 "version": "3.2.16",
                 "demo": "./xdsdk_docs/iOS/V3.2.16/XDSDK_Demo.zip",
                 "sdk": "./xdsdk_docs/iOS/V3.2.16/XDSDK-iOS-3.2.16-20180515.zip",
