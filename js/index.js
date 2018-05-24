@@ -228,7 +228,7 @@
             {
                 "time": "2018-05-24",
                 "size": "13.4M",
-                "version": "1.1.1",
+                "version": "1.1.2",
                 "demo": "./xdsdk_docs/Unity/V1.1.2/UnityDemo.zip",
                 "sdk": "./xdsdk_docs/Unity/V1.1.2/UnitySDK.zip",
                 "doc": "./xdsdk_docs/Unity/V1.1.2/XDSDK-Unity3d.html",
