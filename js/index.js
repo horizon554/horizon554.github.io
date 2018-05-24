@@ -224,7 +224,17 @@
             "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
         }, ],
 
-        "Unity3d": [{
+        "Unity3d": [
+            {
+                "time": "2018-05-24",
+                "size": "13.4M",
+                "version": "1.1.1",
+                "demo": "./xdsdk_docs/Unity/V1.1.2/UnityDemo.zip",
+                "sdk": "./xdsdk_docs/Unity/V1.1.2/UnitySDK.zip",
+                "doc": "./xdsdk_docs/Unity/V1.1.2/XDSDK-Unity3d.html",
+                "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+            },
+            {
             "time": "2018-03-09",
             "size": "10.9M",
             "version": "1.1.1",

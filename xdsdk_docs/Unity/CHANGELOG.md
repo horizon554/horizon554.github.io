@@ -3,6 +3,7 @@
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
 ###Unity 1.1.2 - 2018-05-16（iOS-3.2.16&Android-3.2.7）
 - 修复QQ Web无法登录问题
+- 删除libRMStore.a和XDStore.framework，只需导入XDComPlatform.framework
 
 ###Unity 1.1.1 - 2018-03-09（iOS-3.2.13&Android-3.2.7）
 - 修改实名认证策略
