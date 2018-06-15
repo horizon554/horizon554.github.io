@@ -1,6 +1,13 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 3.2.17 - 2018-06-15 
+- 更新TencentOpenAPI.framework,版本iOS-3.3.3
+- 素材替换与新增，需要添加进项目。
+- XDCore.h添加新接口，可以自定义登录按钮及顺序，具体使用请看接口文档。
+- + (void)setLoginEntries:(NSArray *)entries 
+
+
 ## 3.2.16 - 2018-05-11 b919917caeaf65b4c7cb3cec546bcc4998a72e34
 - 修复QQ Web无法登录问题
 - 移除XDStore.framework,只需引入XdComPlatform.framework
