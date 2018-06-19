@@ -210,7 +210,7 @@ return [XDCore HandleXDOpenURL:url];
 
 ```
 
-<p style="color:red">SDK版本3.2.17添加了新接口，自定义登录按钮及顺序。具体说明如下：</p>
+<p style="color:red">SDK版本3.2.17添加了新接口，自定义登录按钮及顺序。可以在SDK初始化之前调用。具体说明如下：</p>
 
 
  自定义登录入口。共五种，其中主要两种，次要两种。
