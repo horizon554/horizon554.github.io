@@ -1,10 +1,9 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
-###Unity 1.1.3 - 2018-06-20（iOS-3.2.17 - 2018-06-15 
-- 更新TencentOpenAPI.framework,版本iOS-3.3.3
-- 素材替换与新增，需要添加进项目。
-- 新接口，具体使用见文档。public static void SetLoginEntries(string[] entries)。
+###Unity 1.1.3 - 2018-06-20（iOS-3.2.17&Android-3.2.8)
+- 更新QQSDK
+- 增加自定义登录入口功能，请参考使用文档
 
 ###Unity 1.1.2 - 2018-05-16（iOS-3.2.16&Android-3.2.7）
 - 修复QQ Web无法登录问题
