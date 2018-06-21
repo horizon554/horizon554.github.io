@@ -1,6 +1,28 @@
 Change Log
 ==========
 
+## 3.2.8
+
+- 更新QQSDK
+- 增加自定义登录入口功能
+
+- 文件变更：
+
+```
+new file:	  libs/open_sdk_r6008_lite.jar
+new file:	  res/drawable-hdpi/taptap_back.png
+new file:	  res/drawable-hdpi/xdsdk_login_*.png
+new file:	  res/drawable-xdpi/xdsdk_login_*.png
+new file:	  res/drawable/xdsdk_login_*.png
+new file:	  res/layout-land/xdsdk_bind_without_xd.xml
+new file:	  res/layout-land/xdsdk_login.xml.xml
+new file:	  res/layout-port/xdsdk_bind_without_xd.xml
+new file:	  res/layout-port/xdsdk_login.xml.xml
+modified:   libs/SDKLib.jar
+modified:   libs/taptap.jar
+modified:   res/taptap.jar
+deleted:    libs/open_sdk_r5793_lite.jar
+```
 
 ## 3.2.7
 
