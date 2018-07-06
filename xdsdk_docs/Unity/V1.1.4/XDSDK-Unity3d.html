@@ -496,8 +496,6 @@ kbd {
 
 <p>如不进行配置，SDK将默认显示QQ、微信、游客登录。QQ和微信的登录方式默认为App授权登录，心动SDK会根据QQ和微信的安装情况，将QQ和微信登录方式切换为Web登录，或者不提供对应的登录功能。</p>
 
-<p>注：根据苹果审核政策，若设备未安装微信将隐藏微信登录入口。</p>
-
 <p style="color:red">请勿直接复制以下代码，根据游戏实际需求选择调用以下API</p>
 
 <div><pre><code class="language-none">XDSDK.HideGuest()   //隐藏游客登录
@@ -525,7 +523,7 @@ XDSDK.HideTapTap()  //隐藏TapTap登录，使用心动登录</code></pre></div
 </ul>
 
 <p>3、例，传入的数组。
- {&quot;WX<em>LOGIN&quot;,&quot;TAPTAP</em>LOGIN&quot;,&quot;GUEST<em>LOGIN&quot;,&quot;QQ</em>LOGIN&quot;}</p>
+ {&quot;WX_LOGIN&quot;,&quot;TAPTAP_LOGIN&quot;,&quot;GUEST_LOGIN&quot;,&quot;QQ_LOGIN&quot;}</p>
 
 <p>注：</p>
 

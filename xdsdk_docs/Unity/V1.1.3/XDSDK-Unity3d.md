@@ -159,7 +159,7 @@ XDSDK.HideTapTap()	//隐藏TapTap登录，使用心动登录
 -  心动登录：XD_LOGIN
  
 3、例，传入的数组。
- {"WX_LOGIN","TAPTAP_LOGIN","GUEST_LOGIN","QQ_LOGIN"}
+ {"WX\_LOGIN","TAPTAP\_LOGIN","GUEST\_LOGIN","QQ\_LOGIN"}
 
 注：
 
