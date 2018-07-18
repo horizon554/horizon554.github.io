@@ -631,7 +631,7 @@ role_id | string | 游戏客户端调用充值时传递的Role_Id字段
 product_id | string | 支付购买的商品ID
 gold | number | 支付实际所付金额，单位元。（仅在客户端使用非AppStore支付方式支付时才有该字段）
 ext | string | 游戏客户端调用充值时传递的EXT字段
-timestamp | number | 时间戳，1990年到当前时间的秒数
+timestamp | number | 时间戳，1970年到当前时间的秒数
 sign | string | 签名校验字段，按照下面的方式进行校验
 
 签名算法示例，使用php语言。
