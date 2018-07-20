@@ -194,6 +194,14 @@
         }],
 
         "Android": [{
+            "time": "2018-07-20",
+            "size": "5.2M",
+            "version": "3.2.9",
+            "demo": "./xdsdk_docs/Android/V3.2.9/Demo.zip",
+            "sdk": "./xdsdk_docs/Android/V3.2.9/XDSDK-Android-3.2.9.zip",
+            "doc": "./xdsdk_docs/Android/V3.2.9/xd_doc_android.html",
+            "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
+        },{
             "time": "2018-06-20",
             "size": "5.2M",
             "version": "3.2.8",
@@ -261,8 +269,17 @@
 
         "Unity3d": [
             {
+                "time": "2018-07-20",
+                "size": "14.9M",
+                "version": "1.1.7",
+                "demo": "./xdsdk_docs/Unity/V1.1.7/UnityDemo.zip",
+                "sdk": "./xdsdk_docs/Unity/V1.1.7/UnitySDK.zip",
+                "doc": "./xdsdk_docs/Unity/V1.1.7/XDSDK-Unity3d.html",
+                "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+            },
+            {
                 "time": "2018-07-17",
-                "size": "14.2M",
+                "size": "14.5M",
                 "version": "1.1.6",
                 "demo": "./xdsdk_docs/Unity/V1.1.6/UnityDemo.zip",
                 "sdk": "./xdsdk_docs/Unity/V1.1.6/UnitySDK.zip",

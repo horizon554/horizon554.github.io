@@ -1,6 +1,24 @@
 Change Log
 ==========
 
+## 3.2.9
+- 更新TapTapSDK
+
+文件变更：
+
+```
+modified:   libs/SDKLib.jar
+modified:   libs/taptap.jar
+modified:   res/values/values.xml
+modified:   res/drawable-hdpi/taptap_close_pressed.xml
+modified:   res/drawable-hdpi/taptap_close_normal.png
+new file:   res/drawable-hdpi/taptap_action_sheet.png
+new file:   res/layout-land/fragment_forum.xml
+new file:   res/layout-port/fragment_forum.xml
+deleted :   res/layout/fragment_forum.xml
+```
+
+
 ## 3.2.8
 
 - 更新QQSDK
