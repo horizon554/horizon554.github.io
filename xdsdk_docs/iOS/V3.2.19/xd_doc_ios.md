@@ -114,8 +114,8 @@ CoreGraphics.Framework
 CoreTelephony.framework
 SystemConfiguration.framework
 libiconv.tbd
-libsqlite3.tbd
-libstdc++.tbd
+libsqlite3.0.tbd
+libc++.tbd
 libz.tbd
 libicucore.tbd
 ```
