@@ -776,7 +776,7 @@ resource | 心动SDK需要或依赖的资源文件，需要保证所有文件都
 
 ```
 libz.tbd
-libsqlite3.tbd
+libsqlite3.0.tbd
 libicucore.tbd
 *请核对下列库文件是否已自动添加*
 Security.framework 
@@ -788,7 +788,7 @@ CoreGraphics.Framework
 CoreTelephony.framework
 SystemConfiguration.framework
 libiconv.tbd
-libstdc++.tbd
+libc++.tbd
 ```
 
 ### 3.3. 设置 URL Types
