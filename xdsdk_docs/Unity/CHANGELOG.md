@@ -3,6 +3,8 @@
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
 ###Unity 1.1.9 - 2018-07-30（iOS-3.2.20&Android-3.2.10)
 - 更新Android3.2.10
+- 微信分享支持jpg 
+- 隐藏微信登录时，微信支付仍然可见
 
 ###Unity 1.1.8 - 2018-07-24（iOS-3.2.20&Android-3.2.9)
 - 更新taptapSDK
