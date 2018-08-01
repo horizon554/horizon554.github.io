@@ -1,6 +1,9 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 1.2.0 - 2018-08-01（iOS-3.2.20&Android-3.2.10)
+- 修复微信分享收不到回调问题
+
 ###Unity 1.1.9 - 2018-07-30（iOS-3.2.20&Android-3.2.10)
 - 更新Android3.2.10
 - 微信分享支持jpg 
