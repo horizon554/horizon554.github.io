@@ -211,17 +211,25 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 #### 4.6.接入微信分享的处理
 
-<p style="color:red">心动SDK提供的分享功能已过期，即将停止维护，请尽量自行接入分享。</p>
-<p style="color:red">如果游戏需要自行接入微信分享，AndroidManifest需进行以下处理。</p>
+<p>心动SDK提供的分享功能已过期，即将停止维护，请尽量自行接入分享。</p>
 <p style="color:red">微信分享的微信AppID必须使用心动提供的微信AppID，否则会导致微信登录失败</p>
+<p>如果游戏需要自行接入微信分享，AndroidManifest需进行以下处理。</p>
 
+接入第三方分享插件有两种常见的方式：
+
+* 一般会被要求在包名目录下创建wxapi文件夹，新建一个名为WXEntryActivity的activity并继承或实现某个类或接口，请将这个类改名为WXEntryForXDActivity以免和心动登录功能冲突。
+* 另一种是直接配置activity-alias，这种情况请与平台联系后再使用
 
 ```
-AndroidManifest.xml 中需加入如下内容
-        <activity-alias
-            android:name=".wxapi.WXEntryForXDActivity"
-            android:exported="true"
-            android:targetActivity="分享SDK指定的WXEntryActivity"/>
+
+单接分享SDK被要求的增加配置，注意其中name的修改
+<activity
+	android:name=".wxapi.WXEntryForXDActivity"
+	android:theme="@android:style/Theme.Translucent.NoTitleBar"
+	android:configChanges="keyboardHidden|orientation|screenSize"
+	android:exported="true"
+	android:screenOrientation="portrait"/>
+	
 ```
 
 <span id="5接口调用">
