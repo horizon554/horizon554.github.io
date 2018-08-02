@@ -203,6 +203,14 @@
         }],
 
         "Android": [{
+            "time": "2018-08-02",
+            "size": "5.2M",
+            "version": "3.2.11",
+            "demo": "./xdsdk_docs/Android/V3.2.11/Demo.zip",
+            "sdk": "./xdsdk_docs/Android/V3.2.11/XDSDK-Android-3.2.9.zip",
+            "doc": "./xdsdk_docs/Android/V3.2.11/xd_doc_android.html",
+            "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
+        },{
             "time": "2018-07-20",
             "size": "5.2M",
             "version": "3.2.9",
