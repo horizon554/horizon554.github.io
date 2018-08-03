@@ -329,7 +329,13 @@ return [XDCore HandleXDOpenURL:url];
 ```
 
 <p>调用该接口会触发下列回调。</p>
-<p style="color:red">注意：其他接口请在获取到初始化成功回调之后进行调用。<br>SDK 初始化时如果未设置或无法获取到 TapDB AppId，TapDB 统计服务将自动设置为关闭。</p>
+<p style="color:red">
+注意：<br>
+1）其他接口请在获取到初始化成功回调之后进行调用。<br>
+2）已经单独接入 TapDB 的项目请勿开启内置 TapDB 统计功能。<br>
+3）SDK 初始化时如果未设置或无法获取到 TapDB AppId，TapDB 统计服务将自动设置为关闭。<br>
+其他注意事项请参考 Unity 文档 TapDB 章节或与平台联系。
+</p>
 
 类别 | 回调方法
 --- |---
