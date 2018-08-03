@@ -1,6 +1,11 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 3.2.21 - 2018-08-03
+- 移除SDK初始化方法 [XDCore init:@"xx" orientation:0];<br>SDK 初始化请统一使用 [XDCore init:@"xx" orientation:0 channel:@"" version:@"" enableTapdb:YES];
+- 弃用微信分享相关模块，后续版本将彻底移除，如果有第三方分享需求请自行对接第三方平台分享 SDK；
+- 优化内部逻辑，SDK 初始化时如果未设置或无法获取到 TapDB AppId，SDK 将自动关闭 TapDB 统计服务。
+
 ## 3.2.20 - 2018-07-24
 - 更新taptapSDK
 - iPad未安装微信显示微信登录入口，点击跳转扫码登录
