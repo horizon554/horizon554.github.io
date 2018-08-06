@@ -1,6 +1,11 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+
+###Unity 1.2.1 - 2018-08-06（iOS-3.2.21&Android-3.2.12)
+- 微信分享接口已过期
+- 增强AndroidSDK稳定性
+
 ###Unity 1.2.0 - 2018-08-01（iOS-3.2.20&Android-3.2.10)
 - 修复微信分享收不到回调问题
 
