@@ -113,6 +113,7 @@ Foundation.framework
 CoreGraphics.Framework
 CoreTelephony.framework
 SystemConfiguration.framework
+Webkit.framework
 libiconv.tbd
 libsqlite3.0.tbd
 libc++.tbd

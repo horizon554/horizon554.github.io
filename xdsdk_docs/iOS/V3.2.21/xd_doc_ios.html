@@ -368,7 +368,7 @@ kbd {
 <li><a href="#58%E5%8F%91%E8%B5%B7%E6%94%AF%E4%BB%98">5.8发起支付</a></li>
 <li><a href="#59%E7%99%BB%E5%87%BA">5.9登出</a></li>
 <li><a href="#510%E6%B8%B8%E5%AE%A2%E5%8D%87%E7%BA%A7">5.10游客升级</a></li>
-<li><a href="#511%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB"><del>5.11微信分享</del></a></li>
+<li><a href="#511%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB">~~5.11微信分享~~</a></li>
 <li><a href="#512%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81">5.12实名认证</a></li>
 </ul></li>
 <li><p><a href="#6%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AF%B9%E6%8E%A5">6服务端对接</a></p>
@@ -477,6 +477,7 @@ Foundation.framework
 CoreGraphics.Framework
 CoreTelephony.framework
 SystemConfiguration.framework
+Webkit.framework
 libiconv.tbd
 libsqlite3.0.tbd
 libc++.tbd
@@ -616,7 +617,7 @@ return [XDCore HandleXDOpenURL:url];
 </ul>
 
 <p>3、例，传入的数组。
- @[@<q>WX_LOGIN</q>,@<q>TAPTAP_LOGIN</q>,@<q>GUEST_LOGIN</q>,@<q>QQ_LOGIN</q>]</p>
+ @[@&quot;WX_LOGIN&quot;,@&quot;TAPTAP_LOGIN&quot;,@&quot;GUEST_LOGIN&quot;,@&quot;QQ_LOGIN&quot;]</p>
 
 <p>注：</p>
 
@@ -869,7 +870,7 @@ return [XDCore HandleXDOpenURL:url];
 <tr>
 <td>EXT</td>
 <td>否</td>
-<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@<q>{\</q>payCallbackCode\<q>:1}</q> forKey:@<q>EXT</q>];</td>
+<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@&quot;{\&quot;payCallbackCode\&quot;:1}&quot; forKey:@&quot;EXT&quot;];</td>
 </tr>
 </tbody>
 </table>
@@ -952,7 +953,7 @@ return [XDCore HandleXDOpenURL:url];
 
 <p><span id="511微信分享"></p>
 
-<h4 id="toc_26"><del>5.11.微信分享</del></h4>
+<h4 id="toc_26">~~5.11.微信分享~~</h4>
 
 <p style = "color:red">
 注意: 该版本微信分享模块已废弃！！！后续更新版本将彻底移除微信分享，如有相关分享需求请自行对接第三方平台 SDK。
