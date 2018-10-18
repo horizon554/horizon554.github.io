@@ -1,6 +1,9 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 3.2.21 - 2018-09-25
+- 修复已知bug
+
 ## 3.2.21 - 2018-08-03
 - 移除SDK初始化方法 [XDCore init:@"xx" orientation:0];<br>SDK 初始化请统一使用 [XDCore init:@"xx" orientation:0 channel:@"" version:@"" enableTapdb:YES];
 - 弃用微信分享相关模块，后续版本将彻底移除，如果有第三方分享需求请自行对接第三方平台分享 SDK；
