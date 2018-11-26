@@ -15,6 +15,7 @@
 	* [4.4声明相关的Activity](#44声明相关的activity)
 	* [4.5接收返回值](#45接收返回值)
 	* [4.6接入微信分享处理](#46接入微信分享处理)
+	* [4.7AndroidP兼容处理](#47AndroidP兼容处理)
 * [5.接口调用](#5接口调用)
 	* [5.1配置SDK登录选项](#51配置sdk登录选项)
 	* [5.2设置回调](#52设置回调)
@@ -231,6 +232,20 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	android:screenOrientation="portrait"/>
 	
 ```
+
+<span id="47AndroidP兼容处理">
+
+#### 4.7.AndroidP兼容处理
+
+如果游戏打包后无法在AndroidP的机型上使用
+
+1. 将[org.apache.http.legacy.jar](../org.apache.http.legacy.jar)打包到游戏内
+2. AndroidManifest的Application标签下添加如下内容
+
+```
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
+
 
 <span id="5接口调用">
 

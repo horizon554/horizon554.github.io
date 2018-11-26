@@ -1169,6 +1169,17 @@ XDSDK.onStop(UnityPlayer.currentActivity);</code></pre></div>
 
 <h2 id="toc_17">2.Android</h2>
 
+<p style = "color : red"> 
+如果游戏打包后无法在AndroidP的机型上使用</br>
+</p> 
+
+<ol>
+<li>将<a href="../org.apache.http.legacy.jar">org.apache.http.legacy.jar</a>打包到游戏内</li>
+<li>AndroidManifest的Application标签下添加如下内容</li>
+</ol>
+
+<div><pre><code class="language-none">&lt;uses-library android:name=&quot;org.apache.http.legacy&quot; android:required=&quot;false&quot;/&gt;</code></pre></div>
+
 <h3 id="toc_18">2.1.按需要修改AndroidManifest</h3>
 
 <p> 可以根据需要,参照如下示例修改Plugins/Android/AndroidManifest.xml。

@@ -355,6 +355,7 @@ kbd {
 <li><a href="#44%E5%A3%B0%E6%98%8E%E7%9B%B8%E5%85%B3%E7%9A%84activity">4.4声明相关的Activity</a></li>
 <li><a href="#45%E6%8E%A5%E6%94%B6%E8%BF%94%E5%9B%9E%E5%80%BC">4.5接收返回值</a></li>
 <li><a href="#46%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB%E5%A4%84%E7%90%86">4.6接入微信分享处理</a></li>
+<li><a href="#47AndroidP%E5%85%BC%E5%AE%B9%E5%A4%84%E7%90%86">4.7AndroidP兼容处理</a></li>
 </ul></li>
 <li><a href="#5%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8">5.接口调用</a>
 
@@ -588,15 +589,28 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     android:screenOrientation=&quot;portrait&quot;/&gt;
     </code></pre></div>
 
+<p><span id="47AndroidP兼容处理"></p>
+
+<h4 id="toc_16">4.7.AndroidP兼容处理</h4>
+
+<p>如果游戏打包后无法在AndroidP的机型上使用</p>
+
+<ol>
+<li>将<a href="../org.apache.http.legacy.jar">org.apache.http.legacy.jar</a>打包到游戏内</li>
+<li>AndroidManifest的Application标签下添加如下内容</li>
+</ol>
+
+<div><pre><code class="language-none">&lt;uses-library android:name=&quot;org.apache.http.legacy&quot; android:required=&quot;false&quot;/&gt;</code></pre></div>
+
 <p><span id="5接口调用"></p>
 
-<h3 id="toc_16">5.接口调用</h3>
+<h3 id="toc_17">5.接口调用</h3>
 
 <p>所有接口设计为静态方法，在com.xd.xdsdk.XDSDK中调用。</p>
 
 <p><span id="51配置sdk登录选项"></p>
 
-<h4 id="toc_17">5.1.配置SDK登录选项</h4>
+<h4 id="toc_18">5.1.配置SDK登录选项</h4>
 
 <p>心动SDK提供配置QQ、微信登录、游客登录的显示与隐藏以及登录方式。</p>
 
@@ -643,7 +657,7 @@ XDSDK.setLoginEntries(new String[]{&quot;WX_LOGIN&quot;, &quot;TAPTAP_LOGIN&quot
 
 <p><span id="52设置回调"></p>
 
-<h4 id="toc_18">5.2.设置回调</h4>
+<h4 id="toc_19">5.2.设置回调</h4>
 
 <p>游戏调用心动SDK的接口后，大部分情况都是通过回调的形式将结果返回给游戏，所以需要先设置对应的回调函数。</p>
 
@@ -719,7 +733,7 @@ XDSDK.setLoginEntries(new String[]{&quot;WX_LOGIN&quot;, &quot;TAPTAP_LOGIN&quot
 
 <p><span id="53初始化sdk"></p>
 
-<h4 id="toc_19">5.3.初始化SDK</h4>
+<h4 id="toc_20">5.3.初始化SDK</h4>
 
 <p>初始化心动SDK，调用该接口是调用其它功能接口的必要条件。</p>
 
@@ -766,7 +780,7 @@ XDSDK.initSDK(this, &quot;xxxxxxxxxxxxxx&quot;, 0, &quot;channel&quot;, &quot;ve
 
 <p><span id="54登录"></p>
 
-<h4 id="toc_20">5.4.登录</h4>
+<h4 id="toc_21">5.4.登录</h4>
 
 <p>调用该接口进行登录。
 客户端授权登录需要包名和签名与申请时的信息保持一致。</p>
@@ -807,7 +821,7 @@ XDSDK.login();
 
 <p><span id="55获取access-token"></p>
 
-<h4 id="toc_21">5.5.获取Access Token</h4>
+<h4 id="toc_22">5.5.获取Access Token</h4>
 
 <p>调用该接口获取当前登录用户的access token。</p>
 
@@ -820,7 +834,7 @@ XDSDK.getAccessToken()
 
 <p><span id="56获取当前登录状态"></p>
 
-<h4 id="toc_22">5.6.获取当前登录状态</h4>
+<h4 id="toc_23">5.6.获取当前登录状态</h4>
 
 <p>调用该接口获取当前登录状态。</p>
 
@@ -833,7 +847,7 @@ XDSDK.isLoggedIn()
 
 <p><span id="57打开用户中心"></p>
 
-<h4 id="toc_23">5.7.打开用户中心</h4>
+<h4 id="toc_24">5.7.打开用户中心</h4>
 
 <p>调用该接口打开用户中心界面，用户可以在该界面进行登出和登录操作，游戏注意正确处理回调。在未登录状态，无法打开用户中心。在用户中心中，用户可进行登出操作，此时交互界面将消失。游戏需要提供引导用户重新进行登录的操作界面。</p>
 
@@ -849,7 +863,7 @@ XDSDK.openUserCenter()
 
 <p><span id="58发起支付"></p>
 
-<h4 id="toc_24">5.8.发起支付</h4>
+<h4 id="toc_25">5.8.发起支付</h4>
 
 <p>调用该接口发起支付。
 <p style='color:red'>不保证在任何情况下都能收到回调，请勿直接使用SDK返回的支付结果作为最终判定订单状态的依据。</p></p>
@@ -949,7 +963,7 @@ XDSDK.pay(info);</code></pre></div>
 
 <p><span id="59登出"></p>
 
-<h4 id="toc_25">5.9.登出</h4>
+<h4 id="toc_26">5.9.登出</h4>
 
 <p>需要注销当前登录用户时调用，该操作不会出现登录界面。</p>
 
@@ -980,7 +994,7 @@ XDSDK.logout();
 
 <p><span id="510游客升级"></p>
 
-<h4 id="toc_26">5.10.游客升级</h4>
+<h4 id="toc_27">5.10.游客升级</h4>
 
 <p>当游客账号升级成功时,会触发下列回调。<br/>
 后续如需使用token，务必使用回调给的新token。但已生效的会话无需处理。</p>
@@ -1003,7 +1017,7 @@ XDSDK.logout();
 
 <p><span id="511退出"></p>
 
-<h4 id="toc_27">5.11.退出</h4>
+<h4 id="toc_28">5.11.退出</h4>
 
 <p>调用该方法时，弹出确认框供用户选择是否退出。</p>
 
@@ -1025,7 +1039,7 @@ XDSDK.logout();
 
 <p><span id="512微信分享"></p>
 
-<h4 id="toc_28">5.12.微信分享 （此方法已废弃，即将不再提供支持，请自行接入分享SDK）</h4>
+<h4 id="toc_29">5.12.微信分享 （此方法已废弃，即将不再提供支持，请自行接入分享SDK）</h4>
 
 <p>调用心动SDK微信分享功能后，通过该回调通知分享结果。</p>
 
@@ -1155,7 +1169,7 @@ XDWXShare.share(wxShareContent);</code></pre></div>
 
 <p><span id="513实名认证"></p>
 
-<h4 id="toc_29">5.13.实名认证</h4>
+<h4 id="toc_30">5.13.实名认证</h4>
 
 <p>在用户登录成功状态下，调用该接口打开实名认证窗口。</p>
 
@@ -1191,11 +1205,11 @@ public static void openRealName()
 
 <p><span id="6服务端对接"></p>
 
-<h3 id="toc_30">6.服务端对接</h3>
+<h3 id="toc_31">6.服务端对接</h3>
 
 <p><span id="61获取用户信息"></p>
 
-<h4 id="toc_31">6.1.获取用户信息</h4>
+<h4 id="toc_32">6.1.获取用户信息</h4>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1220,7 +1234,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 
 <p><span id="62处理支付回调"> </p>
 
-<h4 id="toc_32">6.2.处理支付回调</h4>
+<h4 id="toc_33">6.2.处理支付回调</h4>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>

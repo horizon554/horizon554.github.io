@@ -1,5 +1,6 @@
 # <center> XDSDK-Unity3d </center>
 
+
 ## 1.Unity
 
 <p style="color:red"> namespace均为xdsdk </p>
@@ -535,6 +536,17 @@ XDSDK.onStop(UnityPlayer.currentActivity);
 
 
 ## 2.Android
+
+<p style = "color : red"> 
+如果游戏打包后无法在AndroidP的机型上使用</br>
+</p> 
+
+1. 将[org.apache.http.legacy.jar](../org.apache.http.legacy.jar)打包到游戏内
+2. AndroidManifest的Application标签下添加如下内容
+
+```
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
 
 ### 2.1.按需要修改AndroidManifest
 
