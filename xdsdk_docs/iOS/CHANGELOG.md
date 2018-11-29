@@ -1,6 +1,9 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 3.2.24 - 2018-11-29
+- 更新 TapTapSDK。
+
 ## 3.2.23 - 2018-11-27
 - 修复低版本API(UIAlertView)在iOS12可能造成问题：退出登录后无法再弹出登录界面。
 
