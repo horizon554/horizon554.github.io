@@ -2,7 +2,10 @@
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
 
-###Unity 1.2.1 - 2018-08-06（iOS-3.2.21&Android-3.2.12)
+###Unity 1.2.2 - 2018-11-30（iOS-3.2.24&Android-3.2.11)
+- 更新 TapTapSDK
+
+###Unity 1.2.1 - 2018-08-06（iOS-3.2.21&Android-3.2.11)
 - 微信分享接口已过期
 - 增强AndroidSDK稳定性
 
