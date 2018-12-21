@@ -1,6 +1,10 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 3.2.25 - 2018-12-20
+- 添加了直接打开游客绑定接口：openUserBindView。
+- 添加了游客绑定失败回调：onGuestBindFail。
+
 ## 3.2.24 - 2018-11-29
 - 更新 TapTapSDK。
 
