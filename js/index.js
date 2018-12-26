@@ -331,6 +331,15 @@
 
         "Unity3d": [
             {
+                "time": "2018-12-26",
+                "size": "30.4M",
+                "version": "1.2.6",
+                "demo": "https://res.xdcdn.net/xdsdk/Unity/1.2.6/UnitySDK_v126.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/Unity/1.2.6/UnitySDK_v126.zip",
+                "doc": "./xdsdk_docs/Unity/V1.2.6/XDSDK-Unity3d.html",
+                "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+            },
+            {
                 "time": "2018-12-24",
                 "size": "29.9M",
                 "version": "1.2.5",
