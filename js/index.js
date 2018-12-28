@@ -248,6 +248,14 @@
         }],
 
         "Android": [{
+            "time": "2018-12-28",
+            "size": "5.2M",
+            "version": "3.2.13",
+            "demo": "https://res.xdcdn.net/xdsdk/Android/3.2.13/Demo.zip",
+            "sdk": "https://res.xdcdn.net/xdsdk/Android/3.2.13/XDSDK-Android-3.2.13.zip",
+            "doc": "./xdsdk_docs/Android/V3.2.13/xd_doc_android.html",
+            "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
+        },{
             "time": "2018-08-02",
             "size": "5.2M",
             "version": "3.2.11",

@@ -1,5 +1,12 @@
 Change Log
 ==========
+
+## 3.2.13
+
+- 更新TapTap TapDB XDLive
+- 增加接口 openUserBindView
+- 增加回调 onGuestBindFailed 请注意查看文档
+
 ## 3.2.11
 
 - 隐藏微信不再影响微信支付
