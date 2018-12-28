@@ -2,10 +2,10 @@
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
 
-###Unity 1.2.6 - 2018-12-24（iOS-3.2.25&Android-3.2.12)
+###Unity 1.2.6 - 2018-12-24（iOS-3.2.25&Android-3.2.13)
 - 更新 TapTap SDK
 
-###Unity 1.2.5 - 2018-12-24（iOS-3.2.25&Android-3.2.12)
+###Unity 1.2.5 - 2018-12-24（iOS-3.2.25&Android-3.2.13)
 - 增加接口 OpenUserBindView 
 - 增加回调 OnGuestBindFailed 请注意查看文档
 - 更新 XDLive
