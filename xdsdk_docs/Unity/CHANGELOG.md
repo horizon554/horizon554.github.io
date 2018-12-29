@@ -2,6 +2,9 @@
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
 
+###Unity 1.2.7 - 2018-12-29（iOS-3.2.26&Android-3.2.13)
+- 更新 iOS XDSDK
+
 ###Unity 1.2.6 - 2018-12-24（iOS-3.2.25&Android-3.2.13)
 - 更新 TapTap SDK
 
