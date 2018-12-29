@@ -2,6 +2,15 @@
     var sdkList = {
         "iOS": [
             {
+                "time": "2018-12-29",
+                "size": "16.8M",
+                "version": "3.2.26",
+                "demo": "./xdsdk_docs/iOS/V3.2.26/XDSDK_Demo.zip",
+                "sdk": "./xdsdk_docs/iOS/V3.2.26/XDSDK-iOS-3.2.26-20181229.zip",
+                "doc": "./xdsdk_docs/iOS/V3.2.26/xd_doc_ios.html",
+                "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
+            },
+            {
                 "time": "2018-12-20",
                 "size": "16.1M",
                 "version": "3.2.25",
