@@ -644,6 +644,10 @@ method：POST
 数据格式：application/x-www-form-urlencoded
 
 ```
+<p style="color:red">
+请勿信任透传参数
+</p>
+
 字段如下。
 
 
