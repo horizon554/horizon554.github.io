@@ -99,7 +99,7 @@
 目录或文件 | 用途
 --- |---
 XdComPlatform.framework | 心动SDK的主要库文件，需要添加到项目依赖中 
-resource | 心动SDK需要或依赖的资源文件，需要保证所有文件都被添加到了Xcode的“Copy Bundle Resources”中
+resource | 心动SDK需要或依赖的资源文件，需要保证所有文件都被添加到了Xcode的“Copy Bundle Resources”中(确保勾选了Copy items if needed)
 libs | 心动SDK依赖的其它库文件，需要添加到项目依赖中
 
 <span id="42添加系统依赖库">
