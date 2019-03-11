@@ -10,7 +10,6 @@
                 "doc": "./xdsdk_docs/iOS/V3.2.27/xd_doc_ios.html",
                 "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
             },
-        "iOS": [
             {
                 "time": "2018-12-29",
                 "size": "16.8M",
