@@ -359,7 +359,7 @@
             {
                 "time": "2019-3-20",
                 "size": "30.4M",
-                "version": "1.2.8",
+                "version": "1.2.9",
                 "demo": "https://res.xdcdn.net/xdsdk/Unity/1.2.9.zip",
                 "sdk": "https://res.xdcdn.net/xdsdk/Unity/1.2.9.zip",
                 "doc": "./xdsdk_docs/Unity/V1.2.9/XDSDK-Unity3d.html",
