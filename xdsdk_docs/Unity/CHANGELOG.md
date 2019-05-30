@@ -2,6 +2,10 @@
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
 
+###Unity 1.2.10 - 2019-3-20（iOS-3.2.28&Android-3.2.14)
+- 更新TapDB及相关SDK
+- 更新xdlive
+
 ###Unity 1.2.9 - 2019-3-20（iOS-3.2.27&Android-3.2.13)
 - 更新iOS SDK
 - 增加流量控制

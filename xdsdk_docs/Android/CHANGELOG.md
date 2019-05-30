@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+## 3.2.14
+
+- 更新TapTap TapDB XDLive
+
 ## 3.2.13
 
 - 更新TapTap TapDB XDLive
