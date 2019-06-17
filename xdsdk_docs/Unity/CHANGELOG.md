@@ -2,6 +2,9 @@
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
 
+###Unity 1.2.11 - 2019-6-17（iOS-3.2.28&Android-3.2.14)
+- 修复XDLiveWrapper缺少的构建
+
 ###Unity 1.2.10 - 2019-5-30（iOS-3.2.28&Android-3.2.14)
 - 更新TapDB及相关SDK
 - 更新xdlive
