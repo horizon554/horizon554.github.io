@@ -2,10 +2,19 @@
     var sdkList = {
         "iOS": [
             {
+                "time": "2019-09-28",
+                "size": "16.8M",
+                "version": "3.2.29",
+                "demo": "https://res.xdcdn.net/xdsdk/iOS/3.2.29/XDSDK_Demo.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/iOS/3.2.29/XDSDK-iOS-3.2.29-20190828.zip",
+                "doc": "./xdsdk_docs/iOS/V3.2.29/xd_doc_ios.html",
+                "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
+            },
+            {
                 "time": "2019-05-30",
                 "size": "16.8M",
                 "version": "3.2.28",
-                "demo": "https://res.xdcdn.net/xdsdk/iOS/3.2.28/XDSDK-Demo.zip",
+                "demo": "https://res.xdcdn.net/xdsdk/iOS/3.2.28/XDSDK_Demo.zip",
                 "sdk": "https://res.xdcdn.net/xdsdk/iOS/3.2.28/XDSDK-iOS-3.2.28-20190530.zip",
                 "doc": "./xdsdk_docs/iOS/V3.2.28/xd_doc_ios.html",
                 "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
@@ -14,7 +23,7 @@
                 "time": "2019-03-11",
                 "size": "16.8M",
                 "version": "3.2.27",
-                "demo": "https://res.xdcdn.net/xdsdk/iOS/3.2.27/XDSDK-Demo.zip",
+                "demo": "https://res.xdcdn.net/xdsdk/iOS/3.2.27/XDSDK_Demo.zip",
                 "sdk": "https://res.xdcdn.net/xdsdk/iOS/3.2.27/XDSDK-iOS-3.2.27-20190311.zip",
                 "doc": "./xdsdk_docs/iOS/V3.2.27/xd_doc_ios.html",
                 "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
