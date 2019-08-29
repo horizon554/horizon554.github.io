@@ -1,6 +1,10 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 1.2.12 - 2019-8-29（iOS-3.2.29&Android-3.2.15)
+- 登录流程添加手机号强制绑定(后台配置)
+- 登录后可单独调起绑定手机界面，接口：openMobileVerifyView（）
+- 需要更新resource文件夹
 
 ###Unity 1.2.11 - 2019-6-17（iOS-3.2.28&Android-3.2.14)
 - 修复XDLiveWrapper缺少的构建
