@@ -1,6 +1,22 @@
 Change Log
 ==========
 
+## 3.2.15
+
+- 登录流程添加手机号强制绑定（后台配置）
+- 添加了直接打开绑定手机界面接口：openMobileVerifyView
+- XDLive添加了自定义url接口：openXDLive(Context context, String appId, String url)
+- XDLive添加对优酷视频源全屏的支持
+
+文件变更：
+
+```
+modified:   libs/SDKLib.jar
+modified:   libs/xdlive.jar
+new file:   res/layout/dialog_phone_number_verify.xml
+modified:   res/values/strings.xml
+```
+
 ## 3.2.14
 
 - 更新TapTap TapDB XDLive
