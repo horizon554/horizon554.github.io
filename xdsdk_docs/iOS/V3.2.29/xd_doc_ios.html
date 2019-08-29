@@ -371,6 +371,7 @@ kbd {
 <li><a href="#511%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB">5.11微信分享</a></li>
 <li><a href="#512%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81">5.12实名认证</a></li>
 <li><a href="#513%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88">5.13用户反馈</a></li>
+<li><a href="#514%E6%89%8B%E6%9C%BA%E8%AE%A4%E8%AF%81">5.14手机认证（绑定）</a></li>
 </ul></li>
 <li><p><a href="#6%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AF%B9%E6%8E%A5">6服务端对接</a></p>
 
@@ -693,6 +694,13 @@ return [XDCore HandleXDOpenURL:url];
 /*支付取消*/
 - (void)onPayCanceled{
 }
+
+/// 有未完成的订单回调，比如：礼包码.注意：多个未完成订单会回调多次。（只会在登录状态下回调）
+/// @param paymentInfo 订单信息。
+/// 包含：  transactionIdentifier ：订单标识 ，恢复购买时需要回传
+///        productIdentifier ：商品ID，
+///        quantity：商品数量
+- (void)restoredPayment:(nonnull NSDictionary *)paymentInfo;
 </code></pre></div>
 
 <p><span id="53初始化sdk"></p>
@@ -818,6 +826,19 @@ return [XDCore HandleXDOpenURL:url];
 
 <h4 id="toc_23">5.8.发起支付</h4>
 
+<p style='color:red'>
+为了收到支付回调，需要在应用启动后就设置好支付相关功能。
+</p>
+
+<div><pre><code class="language-none">- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
+{
+    ...
+    // 初始化支付
+    [XDCore setupXDStore];
+}</code></pre></div>
+
+<p><strong>5.8.1 正常支付</strong></p>
+
 <p>调用该接口发起支付。当前版本SDK仅支持AppStore支付。</p>
 
 <div><pre><code class="language-none">/**
@@ -876,7 +897,87 @@ return [XDCore HandleXDOpenURL:url];
 </tbody>
 </table>
 
-<p>调用该接口会触发下列回调。</p>
+<p><strong>5.8.2 恢复支付</strong>
+<p style = "color:red">
+注意: 如果有遗留未完成订单，在接收到恢复订单回调后，(若单个用户可能拥有多个账号，可以请求用户确认后）调用恢复订单接口。
+</p></p>
+
+<p>回调方法</p>
+
+<div><pre><code class="language-none">/// 有未完成的订单回调，比如：礼包码.注意：多个未完成订单会在一个数组中一起回调。（只会在登录状态下回调）
+/// @param paymentInfos 订单信息数组。
+/// 单个未完成订单信息包含：     transactionIdentifier ：订单标识 ，恢复购买时需要回传
+///                              productIdentifier ：商品ID，
+///                                        quantity：商品数量
+- (void)restoredPayment:(nonnull NSArray*)paymentInfos;
+</code></pre></div>
+
+<p>恢复订单接口</p>
+
+<div><pre><code class="language-none">/**
+* @param info 支付相关信息，注意key和value都是字符串类型
+*/
++ (void)restoreProduct:(nonull NSDictionary*)productInfo
+</code></pre></div>
+
+<p>其中productInfo的字段如下。</p>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必须</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>TransactionIdentifier</td>
+<td>是</td>
+<td>需要恢复的订单标识，SDK恢复订单回调中包含</td>
+</tr>
+<tr>
+<td>Product_Name</td>
+<td>是</td>
+<td>商品名称，建议以游戏名称开头，方便财务对账</td>
+</tr>
+<tr>
+<td>Product_Id</td>
+<td>是</td>
+<td>商品ID，到AppStore购买的商品</td>
+</tr>
+<tr>
+<td>Product_Price</td>
+<td>是</td>
+<td>商品价格（单位分），对于AppStore支付，该字段没有用处，但是需要传递真实金额，有多处需要用到</td>
+</tr>
+<tr>
+<td>Sid</td>
+<td>是</td>
+<td>所在服务器ID，不能有特殊字符，服务端支付回调会包含该字段</td>
+</tr>
+<tr>
+<td>Role_Id</td>
+<td>否</td>
+<td>支付角色ID，服务端支付回调会包含该字段</td>
+</tr>
+<tr>
+<td>OrderId</td>
+<td>否</td>
+<td>游戏侧订单号，服务端支付回调会包含该字段</td>
+</tr>
+<tr>
+<td>EXT</td>
+<td>否</td>
+<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@&quot;{\&quot;payCallbackCode\&quot;:1}&quot; forKey:@&quot;EXT&quot;];</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>5.8.3 支付结果</strong></p>
+
+<p>调用发起支付和恢复支付接口会触发下列回调。</p>
 
 <table>
 <thead>
@@ -1283,13 +1384,27 @@ obj.title = &quot;title&quot;;
 + (void)userFeedback;
 </code></pre></div>
 
+<p><span id="514手机认证"></p>
+
+<h4 id="toc_29">5.14.手机认证（绑定）</h4>
+
+<p>在用户登录成功状态下，调用该接口打开手机认证窗口。</p>
+
+<div><pre><code class="language-none">/**
+ 打开手机认证窗口
+ 
+ @return 是否打开成功
+ */
++ (BOOL)openMobileVerifyView;
+</code></pre></div>
+
 <p><span id="61服务端对接"></p>
 
-<h3 id="toc_29">6.服务端对接</h3>
+<h3 id="toc_30">6.服务端对接</h3>
 
 <p><span id="61获取用户信息"></p>
 
-<h4 id="toc_30">6.1.获取用户信息</h4>
+<h4 id="toc_31">6.1.获取用户信息</h4>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1345,7 +1460,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 
 <p><span id="62处理支付回调"></p>
 
-<h4 id="toc_31">6.2.处理支付回调</h4>
+<h4 id="toc_32">6.2.处理支付回调</h4>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>
