@@ -3,6 +3,7 @@
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
 ## 3.2.29 - 2019-08-28
 - 登录流程添加手机号强制绑定(后台配置)
+- 登录后可单独调起绑定手机界面，接口：openMobileVerifyView（）
 - 需要更新resource文件夹
 - XDLive添加自定义uri接口
 
