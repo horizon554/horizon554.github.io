@@ -2,7 +2,7 @@
     var sdkList = {
         "iOS": [
             {
-                "time": "2019-09-28",
+                "time": "2019-08-29",
                 "size": "16.8M",
                 "version": "3.2.29",
                 "demo": "https://res.xdcdn.net/xdsdk/iOS/3.2.29/XDSDK_Demo.zip",
