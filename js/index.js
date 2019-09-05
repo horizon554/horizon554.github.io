@@ -284,6 +284,15 @@
         }],
 
         "Android": [
+          {
+            "time": "2019-9-05",
+            "size": "5.2M",
+            "version": "3.2.16",
+            "demo": "https://res.xdcdn.net/xdsdk/Android/3.2.16/Demo.zip",
+            "sdk": "https://res.xdcdn.net/xdsdk/Android/3.2.16/XDSDK-Android-3.2.16.zip",
+            "doc": "./xdsdk_docs/Android/V3.2.16/xd_doc_android.html",
+            "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
+          },
             {
                 "time": "2019-8-29",
                 "size": "5.2M",
