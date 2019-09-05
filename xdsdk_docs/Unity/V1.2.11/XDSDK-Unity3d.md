@@ -121,6 +121,14 @@ public class XDSDKHandler : XDCallback {
     public override void OnRealNameFailed (string error_msg){
 
     }
+    
+/// 有未完成的订单回调，比如：礼包码.注意：多个未完成订单会在一个数组中一起回调。（只会在登录状态下回调）
+/// @param resultList 订单信息List。
+/// 单个未完成订单信息包含：     transactionIdentifier ：订单标识 ，恢复购买时需要回传
+///                              productIdentifier ：商品ID，
+///                                        quantity：商品数量
+public override void RestoredPayment(List<Dictionary<string,string>> resultList){
+    }
 
 }
 ```
@@ -273,8 +281,24 @@ XDSDK.OpenUserCenter()
 
 ### 1.9.发起支付
 
+<p style='color:red'>不保证在任何情况下都能收到回调，请勿直接使用SDK返回的支付结果作为最终判定订单状态的依据。
+为了收到支付回调，需要在应用启动后就设置好支付相关功能。
+</p>
+
+
+```
+- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
+{
+	...
+	// 初始化支付
+	[XDCore setupXDStore];
+}
+```
+
+
+**1.9.1 发起支付**
+
 调用该接口发起支付。
-<p style='color:red'>不保证在任何情况下都能收到回调，请勿直接使用SDK返回的支付结果作为最终判定订单状态的依据。</p>
 
 ```
 /**
@@ -294,7 +318,49 @@ Role_Id | 否 | 支付角色ID，服务端支付回调会包含该字段
 OrderId | 否 | 游戏侧订单号，服务端支付回调会包含该字段
 EXT | 否 |额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：info.Add("EXT", "{\"payCallbackCode\":2}");
 
-调用该接口会触发下列回调。
+**1.9.2 恢复支付**
+<p style = "color:red">
+注意: 如果有遗留未完成订单，在接收到恢复订单回调后，(若单个用户可能拥有多个账号，可以请求用户确认后）调用恢复订单接口。
+</p>
+
+回调方法
+
+```
+/// 有未完成的订单回调，比如：礼包码.注意：多个未完成订单会在一个数组中一起回调。（只会在登录状态下回调）
+/// @param resultList 订单信息List。
+/// 单个未完成订单信息包含：     transactionIdentifier ：订单标识 ，恢复购买时需要回传
+///                              productIdentifier ：商品ID，
+///                                        quantity：商品数量
+public override void RestoredPayment(List<Dictionary<string,string>> resultList){
+    }
+```
+
+
+恢复订单接口
+
+```
+/**
+* @param info 支付相关信息，注意key和value都是字符串类型
+*/
+public static bool RestorePay(Dictionary<string, string> info)
+
+```
+其中info的字段如下。
+
+参数 | 必须 |说明
+--- | --- |--- 
+TransactionIdentifier | 是 | 需要恢复的订单标识，SDK恢复订单回调中包含
+Product_Name | 是 |商品名称，建议以游戏名称开头，方便财务对账
+Product_Id | 是 | 商品ID，到AppStore购买的商品
+Product_Price | 是 | 商品价格（单位分），对于AppStore支付，该字段没有用处，但是需要传递真实金额，有多处需要用到
+Sid | 是 |所在服务器ID，不能有特殊字符，服务端支付回调会包含该字段
+Role_Id | 否 | 支付角色ID，服务端支付回调会包含该字段
+OrderId | 否 | 游戏侧订单号，服务端支付回调会包含该字段
+EXT | 否 | 额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@"{\\"payCallbackCode\\":1}" forKey:@"EXT"];
+
+**1.9.3 支付结果**
+
+调用发起支付和恢复支付接口会触发下列回调。
 
 类别 | 回调方法
 --- | ---
