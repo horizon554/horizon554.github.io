@@ -1,10 +1,29 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 1.2.13 - 2019-9-27（iOS-3.2.30&Android-3.2.17)
+1.iOS
+
+- 适配iOS13
+- 支付流程优化，具体使用见文档1.9节
+- 添加新回调，在有未完成订单时触发
+public abstract void RestoredPayment (List<Dictionary<string,string>> resultList)
+- 添加新接口，接收到未完成订单回调时可以调用，恢复订单
+public override void RestoredPayment(Dictionary<string, string> dictionary)
+- 客服接口UserFeedback优化，直接跳转到当前游戏客服页面
+
+2.安卓
+
+- 修复修改字体可能造成界面错位问题
+- 升级支付宝SDK
+- 客服接口UserFeedback优化
+
+
 ###Unity 1.2.12 - 2019-8-29（iOS-3.2.29&Android-3.2.15)
 - 登录流程添加手机号强制绑定(后台配置)
 - 登录后可单独调起绑定手机界面，接口：openMobileVerifyView（）
 - 需要更新resource文件夹
+
 
 ###Unity 1.2.11 - 2019-6-17（iOS-3.2.28&Android-3.2.14)
 - 修复XDLiveWrapper缺少的构建
