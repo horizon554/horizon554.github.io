@@ -1,6 +1,15 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 3.2.30 - 2019-09-27
+- 适配iOS13
+- 支付流程优化，减少掉单
+- 添加新回调，有未完成订单时回调。-(void)restoredPayment:(nonnull NSArray*)paymentInfos
+- 添加新接口，接收到未完成订单回调时可调用该接口恢复订单。+ (BOOL)restoreProduct:(nonnull NSDictionary *)prodectInfo
+- 新接口及回调具体使用见文档5.8节
+- 客服接口userFeedback优化，直接跳转到当前游戏客服页面。
+
+
 ## 3.2.29 - 2019-08-28
 - 登录流程添加手机号强制绑定(后台配置)
 - 登录后可单独调起绑定手机界面，接口：openMobileVerifyView（）
