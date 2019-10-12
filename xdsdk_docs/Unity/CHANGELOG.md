@@ -29,7 +29,7 @@ public override void RestoredPayment(Dictionary<string, string> dictionary)
 - 修复XDLiveWrapper缺少的构建
 
 ###Unity 1.2.10 - 2019-5-30（iOS-3.2.28&Android-3.2.14)
-- 更新TapDB及相关SDK
+- 更新TapDB及相关SDK（安卓需删除旧版libTyrantdbGameTracker）
 - 更新xdlive
 
 ###Unity 1.2.9 - 2019-3-20（iOS-3.2.27&Android-3.2.13)
