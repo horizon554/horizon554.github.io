@@ -332,18 +332,30 @@ kbd {
 
 <p>心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发</p>
 
-<h2 id="toc_1">3.2.30 - 2019-09-27</h2>
+<h2 id="toc_1">3.2.31 - 2019-10-17</h2>
+
+<ul>
+<li>更新心动LOGO.</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.resources文件夹</p>
+
+<p>2.XdComPlatform.framework</p>
+
+<h2 id="toc_2">3.2.30 - 2019-09-27</h2>
 
 <ul>
 <li>适配iOS13</li>
-<li>支付流程优化，减少掉单</li>
-<li>添加新回调，有未完成订单时回调。-(void)restoredPayment:(nonnull NSArray*)paymentInfos</li>
+<li>支付流程优化，减少掉单。需要在应用启动时（didFinishLaunch）初始化支付[XDCore setUpXDStore]。</li>
+<li>添加新回调，有未完成订单时回调。-(void)restoredPayment:(nonnull NSArray*)paymentInfos。</li>
 <li>添加新接口，接收到未完成订单回调时可调用该接口恢复订单。+ (BOOL)restoreProduct:(nonnull NSDictionary *)prodectInfo</li>
 <li>新接口及回调具体使用见文档5.8节</li>
 <li>客服接口userFeedback优化，直接跳转到当前游戏客服页面。</li>
 </ul>
 
-<h2 id="toc_2">3.2.29 - 2019-08-28</h2>
+<h2 id="toc_3">3.2.29 - 2019-08-28</h2>
 
 <ul>
 <li>登录流程添加手机号强制绑定(后台配置)</li>
@@ -352,19 +364,19 @@ kbd {
 <li>XDLive添加自定义uri接口</li>
 </ul>
 
-<h2 id="toc_3">3.2.28 - 2019-05-30</h2>
+<h2 id="toc_4">3.2.28 - 2019-05-30</h2>
 
 <ul>
 <li>更新XDLive</li>
 </ul>
 
-<h2 id="toc_4">3.2.27 - 2019-03-11</h2>
+<h2 id="toc_5">3.2.27 - 2019-03-11</h2>
 
 <ul>
 <li>修复了跳转微信登录需要输入账号密码时可能登录失败的bug。</li>
 </ul>
 
-<h2 id="toc_5">3.2.26 - 2019-01-18</h2>
+<h2 id="toc_6">3.2.26 - 2019-01-18</h2>
 
 <ul>
 <li>修复了游客升级时进行实名认证可能没有回调的bug。</li>
@@ -372,32 +384,32 @@ kbd {
 <li>添加XDLiveSDK。</li>
 </ul>
 
-<h2 id="toc_6">3.2.25 - 2018-12-20</h2>
+<h2 id="toc_7">3.2.25 - 2018-12-20</h2>
 
 <ul>
 <li>添加了直接打开游客绑定接口：openUserBindView。</li>
 <li>添加了游客绑定失败回调：onGuestBindFail。</li>
 </ul>
 
-<h2 id="toc_7">3.2.24 - 2018-11-29</h2>
+<h2 id="toc_8">3.2.24 - 2018-11-29</h2>
 
 <ul>
 <li>更新 TapTapSDK。</li>
 </ul>
 
-<h2 id="toc_8">3.2.23 - 2018-11-27</h2>
+<h2 id="toc_9">3.2.23 - 2018-11-27</h2>
 
 <ul>
 <li>修复低版本API(UIAlertView)在iOS12可能造成问题：退出登录后无法再弹出登录界面。</li>
 </ul>
 
-<h2 id="toc_9">3.2.22 - 2018-09-25</h2>
+<h2 id="toc_10">3.2.22 - 2018-09-25</h2>
 
 <ul>
 <li>修复3.2.16之前旧版本SDK使用taptap登录后升级新版本SDK后无法弹出登录页问题</li>
 </ul>
 
-<h2 id="toc_10">3.2.21 - 2018-08-03</h2>
+<h2 id="toc_11">3.2.21 - 2018-08-03</h2>
 
 <ul>
 <li>移除SDK初始化方法 [XDCore init:@&quot;xx&quot; orientation:0];<br>SDK 初始化请统一使用 [XDCore init:@&quot;xx&quot; orientation:0 channel:@&quot;&quot; version:@&quot;&quot; enableTapdb:YES];</li>
@@ -405,7 +417,7 @@ kbd {
 <li>优化内部逻辑，SDK 初始化时如果未设置或无法获取到 TapDB AppId，SDK 将自动关闭 TapDB 统计服务。</li>
 </ul>
 
-<h2 id="toc_11">3.2.20 - 2018-07-24</h2>
+<h2 id="toc_12">3.2.20 - 2018-07-24</h2>
 
 <ul>
 <li>更新taptapSDK</li>
@@ -413,7 +425,7 @@ kbd {
 <li>素材资源替换</li>
 </ul>
 
-<h2 id="toc_12">3.2.19 - 2018-07-17</h2>
+<h2 id="toc_13">3.2.19 - 2018-07-17</h2>
 
 <ul>
 <li>更新微信SDK版本1.8.2.需在工程配置中的‘Other Linker Flags’中加入‘-ObjC’</li>
@@ -422,13 +434,13 @@ kbd {
 <li>默认登录入口为：微信、taptap、游客、QQ（注：默认入口隐藏taptap则会添加心动登录入口）。可使用自定义接口覆盖默认登录入口。</li>
 </ul>
 
-<h2 id="toc_13">3.2.18 - 2018-07-04</h2>
+<h2 id="toc_14">3.2.18 - 2018-07-04</h2>
 
 <ul>
 <li>设备没有安装微信则隐藏微信登录入口</li>
 </ul>
 
-<h2 id="toc_14">3.2.17 - 2018-06-15</h2>
+<h2 id="toc_15">3.2.17 - 2018-06-15</h2>
 
 <ul>
 <li>更新TencentOpenAPI.framework,版本iOS-3.3.3</li>
@@ -437,7 +449,7 @@ kbd {
 <li>+ (void)setLoginEntries:(NSArray *)entries </li>
 </ul>
 
-<h2 id="toc_15">3.2.16 - 2018-05-11 b919917caeaf65b4c7cb3cec546bcc4998a72e34</h2>
+<h2 id="toc_16">3.2.16 - 2018-05-11 b919917caeaf65b4c7cb3cec546bcc4998a72e34</h2>
 
 <ul>
 <li>修复QQ Web无法登录问题</li>
@@ -445,7 +457,7 @@ kbd {
 <li>TapTapSDK更新，需要添加新依赖库webkit.framework</li>
 </ul>
 
-<h2 id="toc_16">3.2.15 - 2018-05-03</h2>
+<h2 id="toc_17">3.2.15 - 2018-05-03</h2>
 
 <ul>
 <li>IAP订单验证添加签名校验</li>
@@ -453,28 +465,28 @@ kbd {
 <li>SDK检查参数结果添加提示</li>
 </ul>
 
-<h2 id="toc_17">3.2.14 - 2018-04-20</h2>
+<h2 id="toc_18">3.2.14 - 2018-04-20</h2>
 
 <ul>
 <li>优化支付流程</li>
 <li>优化支付时对设备的验证</li>
 </ul>
 
-<h2 id="toc_18">3.2.13 - 2018-03-09</h2>
+<h2 id="toc_19">3.2.13 - 2018-03-09</h2>
 
 <ul>
 <li>更新SDK实名制流程，新增服务端配置参数，可对登陆、注册、支付实名制流程进行控制</li>
 </ul>
 
-<h2 id="toc_19">3.2.12 - 2018-02-23</h2>
+<h2 id="toc_20">3.2.12 - 2018-02-23</h2>
 
-<h3 id="toc_20">Changed</h3>
+<h3 id="toc_21">Changed</h3>
 
 <ul>
 <li>  支付API[XDCore pay:]更名为[XDCore requestProduct:],具体参数不变。</li>
 </ul>
 
-<h3 id="toc_21">Added</h3>
+<h3 id="toc_22">Added</h3>
 
 <ul>
 <li>[XDCore hideTapTap];3.2.12版本SDK默认登录方式为TapTap登录，老游戏需要调用该方法切换至心动账号登陆。</li>
@@ -483,43 +495,43 @@ kbd {
 <li>[XDCore userFeedback];客服中心功能，游戏可在平台进行客服页面配置，直接打开客服页面。</li>
 </ul>
 
-<h2 id="toc_22">3.2.11 - 2018-02-06</h2>
+<h2 id="toc_23">3.2.11 - 2018-02-06</h2>
 
 <ul>
 <li>删除代码以及注释中alipay相关字符</li>
 </ul>
 
-<h2 id="toc_23">3.2.10 - 2018-01-30</h2>
+<h2 id="toc_24">3.2.10 - 2018-01-30</h2>
 
 <ul>
 <li>修复游客升级实名制流程问题，新增客服页面配置功能</li>
 </ul>
 
-<h2 id="toc_24">3.2.9 - 2018-01-29</h2>
+<h2 id="toc_25">3.2.9 - 2018-01-29</h2>
 
 <ul>
 <li>修复iOS7设备兼容问题</li>
 </ul>
 
-<h2 id="toc_25">3.2.8 - 2018-01-29</h2>
+<h2 id="toc_26">3.2.8 - 2018-01-29</h2>
 
 <ul>
 <li>移除苹果审核私有API WebActionDisablingCALayerDelegate 方法</li>
 </ul>
 
-<h2 id="toc_26">3.2.7 - 2018-01-20</h2>
+<h2 id="toc_27">3.2.7 - 2018-01-20</h2>
 
 <ul>
 <li>修复心动账号手机二次验证问题</li>
 </ul>
 
-<h2 id="toc_27">3.2.6 - 2018-01-08</h2>
+<h2 id="toc_28">3.2.6 - 2018-01-08</h2>
 
 <ul>
 <li>修复心动账号登录页面密码输入框无法输入符号问题</li>
 </ul>
 
-<h2 id="toc_28">3.2.5 - 2017-12-27</h2>
+<h2 id="toc_29">3.2.5 - 2017-12-27</h2>
 
 <ul>
 <li>新增主动调用实名认证接口：openRealName</li>
@@ -527,7 +539,7 @@ kbd {
 <li>兼容iOS7以及低版Xcode编译，详情见SDK附件说明文档</li>
 </ul>
 
-<h2 id="toc_29">3.2.4 - 2017-12-19</h2>
+<h2 id="toc_30">3.2.4 - 2017-12-19</h2>
 
 <ul>
 <li>修复第三方输入法中文输入问题</li>
@@ -535,26 +547,26 @@ kbd {
 <li>优化游客进行web第三发登录的绑定流程</li>
 </ul>
 
-<h2 id="toc_30">3.2.3 - 2017-12-14</h2>
+<h2 id="toc_31">3.2.3 - 2017-12-14</h2>
 
 <ul>
 <li>统一游客登录流程未完成状态下，退出游客的回调函数</li>
 </ul>
 
-<h2 id="toc_31">3.2.2 - 2017-12-12</h2>
+<h2 id="toc_32">3.2.2 - 2017-12-12</h2>
 
 <ul>
 <li>修复游客支付实名认证，支付取消回调异常问题</li>
 </ul>
 
-<h2 id="toc_32">3.2.1 - 2017-11-27</h2>
+<h2 id="toc_33">3.2.1 - 2017-11-27</h2>
 
 <ul>
 <li>修复游客退出bug</li>
 <li>修复包验证参数缺失问题</li>
 </ul>
 
-<h2 id="toc_33">3.2.0 - 2017-10-18</h2>
+<h2 id="toc_34">3.2.0 - 2017-10-18</h2>
 
 <ul>
 <li>新增强制实名验证功能</li>
@@ -563,45 +575,45 @@ kbd {
 <li>编译时报“FileProvider  framework not found”错误，建议升级Xcode</li>
 </ul>
 
-<h2 id="toc_34">3.1.7 - 2017-09-27</h2>
+<h2 id="toc_35">3.1.7 - 2017-09-27</h2>
 
 <ul>
 <li>修改包检测参数名称，规避AppStore审核第三方支付问题</li>
 </ul>
 
-<h2 id="toc_35">3.1.6 - 2017-09-19</h2>
+<h2 id="toc_36">3.1.6 - 2017-09-19</h2>
 
 <ul>
 <li>修复游客登录回调流程问题</li>
 </ul>
 
-<h2 id="toc_36">3.1.5 - 2017-09-14</h2>
+<h2 id="toc_37">3.1.5 - 2017-09-14</h2>
 
 <ul>
 <li>修复1.x版本兼容问题</li>
 </ul>
 
-<h2 id="toc_37">3.1.4 - 2017-09-12</h2>
+<h2 id="toc_38">3.1.4 - 2017-09-12</h2>
 
 <ul>
 <li>修复游客账号丢失问题</li>
 </ul>
 
-<h2 id="toc_38">3.1.3 - 2017-08-29</h2>
+<h2 id="toc_39">3.1.3 - 2017-08-29</h2>
 
 <ul>
 <li>修复登录二次验证问题</li>
 <li>修复登出用户后注册显示用户错误问题</li>
 </ul>
 
-<h2 id="toc_39">3.1.2 - 2017-08-15</h2>
+<h2 id="toc_40">3.1.2 - 2017-08-15</h2>
 
 <ul>
 <li>修复短信注册bug</li>
 <li>新增微信分享功能</li>
 </ul>
 
-<h2 id="toc_40">3.1.1 - 2017-07-27</h2>
+<h2 id="toc_41">3.1.1 - 2017-07-27</h2>
 
 <ul>
 <li>修改3.0版本VeryCD登录页面UI排版，新增了资源文件 </li>
@@ -617,7 +629,7 @@ resource／start/xd_start_verycd.png</code></pre></div>
 <li>支持bitcode。</li>
 </ul>
 
-<h2 id="toc_41">3.0.1 - 2017-07-18</h2>
+<h2 id="toc_42">3.0.1 - 2017-07-18</h2>
 
 <ul>
 <li>修复了product_count、ext问题</li>
@@ -625,9 +637,9 @@ resource／start/xd_start_verycd.png</code></pre></div>
 <li>微信SDK需要修改build Settings =》 other linker flags =》 <em>all</em>load</li>
 </ul>
 
-<h2 id="toc_42">3.0.0 - 2017-07-06</h2>
+<h2 id="toc_43">3.0.0 - 2017-07-06</h2>
 
-<h3 id="toc_43">版本更新</h3>
+<h3 id="toc_44">版本更新</h3>
 
 <ul>
 <li>优化了API接口，所有接口替换为静态方法</li>
@@ -697,9 +709,9 @@ resource／start/xd_start_verycd.png</code></pre></div>
 - (void)onPayCanceled;
 </code></pre></div>
 
-<h2 id="toc_44"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.13</a> - 2017-06-15</h2>
+<h2 id="toc_45"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.13</a> - 2017-06-15</h2>
 
-<h3 id="toc_45">Fixed</h3>
+<h3 id="toc_46">Fixed</h3>
 
 <ul>
 <li>修复了在SDK初始化完成之后，删除微信App，SDK微信登录异常问题。</li>
@@ -707,9 +719,9 @@ resource／start/xd_start_verycd.png</code></pre></div>
 <li>资源文件有变动，请务必替换resource文件</li>
 </ul>
 
-<h2 id="toc_46"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.12</a> - 2017-05-25</h2>
+<h2 id="toc_47"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.12</a> - 2017-05-25</h2>
 
-<h3 id="toc_47">Fixed</h3>
+<h3 id="toc_48">Fixed</h3>
 
 <ul>
 <li>移除来了无用的方法：showToolBar、hideToolBar、pause</li>
@@ -717,9 +729,9 @@ resource／start/xd_start_verycd.png</code></pre></div>
 <li>修改了资源文件，请务必替换</li>
 </ul>
 
-<h2 id="toc_48"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.11</a> - 2017-05-24</h2>
+<h2 id="toc_49"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.11</a> - 2017-05-24</h2>
 
-<h3 id="toc_49">Fixed</h3>
+<h3 id="toc_50">Fixed</h3>
 
 <ul>
 <li>修改Pad版本UI显示问题</li>
@@ -727,24 +739,24 @@ resource／start/xd_start_verycd.png</code></pre></div>
 <li>恢复了登录回调中token参数</li>
 </ul>
 
-<h2 id="toc_50"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.10</a> - 2017-05-23</h2>
+<h2 id="toc_51"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.10</a> - 2017-05-23</h2>
 
-<h3 id="toc_51">Fixed</h3>
+<h3 id="toc_52">Fixed</h3>
 
 <ul>
 <li>移除了支付宝支付方式</li>
 <li>请移除AlipaySDK.framework</li>
 </ul>
 
-<h2 id="toc_52"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.9</a> - 2017-05-22</h2>
+<h2 id="toc_53"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.9</a> - 2017-05-22</h2>
 
-<h3 id="toc_53">Fixed</h3>
+<h3 id="toc_54">Fixed</h3>
 
 <ul>
 <li>修复游客登陆进行账号升级，中断升级流程后出现的逻辑错误</li>
 </ul>
 
-<h3 id="toc_54">Added</h3>
+<h3 id="toc_55">Added</h3>
 
 <ul>
 <li><p>修改了QQ登录的登录方式，默认为Web登录方式。开发者如需指定登录方式，可修改参数，TRUE为QQ平台登录，FALSE为QQ Web登录。</p>
@@ -754,16 +766,16 @@ resource／start/xd_start_verycd.png</code></pre></div>
 </code></pre></div></li>
 </ul>
 
-<h2 id="toc_55"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.8</a> - 2017-05-18</h2>
+<h2 id="toc_56"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.8</a> - 2017-05-18</h2>
 
-<h3 id="toc_56">Fixed</h3>
+<h3 id="toc_57">Fixed</h3>
 
 <ul>
 <li>修复隐藏游客按钮后心动登录按钮不居中问题</li>
 <li>修复了用户中心名称不显示的问题</li>
 </ul>
 
-<h3 id="toc_57">Changed</h3>
+<h3 id="toc_58">Changed</h3>
 
 <ul>
 <li>注册流程暂时去除了实名制的功能</li>
@@ -776,53 +788,53 @@ resource／start/xd_start_verycd.png</code></pre></div>
 - (void)hideVC:(BOOL)isHidden;</code></pre></div></li>
 </ul>
 
-<h2 id="toc_58"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.7</a> - 2017-05-12</h2>
+<h2 id="toc_59"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.7</a> - 2017-05-12</h2>
 
-<h3 id="toc_59">Fixed</h3>
+<h3 id="toc_60">Fixed</h3>
 
 <ul>
 <li>修复心动用户登录无法触发登录成功回调的问题</li>
 </ul>
 
-<h2 id="toc_60"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.6</a> - 2017-05-11</h2>
+<h2 id="toc_61"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.6</a> - 2017-05-11</h2>
 
-<h3 id="toc_61">Fixed</h3>
+<h3 id="toc_62">Fixed</h3>
 
 <ul>
 <li>修复游客登录无法触发登录成功回调的问题</li>
 </ul>
 
-<h2 id="toc_62"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.5</a> - 2017-05-08</h2>
+<h2 id="toc_63"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.5</a> - 2017-05-08</h2>
 
-<h3 id="toc_63">Fixed</h3>
+<h3 id="toc_64">Fixed</h3>
 
 <ul>
 <li>修复启示界面微信登录扫码缺失 <code>client_id</code> 的问题</li>
 </ul>
 
-<h2 id="toc_64"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.4</a> - 2017-05-05</h2>
+<h2 id="toc_65"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.4</a> - 2017-05-05</h2>
 
-<h3 id="toc_65">Added</h3>
+<h3 id="toc_66">Added</h3>
 
 <ul>
 <li>所有 webview 增加 cookie 字段 [did]</li>
 </ul>
 
-<h3 id="toc_66">Changed</h3>
+<h3 id="toc_67">Changed</h3>
 
 <ul>
 <li>修改绑定手机弹框为用户确认</li>
 </ul>
 
-<h3 id="toc_67">Fixed</h3>
+<h3 id="toc_68">Fixed</h3>
 
 <ul>
 <li>记录仅心动登录的情况下才提示绑定手机弹窗</li>
 </ul>
 
-<h2 id="toc_68"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.3</a> - 2017-05-04</h2>
+<h2 id="toc_69"><a href="https://hub-pt.xindong.com/platform/JS-IOS-SDK">1.3.3</a> - 2017-05-04</h2>
 
-<h3 id="toc_69">Added</h3>
+<h3 id="toc_70">Added</h3>
 
 <ul>
 <li>增加登录成功后提示绑定手机的流程</li>
@@ -831,7 +843,7 @@ resource／start/xd_start_verycd.png</code></pre></div>
 <li>增加手机二次验证的登录界面</li>
 </ul>
 
-<h3 id="toc_70">Changed</h3>
+<h3 id="toc_71">Changed</h3>
 
 <ul>
 <li>去除无用的旧项目依赖和示例工程</li>
@@ -841,7 +853,7 @@ resource／start/xd_start_verycd.png</code></pre></div>
 <li>使用 git-flow 标准开发流程</li>
 </ul>
 
-<h3 id="toc_71">Fixed</h3>
+<h3 id="toc_72">Fixed</h3>
 
 <ul>
 <li>修复部分界面的横屏差异显示问题</li>
