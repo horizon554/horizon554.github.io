@@ -1,5 +1,23 @@
 Change Log
 ==========
+## 3.2.18
+
+- 修改心动logo图片，调整对应显示布局
+- 支付宝jar包升级到最新版
+
+文件变更：
+
+```
+modified:   libs/SDKLib.jar
+modified:   libs/alipaySdk-15.6.5.jar
+modified:   res/layout/xdsdk_page_register.xml
+modified:   res/layout-land/login.xml
+modified:   res/layout-land/xdsdk_login.xml
+modified:   res/layout-port/login/xml
+modified:   res/layout-port/usercenter.xml
+modified:   res/layout-port/xdsdk_login.xml
+
+```
 
 ## 3.2.17
 
