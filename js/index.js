@@ -2,7 +2,7 @@
     var sdkList = {
         "iOS": [
             {
-                "time": "2019-10-18",
+                "time": "2019-10-17",
                 "size": "16.8M",
                 "version": "3.2.31",
                 "demo": "https://res.xdcdn.net/xdsdk/iOS/3.2.31/XDSDK_Demo.zip",
@@ -438,7 +438,7 @@
 
         "Unity3d": [
             {
-                "time": "2019-10-18",
+                "time": "2019-10-17",
                 "size": "28.0M",
                 "version": "1.2.14",
                 "demo": "https://res.xdcdn.net/xdsdk/Unity/1.2.14/1.2.14.zip",
