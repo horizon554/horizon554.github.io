@@ -2,6 +2,15 @@
     var sdkList = {
         "iOS": [
             {
+                "time": "2019-10-17",
+                "size": "16.8M",
+                "version": "3.2.31",
+                "demo": "https://res.xdcdn.net/xdsdk/iOS/3.2.31/XDSDK_Demo.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/iOS/3.2.31/XDSDK-iOS-3.2.31-20191017.zip",
+                "doc": "./xdsdk_docs/iOS/V3.2.31/xd_doc_ios.html",
+                "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
+            },
+            {
                 "time": "2019-09-30",
                 "size": "16.8M",
                 "version": "3.2.30",
@@ -428,6 +437,15 @@
         }, ],
 
         "Unity3d": [
+            {
+                "time": "2019-10-17",
+                "size": "28.0M",
+                "version": "1.2.14",
+                "demo": "https://res.xdcdn.net/xdsdk/Unity/1.2.14/Unity.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/Unity/1.2.14/1.2.14.zip",
+                "doc": "./xdsdk_docs/Unity/V1.2.14/XDSDK-Unity3d.html",
+                "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+            },
             {
                 "time": "2019-9-30",
                 "size": "28.0M",

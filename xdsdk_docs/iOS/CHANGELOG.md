@@ -1,10 +1,20 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 3.2.31 - 2019-10-17
+- 更新心动LOGO.
+
+文件变更：
+
+1.resources文件夹
+
+2.XdComPlatform.framework
+
+
 ## 3.2.30 - 2019-09-27
 - 适配iOS13
-- 支付流程优化，减少掉单
-- 添加新回调，有未完成订单时回调。-(void)restoredPayment:(nonnull NSArray*)paymentInfos
+- 支付流程优化，减少掉单。需要在应用启动时（didFinishLaunch）初始化支付[XDCore setUpXDStore]。
+- 添加新回调，有未完成订单时回调。-(void)restoredPayment:(nonnull NSArray*)paymentInfos。
 - 添加新接口，接收到未完成订单回调时可调用该接口恢复订单。+ (BOOL)restoreProduct:(nonnull NSDictionary *)prodectInfo
 - 新接口及回调具体使用见文档5.8节
 - 客服接口userFeedback优化，直接跳转到当前游戏客服页面。

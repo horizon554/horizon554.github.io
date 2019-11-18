@@ -1,13 +1,42 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 1.2.14 - 2019-10-17（iOS-3.2.31&Android-3.2.18)
+1.iOS
+
+- 更新心动LOGO.
+
+2.安卓
+
+- 更新心动LOGO.
+
+- 更新支付宝SDK
+
+文件变更：
+
+1.resources文件夹
+
+2.XdComPlatform.framework
+- 客服接口UserFeedback优化，直接跳转到当前游戏客服页面
+
+3.SDKLib.jar
+
+4.alipaySdk.jar
+
+5.SDKLibForUnity.jar
+
+6.res目录
+
+
+
+
 ###Unity 1.2.13 - 2019-9-27（iOS-3.2.30&Android-3.2.17)
 1.iOS
 
 - 适配iOS13
 - 支付流程优化，具体使用见文档1.9节
 - 添加新回调，在有未完成订单时触发
-public abstract void RestoredPayment (List<Dictionary<string,string>> resultList)
+public abstract void RestoredPayment (List<Dictionary<string,string>> resultList)，需要在应用启动后(didfinishLaunch中)调用[XDCore setUpXDStore].
 - 添加新接口，接收到未完成订单回调时可以调用，恢复订单
 public override void RestoredPayment(Dictionary<string, string> dictionary)
 - 客服接口UserFeedback优化，直接跳转到当前游戏客服页面
