@@ -16,6 +16,9 @@ modified:   res/layout-land/xdsdk_login.xml
 modified:   res/layout-port/login/xml
 modified:   res/layout-port/usercenter.xml
 modified:   res/layout-port/xdsdk_login.xml
+modified:   res/drawable-hdpi/xd_logo_landscape.png
+modified:   res/drawable-hdpi/xd_logo_portrait.png
+modified:   res/drawable-hdpi/xdsdk_logo_land.png
 
 ```
 
