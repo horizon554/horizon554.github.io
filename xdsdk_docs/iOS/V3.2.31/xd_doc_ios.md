@@ -30,10 +30,11 @@
 	* [5.13用户反馈](#513用户反馈)
 	* [5.14手机认证（绑定）](#514手机认证)
 
+* [6.广告SDK说明](#6广告部分说明)
 
-* [6服务端对接](#6服务端对接)
-	* [6.1获取用户信息](#61获取用户信息)
-	* [6.2处理支付回调](#62处理支付回调)
+* [7.服务端对接](#7服务端对接)
+	* [6.1获取用户信息](#71获取用户信息)
+	* [6.2处理支付回调](#72处理支付回调)
 
 <span id="1心动sdk介绍">
 
@@ -92,6 +93,8 @@
 ### 4.接入SDK
 
 <span id="41获取sdk">
+
+在编译选项‘Other Linker Flags’中加入‘-ObjC’。
 
 #### 4.1.获取SDK
 
@@ -308,12 +311,13 @@ return [XDCore HandleXDOpenURL:url];
 - (void)onPayCanceled{
 }
 
-/// 有未完成的订单回调，比如：礼包码.注意：多个未完成订单会回调多次。（只会在登录状态下回调）
-/// @param paymentInfo 订单信息。
-/// 包含：  transactionIdentifier ：订单标识 ，恢复购买时需要回传
-///        productIdentifier ：商品ID，
-///        quantity：商品数量
-- (void)restoredPayment:(nonnull NSDictionary *)paymentInfo;
+/* 有未完成的订单回调，比如：礼包码.注意：多个未完成订单会在一个数组中一起回调。（只会在登录状态下回调）
+   @param paymentInfos 订单信息数组。
+   单个未完成订单信息包含：   TransactionIdentifier ：订单标识 ，恢复购买时需要回传
+                           		 	 Product_Id ：商品ID，
+                               		    Quantity：商品数量
+ */
+- (void)restoredPayment:(nonnull NSArray*)paymentInfos;
 
 ```
 
@@ -453,19 +457,30 @@ Role_Id | 否 | 支付角色ID，服务端支付回调会包含该字段
 OrderId | 否 | 游戏侧订单号，服务端支付回调会包含该字段
 EXT | 否 | 额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@"{\\"payCallbackCode\\":1}" forKey:@"EXT"];
 
+<p style = "color:red">
+EXT 信息可能会被篡改，请勿信任该参数内容派发商品。
+</p>
+
+
 **5.8.2 恢复支付**
 <p style = "color:red">
 注意: 如果有遗留未完成订单，在接收到恢复订单回调后，(若单个用户可能拥有多个账号，可以请求用户确认后）调用恢复订单接口。
 </p>
+
+说明：
+
+在掉单的情况下，SDK只能获取订单的基本信息，如商品ID、苹果侧订单ID（非游戏生成order_id）和商品数量，不能直接对应到用户，所以无法直接兑换商品。
+
+游戏在收到掉单回调之后，可以弹窗请用户确认是否需要恢复商品，如需要，则用回调提供的已有参数，加上其他需要的参数，如角色ID，服务器ID等，使用恢复订单接口恢复该商品。
 
 回调方法
 
 ```
 /// 有未完成的订单回调，比如：礼包码.注意：多个未完成订单会在一个数组中一起回调。（只会在登录状态下回调）
 /// @param paymentInfos 订单信息数组。
-/// 单个未完成订单信息包含：     transactionIdentifier ：订单标识 ，恢复购买时需要回传
-///                              productIdentifier ：商品ID，
-///                                        quantity：商品数量
+/// 单个未完成订单信息包含：   TransactionIdentifier ：订单标识 ，恢复购买时需要回传
+///                            		  Product_Id ：商品ID，
+///                                		 Quantity：商品数量
 - (void)restoredPayment:(nonnull NSArray*)paymentInfos;
 
 ```
@@ -676,12 +691,26 @@ obj.title = "title";
 
 ```
 
-<span id="61服务端对接">
-### 6.服务端对接
 
-<span id="61获取用户信息">
+<span id="6广告部分说明">
+### 6.广告部分说明
+XDSDK内部集成了部分主要渠道广告SDK，包括今日头条巨量广告平台SDK（TTTracker.framework，版本2.0.6），和腾讯广点通SDK（GDTActionSDK.framework，版本1.4.9）。必要事件（如注册）会在SDK内部发送，充值事件由XDSDK服务端发送事件到相应平台。游戏不用做额外对接工作。
 
-#### 6.1.获取用户信息
+需要接入相应平台的SDK请联系XDSDK后端配置广告参数。游戏打包时加入对应的SDK即可。
+
+注意：
+
+1.广点通SDK在添加到Link Binary With Libraries之后，还必须添加到Embedded Contend中。
+
+2.build setting 中Other Link Flag 中添加-ObjC。
+	
+
+<span id="7服务端对接">
+### 7.服务端对接
+
+<span id="71获取用户信息">
+
+#### 7.1.获取用户信息
 游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。
 
 ```
@@ -712,9 +741,9 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，>0 都表示已实名认�
 判断防沉迷状态 | fcm（0：无需防沉迷，1：需要防沉迷）
 判断是否实名认证 | authoriz_state（0未实名，>0 都表示已实名认证）
 
-<span id="62处理支付回调">
+<span id="72处理支付回调">
 
-#### 6.2.处理支付回调
+#### 7.2.处理支付回调
 游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。
 

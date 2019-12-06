@@ -491,9 +491,9 @@ kbd {
     
 /// 有未完成的订单回调，比如：礼包码.注意：多个未完成订单会在一个数组中一起回调。（只会在登录状态下回调）
 /// @param resultList 订单信息List。
-/// 单个未完成订单信息包含：     transactionIdentifier ：订单标识 ，恢复购买时需要回传
-///                              productIdentifier ：商品ID，
-///                                        quantity：商品数量
+/// 单个未完成订单信息包含：     TransactionIdentifier ：订单标识 ，恢复购买时需要回传
+///                                      Product_Id ：商品ID，
+///                                        Quantity：商品数量
 public override void RestoredPayment(List&lt;Dictionary&lt;string,string&gt;&gt; resultList){
     }
 
@@ -741,13 +741,19 @@ public static bool Pay(Dictionary&lt;string, string&gt; info)</code></pre></div>
 注意: 如果有遗留未完成订单，在接收到恢复订单回调后，(若单个用户可能拥有多个账号，可以请求用户确认后）调用恢复订单接口。
 </p></p>
 
+<p>说明：</p>
+
+<p>在掉单的情况下，SDK只能获取订单的基本信息，如商品ID、苹果侧订单ID（非游戏生成order_id）和商品数量，不能直接对应到用户，所以无法直接兑换商品。</p>
+
+<p>游戏在收到掉单回调之后，可以弹窗请用户确认是否需要恢复商品，如需要，则用回调提供的已有参数，加上其他需要的参数，如角色ID，服务器ID等，使用恢复订单接口恢复该商品。</p>
+
 <p>回调方法</p>
 
 <div><pre><code class="language-none">/// 有未完成的订单回调，比如：礼包码.注意：多个未完成订单会在一个数组中一起回调。（只会在登录状态下回调）
 /// @param resultList 订单信息List。
-/// 单个未完成订单信息包含：     transactionIdentifier ：订单标识 ，恢复购买时需要回传
-///                              productIdentifier ：商品ID，
-///                                        quantity：商品数量
+/// 单个未完成订单信息包含：     TransactionIdentifier ：订单标识 ，恢复购买时需要回传 
+///                                    Product_Id ：商品ID，
+///                                        Quantity：商品数量
 public override void RestoredPayment(List&lt;Dictionary&lt;string,string&gt;&gt; resultList){
     }</code></pre></div>
 
@@ -1606,9 +1612,45 @@ libc++.tbd</code></pre></div>
 
 <h5 id="toc_30">完成以上配置即可进行编译打包。</h5>
 
-<h2 id="toc_31">4. 服务端对接</h2>
+<h2 id="toc_31">4. 广告部分说明</h2>
 
-<h3 id="toc_32">4.1 获取用户信息</h3>
+<p>XDSDK内部集成了部分主要渠道广告SDK，包括今日头条巨量广告平台SDK，和腾讯广点通SDK。必要事件（如注册）会在SDK内部发送，充值事件由XDSDK服务端发送事件到相应平台。游戏不用做额外对接工作。</p>
+
+<p>需要接入相应平台的SDK请联系XDSDK后端配置广告参数。</p>
+
+<h3 id="toc_32">4.1 iOS</h3>
+
+<p>今日头条：TTTracker.framework，版本2.0.6</p>
+
+<p>广点通：GDTActionSDK.framework，版本1.4.9</p>
+
+<p>游戏打包时加入对应的SDK即可。</p>
+
+<p>注意：</p>
+
+<p>1.广点通SDK在添加到Link Binary With Libraries之后，还必须添加到Embedded Contend中。</p>
+
+<p>2.build setting 中Other Link Flag 中添加-ObjC。</p>
+
+<h3 id="toc_33">4.2 Android</h3>
+
+<p>今日头条：版本2.0.6</p>
+
+<p>广点通：版本1.4.9</p>
+
+<p>需要使用广告包时，将XDAdAction.aar加入工程。</p>
+
+<p>若需要出多个渠道包，由市场联系XDSDK，提供所需文件。</p>
+
+<p>SDK提供接口，获取当前包的渠道名。（单接TapDB时可以使用改接口获取渠道）</p>
+
+<div><pre><code class="language-none">//获取当前包的渠道名（安卓）
+        public static string GetAdChannelName()
+</code></pre></div>
+
+<h2 id="toc_34">5. 服务端对接</h2>
+
+<h3 id="toc_35">5.1 获取用户信息</h3>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1662,7 +1704,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 </tbody>
 </table>
 
-<h3 id="toc_33">4.2.    处理支付回调</h3>
+<h3 id="toc_36">5.2.    处理支付回调</h3>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>
