@@ -460,6 +460,15 @@
             {
                 "time": "2019-12-10",
                 "size": "31.2M",
+                "version": "2.0.1",
+                "demo": "https://res.xdcdn.net/xdsdk/Unity/2.0.1/UnityDemo.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/Unity/2.0.1/2.0.1.zip",
+                "doc": "./xdsdk_docs/Unity/V2.0.1/XDSDK-Unity3d.html",
+                "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+            },
+            {
+                "time": "2019-12-10",
+                "size": "31.2M",
                 "version": "2.0.0",
                 "demo": "https://res.xdcdn.net/xdsdk/Unity/2.0.0/UnityDemo.zip",
                 "sdk": "https://res.xdcdn.net/xdsdk/Unity/2.0.0/2.0.0.zip",

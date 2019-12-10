@@ -1,6 +1,16 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+
+###Unity 2.0.1 - 2019-12-10（iOS-4.0.0&Android-4.0.0)
+1.添加安卓启动（OnResume）暂停(OnStop)接口
+
+文件变更：
+
+1.XDSDK.cs
+
+2.XDSDKImp.cs
+
 ###Unity 2.0.0 - 2019-12-10（iOS-4.0.0&Android-4.0.0)
 **1.iOS**
 
