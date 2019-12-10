@@ -30,6 +30,8 @@
 2)如果项目使用的集成XDSDK中的tapdb(libTapDB.jar),若项目中旧版
 tapdb(libTyrantdbGameTracker.jar)引起冲突，则删除libTyrantdbGameTracker.jar;
 
+3)如果接入 SDK 的 jar 包后，提示 LocalBroadcastManager 冲突，可以删除 libs 中的 localbroadcast.jar
+
 **重要！请确认游戏中的启(onresume)停(onstop)方法调用情况.对防沉迷时长统计有重要影响。**
 
 
