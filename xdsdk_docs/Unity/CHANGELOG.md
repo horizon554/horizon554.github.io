@@ -1,7 +1,7 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
-###Unity 2.0.0 - 2019-12-05（iOS-4.0.0&Android-4.0.0)
+###Unity 2.0.0 - 2019-12-10（iOS-4.0.0&Android-4.0.0)
 **1.iOS**
 
 - 添加防沉迷机制
