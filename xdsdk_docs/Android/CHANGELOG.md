@@ -7,6 +7,13 @@ Change Log
 - 添加多渠道包支持（依赖广告SDK）
 - 修复旧版本弱网络闪退问题
 
+注意：
+
+1）如果项目中单接了旧版tapdb(libTyrantdbGameTracker.jar),会与XDSDK中新版tapdb(libTapDB.jar)有文件冲突，删除libs中的libTapDB.jar即可;
+
+2)如果项目使用的集成XDSDK中的tapdb(libTapDB.jar),若项目中旧版
+tapdb(libTyrantdbGameTracker.jar)引起冲突，则删除libTyrantdbGameTracker.jar;
+
 文件变更：
 
 ```
