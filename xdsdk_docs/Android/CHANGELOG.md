@@ -1,5 +1,25 @@
 Change Log
 ==========
+## 4.0.1
+
+- 根据最新政策要求修改登录和实名流程
+- 删除单独调用绑定手机号接口
+- 添加多渠道包支持（依赖广告SDK）
+- 修复旧版本弱网络闪退问题
+
+文件变更：
+
+```
+modified:   libs/SDKLib.jar
+new file:   libs/localbroadcast.jar
+modified:   res/*
+
+```
+**注意：**
+
+1. 为保证游戏时间统计正确，请正确接入 XDSDK.onStop 和 XDSDK.onResume 方法
+2. 如果接入 SDK 的 jar 包后，提示 LocalBroadcastManager 冲突，可以删除 libs 中的 localbroadcast.jar 
+
 ## 3.2.18
 
 - 修改心动logo图片，调整对应显示布局
