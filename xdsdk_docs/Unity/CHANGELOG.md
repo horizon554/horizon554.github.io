@@ -1,6 +1,83 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 2.0.0 - 2019-12-05（iOS-4.0.0&Android-4.0.0)
+**1.iOS**
+
+- 添加防沉迷机制
+- 更新实名认证流程，实名与手机号绑定界面合并。
+- SDK内部集成新版TapDB\_iOS.framework。如原项目中有单接新版TapDB(2.1.0以上),可删除导入的TapDB\_iOS.framework避免造成冲突;
+
+文件变更：
+
+1.resources文件夹
+
+2.XdComPlatform.framework
+
+
+**2.安卓**
+
+- 添加防沉迷机制
+- 更新实名认证流程，实名与手机号绑定界面合并。
+- 修复旧版启动时可能崩溃的问题
+- 删除单独调用绑定手机号接口
+- 添加广告渠道包支持（如需要请联系XDSDK支持人员）
+
+注意：
+
+1）如果项目中单接了旧版tapdb(libTyrantdbGameTracker.jar),会与XDSDK中新版tapdb(libTapDB.jar)有文件冲突，删除libs中的libTapDB.jar即可;
+
+2)如果项目使用的集成XDSDK中的tapdb(libTapDB.jar),若项目中旧版
+tapdb(libTyrantdbGameTracker.jar)引起冲突，则删除libTyrantdbGameTracker.jar;
+
+**重要！请确认游戏中的启(onresume)停(onstop)方法调用情况.对防沉迷时长统计有重要影响。**
+
+
+文件变更：
+
+1.SDKLib.jar
+
+2.SDKLibForUnity.jar
+
+3.增加localbroadcast.jar
+
+4.res目录
+
+
+**3.unity文件变更：**
+
+1.XDSDK.cs
+
+2.XDSDKListener.cs
+
+3.XDSDKImp.cs
+
+4.libXDSDKiOSWrapper.a
+
+
+
+###Unity 1.2.15 - 2019-11-01（iOS-3.2.31&Android-3.2.19)
+1.iOS
+
+- 无更新
+
+2.安卓
+
+- 修复sdk内TapDB统计丢失username问题
+
+- 添加广告SDK，具体使用请看文档第4节。
+
+文件变更：
+
+1.SDKLib.jar
+
+2.SDKLibForUnity.jar
+
+3.XDSDK.cs
+
+4.XDSDKImp.cs
+
+
 ###Unity 1.2.14 - 2019-10-17（iOS-3.2.31&Android-3.2.18)
 1.iOS
 

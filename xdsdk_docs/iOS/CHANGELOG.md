@@ -1,6 +1,17 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 4.0.0 - 2019-12-10
+- 添加防沉迷机制
+- 更新实名认证流程，实名与手机号绑定界面合并。
+- SDK内部集成新版TapDB\_iOS.framework。如原项目中有单接新版TapDB(2.1.0以上),可删除导入的TapDB\_iOS.framework避免造成冲突;
+
+文件变更：
+
+1.resources文件夹
+
+2.XdComPlatform.framework
+
 ## 3.2.31 - 2019-10-17
 - 更新心动LOGO.
 
