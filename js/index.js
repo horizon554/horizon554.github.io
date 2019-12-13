@@ -313,6 +313,15 @@
         }],
 
         "Android": [
+            {
+                "time": "2019-12-13",
+                "size": "7.5M",
+                "version": "4.0.2",
+                "demo": "https://res.xdcdn.net/xdsdk/Android/4.0.2/Demo.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/Android/4.0.2/XDSDK-Android-4.0.2.zip",
+                "doc": "./xdsdk_docs/Android/V4.0.2/xd_doc_android.html",
+                "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
+           },
            {
                 "time": "2019-12-10",
                 "size": "7.5M",
