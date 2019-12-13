@@ -1,6 +1,36 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 2.0.2 - 2019-12-13（iOS-4.0.2&Android-4.0.2)
+**1.iOS**
+
+- 修复登录界面可能错位问题
+- 修复非主线程调用支付可能crash问题
+- 实名认证页面支持通过返回键返回上一步
+
+文件变更：
+
+1.resources文件夹
+
+2.XdComPlatform.framework
+
+**2.安卓**
+
+- 实名认证页面支持通过返回键返回上一步
+- 优化用户中心页面显示
+- 修改实名认证页面用户名称和手机号输入效果
+
+
+文件变更：
+
+1.SDKLib.jar
+
+2.taptap.jar
+
+3.res目录
+
+4.AndroidManifest.xml
+
 
 ###Unity 2.0.1 - 2019-12-10（iOS-4.0.1&Android-4.0.1)
 1.添加安卓启动（OnResume）暂停(OnStop)接口
