@@ -4,13 +4,14 @@ Change Log
 
 - 实名认证页面支持通过返回键返回上一步
 - 优化用户中心页面显示
-- 修改
+- 修改实名认证页面用户名称和手机号输入效果
 
 文件变更：
 
 ```
 modified:   libs/SDKLib.jar
 modified:   res/*
+modified:   libs/taptap.jar
 
 ```
 ## 4.0.1
