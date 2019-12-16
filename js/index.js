@@ -7,7 +7,7 @@
                 "size": "22.2M",
                 "version": "4.0.3",
                 "demo": "https://res.xdcdn.net/xdsdk/iOS/4.0.3/XDSDK_Demo.zip",
-                "sdk": "https://res.xdcdn.net/xdsdk/iOS/4.0.3/XDSDK-iOS-4.0.2-20191213.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/iOS/4.0.3/XDSDK-iOS-4.0.3-20191216.zip",
                 "doc": "./xdsdk_docs/iOS/V4.0.3/xd_doc_ios.html",
                 "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
             },
