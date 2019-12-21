@@ -1,6 +1,18 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 2.0.4 - 2019-12-21（iOS-4.0.4&Android-4.0.3)
+**1.iOS**
+
+- 修复防沉迷某些情形造成crash的bug。
+
+
+文件变更：
+
+1.resources文件夹
+
+2.XdComPlatform.framework
+
 ###Unity 2.0.3 - 2019-12-16（iOS-4.0.3&Android-4.0.3)
 **1.iOS**
 
