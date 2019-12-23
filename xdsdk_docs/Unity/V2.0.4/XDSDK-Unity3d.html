@@ -1325,7 +1325,20 @@ XDSDK.OnStop();</code></pre></div>
 5.如果需要自行接入TapDB，请在SDK初始化方法中enableTapDB参数填写false。
 </p> 
 
-<h2 id="toc_19">2.Android</h2>
+<h3 id="toc_19">1.18.TapTap论坛</h3>
+
+<p>打开论坛</p>
+
+<div><pre><code class="language-none">//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(可选cn、io)
+TapTapSDK.Config config = new TapTapSDK.Config();
+config.appid = &quot;&quot;;
+config.orientation = 1;
+config.uri = null;
+config.locale = new System.Globalization.CultureInfo(&quot;en-US&quot;);
+config.site = &quot;cn&quot;;
+TapTapSDK.Instance.OpenTapTapForum(config);</code></pre></div>
+
+<h2 id="toc_20">2.Android</h2>
 
 <p style = "color : red"> 
 如果游戏打包后无法在AndroidP的机型上使用</br>
@@ -1338,7 +1351,7 @@ XDSDK.OnStop();</code></pre></div>
 
 <div><pre><code class="language-none">&lt;uses-library android:name=&quot;org.apache.http.legacy&quot; android:required=&quot;false&quot;/&gt;</code></pre></div>
 
-<h3 id="toc_20">2.1.按需要修改AndroidManifest</h3>
+<h3 id="toc_21">2.1.按需要修改AndroidManifest</h3>
 
 <p> 可以根据需要,参照如下示例修改Plugins/Android/AndroidManifest.xml。
 </p>
@@ -1446,7 +1459,7 @@ XDSDK.OnStop();</code></pre></div>
     &lt;/application&gt;
 &lt;/manifest&gt;</code></pre></div>
 
-<h3 id="toc_21">2.2.生成APK</h3>
+<h3 id="toc_22">2.2.生成APK</h3>
 
 <p>在Unity中生成APK，或将工程导出至Android Studio进行打包。</p>
 
@@ -1454,7 +1467,7 @@ XDSDK.OnStop();</code></pre></div>
 
 <p><img src="img/2.png"></img></p>
 
-<h3 id="toc_22">2.3.接入微信分享</h3>
+<h3 id="toc_23">2.3.接入微信分享</h3>
 
 <p>心动SDK提供的分享功能已过期，即将停止维护，请尽量自行接入分享。</p>
 <p style="color:red">微信分享的微信AppID必须使用心动提供的微信AppID，否则会导致微信登录失败</p>
@@ -1477,11 +1490,11 @@ XDSDK.OnStop();</code></pre></div>
     android:screenOrientation=&quot;portrait&quot;/&gt;
     </code></pre></div>
 
-<h2 id="toc_23">3.iOS</h2>
+<h2 id="toc_24">3.iOS</h2>
 
 <p>用Unity导出Xcode工程并打开</p>
 
-<h3 id="toc_24">3.1. 导入SDK文件</h3>
+<h3 id="toc_25">3.1. 导入SDK文件</h3>
 
 <p>从心动平台处获取SDK资源文件，其中主要的文件或目录用途如下。</p>
 
@@ -1503,7 +1516,7 @@ XDSDK.OnStop();</code></pre></div>
 
 <p>将以上文件导入Xcode工程。</p>
 
-<h3 id="toc_25">3.2. 添加系统依赖库</h3>
+<h3 id="toc_26">3.2. 添加系统依赖库</h3>
 
 <div><pre><code class="language-none">libz.tbd
 libsqlite3.0.tbd
@@ -1520,7 +1533,7 @@ SystemConfiguration.framework
 libiconv.tbd
 libc++.tbd</code></pre></div>
 
-<h3 id="toc_26">3.3. 设置 URL Types</h3>
+<h3 id="toc_27">3.3. 设置 URL Types</h3>
 
 <p>需要在Xcode中设置多个URL Types，URL Types主要是需要设置URL Schemes，其它选项可任意填写。按照下面表格的内容填写，注意替换其中的各项AppID。</p>
 
@@ -1562,7 +1575,7 @@ libc++.tbd</code></pre></div>
 </tbody>
 </table>
 
-<h3 id="toc_27">3.4. 配置 info.plist</h3>
+<h3 id="toc_28">3.4. 配置 info.plist</h3>
 
 <p>修改项目的info.plist，在<dict>节点中添加下列内容。修改的内容主要为了保证QQ和微信登录能够正常运行。</p>
 
@@ -1590,7 +1603,7 @@ libc++.tbd</code></pre></div>
 &lt;/dict&gt;
 </code></pre></div>
 
-<h3 id="toc_28">3.5. 处理第三方应用跳回事件</h3>
+<h3 id="toc_29">3.5. 处理第三方应用跳回事件</h3>
 
 <p style="color:red">
 在UnityAppController.mm中增加如下两个方法，如果已经存在这些方法，在其中追加相应的处理代码即可。请务必添加下列代码，否则将影响第三方登录的授权回调。
@@ -1611,19 +1624,19 @@ libc++.tbd</code></pre></div>
     return [XDCore HandleXDOpenURL:url];
 }</code></pre></div>
 
-<h3 id="toc_29">3.6. Buid Settings</h3>
+<h3 id="toc_30">3.6. Buid Settings</h3>
 
 <p>Enable Bitcode = NO</p>
 
-<h5 id="toc_30">完成以上配置即可进行编译打包。</h5>
+<h5 id="toc_31">完成以上配置即可进行编译打包。</h5>
 
-<h2 id="toc_31">4. 广告部分说明</h2>
+<h2 id="toc_32">4. 广告部分说明</h2>
 
 <p>XDSDK内部集成了部分主要渠道广告SDK，包括今日头条巨量广告平台SDK，和腾讯广点通SDK。必要事件（如注册）会在SDK内部发送，充值事件由XDSDK服务端发送事件到相应平台。游戏不用做额外对接工作。</p>
 
 <p>需要接入相应平台的SDK请联系XDSDK后端配置广告参数。</p>
 
-<h3 id="toc_32">4.1 iOS</h3>
+<h3 id="toc_33">4.1 iOS</h3>
 
 <p>今日头条：TTTracker.framework，版本2.0.6</p>
 
@@ -1637,7 +1650,7 @@ libc++.tbd</code></pre></div>
 
 <p>2.build setting 中Other Link Flag 中添加-ObjC。</p>
 
-<h3 id="toc_33">4.2 Android</h3>
+<h3 id="toc_34">4.2 Android</h3>
 
 <p>今日头条：版本2.0.6</p>
 
@@ -1653,9 +1666,9 @@ libc++.tbd</code></pre></div>
         public static string GetAdChannelName()
 </code></pre></div>
 
-<h2 id="toc_34">5. 服务端对接</h2>
+<h2 id="toc_35">5. 服务端对接</h2>
 
-<h3 id="toc_35">5.1 获取用户信息</h3>
+<h3 id="toc_36">5.1 获取用户信息</h3>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1704,7 +1717,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 </tbody>
 </table>
 
-<h3 id="toc_36">5.2.    处理支付回调</h3>
+<h3 id="toc_37">5.2.    处理支付回调</h3>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>

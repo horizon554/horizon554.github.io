@@ -32,6 +32,7 @@
 	* [5.13实名认证](#513实名认证)
 	* [5.14游客绑定](#514游客绑定)
 	* [5.15客服](#515客服)
+	* [5.16TapTap论坛](#516TapTap论坛)
 * [6服务端对接](#6服务端对接)
 	* [6.1获取用户信息](#61获取用户信息)
 	* [6.2处理支付回调](#62处理支付回调)
@@ -749,6 +750,41 @@ public static void openUserBindView()
 
 ```
 public static void userFeedback() 
+```
+
+<span id="516TapTap论坛">
+
+#### 5.16.TapTap论坛
+1. 确认 /app/manifest/AndroidManifest.xml 文件。
+2. 将 uses-permission 元素添加到清单文件中：
+
+      ```<uses-permission android:name="android.permission.INTERNET"/>```
+      
+3. 添加 Activity元素到清单文件中: 
+ 
+		__请根据游戏屏幕方向设置activity__
+
+    ```xml
+    <activity android:name="com.taptap.sdk.TapTapActivity" 
+        android:exported="false"
+        android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        android:screenOrientation="sensorLandscape"//请保持和游戏屏幕方向相同
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    ```
+
+
+打开论坛
+
+```
+//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(io)
+TapTapSdk.Config config = new TapTapSdk.Config();
+config.appid = "";
+config.orientation = TapTapSdk.ORIENTATION_PORTRAIT;
+config.uri = null;
+config.locale = Locale.US;
+config.site = "cn"
+TapTapSdk.openTapTapForum(MainActivity.this, config);
 ```
 
 <span id="6服务端对接">

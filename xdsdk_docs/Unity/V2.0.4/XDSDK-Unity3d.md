@@ -655,6 +655,20 @@ XDSDK.OnStop();
 5.如果需要自行接入TapDB，请在SDK初始化方法中enableTapDB参数填写false。
 </p> 
 
+### 1.18.TapTap论坛
+打开论坛
+
+```
+//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(可选cn、io)
+TapTapSDK.Config config = new TapTapSDK.Config();
+config.appid = "";
+config.orientation = 1;
+config.uri = null;
+config.locale = new System.Globalization.CultureInfo("en-US");
+config.site = "cn";
+TapTapSDK.Instance.OpenTapTapForum(config);
+```
+
 
 ## 2.Android
 

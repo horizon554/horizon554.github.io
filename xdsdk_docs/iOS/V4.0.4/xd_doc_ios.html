@@ -372,6 +372,7 @@ kbd {
 <li><a href="#512%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81">5.12实名认证</a></li>
 <li><a href="#513%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88">5.13用户反馈</a></li>
 <li><a href="#514%E6%89%8B%E6%9C%BA%E8%AE%A4%E8%AF%81">5.14手机认证（绑定）</a></li>
+<li><a href="#515TapTap%E8%AE%BA%E5%9D%9B">5.15TapTap论坛</a></li>
 </ul></li>
 <li><p><a href="#6%E5%B9%BF%E5%91%8A%E9%83%A8%E5%88%86%E8%AF%B4%E6%98%8E">6.广告SDK说明</a></p></li>
 <li><p><a href="#7%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AF%B9%E6%8E%A5">7.服务端对接</a></p>
@@ -1412,9 +1413,36 @@ obj.title = &quot;title&quot;;
 + (BOOL)openMobileVerifyView;
 </code></pre></div>
 
+<p><span id="515TapTap论坛"></p>
+
+<h4 id="toc_30">5.15.TapTap论坛</h4>
+
+<p>配置info.plist</p>
+
+<div><pre><code class="language-none">&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;   
+&lt;string&gt;XXXX需要您的同意,才能访问相册&lt;/string&gt;
+&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;   
+&lt;string&gt;XXXX需要您的同意,才能访问相机&lt;/string&gt;
+&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+&lt;true/&gt;
+&lt;/dict&gt;</code></pre></div>
+
+<p>打开论坛</p>
+
+<div><pre><code class="language-none">//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(可选cn、io)
+TTSDKForumConfig *config = [[TTSDKForumConfig alloc] init];
+config.appid = @&quot;&quot;;
+config.orientation = TTITKOrientationPortrait;
+config.uri = nil;
+config.locale = [[NSLocale alloc] initWithLocaleIdentifier:@&quot;zh_CN&quot;];
+config.site = @&quot;cn&quot;;
+[TapTapSDK openTapTapForumWithConfig:config];</code></pre></div>
+
 <p><span id="6广告部分说明"></p>
 
-<h3 id="toc_30">6.广告部分说明</h3>
+<h3 id="toc_31">6.广告部分说明</h3>
 
 <p>XDSDK内部集成了部分主要渠道广告SDK，包括今日头条巨量广告平台SDK（TTTracker.framework，版本2.0.6），和腾讯广点通SDK（GDTActionSDK.framework，版本1.4.9）。必要事件（如注册）会在SDK内部发送，充值事件由XDSDK服务端发送事件到相应平台。游戏不用做额外对接工作。</p>
 
@@ -1428,11 +1456,11 @@ obj.title = &quot;title&quot;;
 
 <p><span id="7服务端对接"></p>
 
-<h3 id="toc_31">7.服务端对接</h3>
+<h3 id="toc_32">7.服务端对接</h3>
 
 <p><span id="71获取用户信息"></p>
 
-<h4 id="toc_32">7.1.获取用户信息</h4>
+<h4 id="toc_33">7.1.获取用户信息</h4>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1488,7 +1516,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 
 <p><span id="72处理支付回调"></p>
 
-<h4 id="toc_33">7.2.处理支付回调</h4>
+<h4 id="toc_34">7.2.处理支付回调</h4>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>

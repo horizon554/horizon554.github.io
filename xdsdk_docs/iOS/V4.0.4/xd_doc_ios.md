@@ -29,6 +29,7 @@
 	* [5.12实名认证](#512实名认证)
 	* [5.13用户反馈](#513用户反馈)
 	* [5.14手机认证（绑定）](#514手机认证)
+	* [5.15TapTap论坛](#515TapTap论坛)
 
 * [6.广告SDK说明](#6广告部分说明)
 
@@ -691,6 +692,34 @@ obj.title = "title";
 
 ```
 
+<span id="515TapTap论坛">
+#### 5.15.TapTap论坛
+配置info.plist
+
+```
+<key>NSPhotoLibraryUsageDescription</key>   
+<string>XXXX需要您的同意,才能访问相册</string>
+<key>NSCameraUsageDescription</key>   
+<string>XXXX需要您的同意,才能访问相机</string>
+<key>NSAppTransportSecurity</key>
+<dict>
+<key>NSAllowsArbitraryLoads</key>
+<true/>
+</dict>
+```
+
+打开论坛
+
+```
+//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(可选cn、io)
+TTSDKForumConfig *config = [[TTSDKForumConfig alloc] init];
+config.appid = @"";
+config.orientation = TTITKOrientationPortrait;
+config.uri = nil;
+config.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+config.site = @"cn";
+[TapTapSDK openTapTapForumWithConfig:config];
+```
 
 <span id="6广告部分说明">
 ### 6.广告部分说明

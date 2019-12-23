@@ -375,6 +375,7 @@ kbd {
 <li><a href="#513%E5%AE%9E%E5%90%8D%E8%AE%A4%E8%AF%81">5.13实名认证</a></li>
 <li><a href="#514%E6%B8%B8%E5%AE%A2%E7%BB%91%E5%AE%9A">5.14游客绑定</a></li>
 <li><a href="#515%E5%AE%A2%E6%9C%8D">5.15客服</a></li>
+<li><a href="#516TapTap%E8%AE%BA%E5%9D%9B">5.16TapTap论坛</a></li>
 </ul></li>
 <li><a href="#6%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AF%B9%E6%8E%A5">6服务端对接</a>
 
@@ -1263,13 +1264,48 @@ public static void openRealName()
 
 <div><pre><code class="language-none">public static void userFeedback() </code></pre></div>
 
+<p><span id="516TapTap论坛"></p>
+
+<h4 id="toc_33">5.16.TapTap论坛</h4>
+
+<ol>
+<li>确认 /app/manifest/AndroidManifest.xml 文件。</li>
+<li><p>将 uses-permission 元素添加到清单文件中：</p>
+
+<p><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</code></p></li>
+</ol>
+
+<ol>
+<li><p>添加 Activity元素到清单文件中: </p>
+
+<div><pre><code class="language-none">__请根据游戏屏幕方向设置activity__</code></pre></div>
+
+<div><pre><code class="language-markup">&lt;activity android:name=&quot;com.taptap.sdk.TapTapActivity&quot; 
+    android:exported=&quot;false&quot;
+    android:configChanges=&quot;keyboard|keyboardHidden|screenLayout|screenSize|orientation&quot;
+    android:screenOrientation=&quot;sensorLandscape&quot;//请保持和游戏屏幕方向相同
+    android:theme=&quot;@android:style/Theme.NoTitleBar&quot;&gt;
+&lt;/activity&gt;</code></pre></div></li>
+</ol>
+
+<p>打开论坛</p>
+
+<div><pre><code class="language-none">//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(io)
+TapTapSdk.Config config = new TapTapSdk.Config();
+config.appid = &quot;&quot;;
+config.orientation = TapTapSdk.ORIENTATION_PORTRAIT;
+config.uri = null;
+config.locale = Locale.US;
+config.site = &quot;cn&quot;
+TapTapSdk.openTapTapForum(MainActivity.this, config);</code></pre></div>
+
 <p><span id="6服务端对接"></p>
 
-<h3 id="toc_33">6.服务端对接</h3>
+<h3 id="toc_34">6.服务端对接</h3>
 
 <p><span id="61获取用户信息"></p>
 
-<h4 id="toc_34">6.1.获取用户信息</h4>
+<h4 id="toc_35">6.1.获取用户信息</h4>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1294,7 +1330,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 
 <p><span id="62处理支付回调"> </p>
 
-<h4 id="toc_35">6.2.处理支付回调</h4>
+<h4 id="toc_36">6.2.处理支付回调</h4>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>
@@ -1407,11 +1443,11 @@ return strcasecmp($sign, md5(http_build_query($tmp) . $appKey)) == 0;
 
 <p><span id="7多渠道打包"></p>
 
-<h3 id="toc_36">7.多渠道打包</h3>
+<h3 id="toc_37">7.多渠道打包</h3>
 
 <p><span id="71配置渠道文件"></p>
 
-<h4 id="toc_37">7.1 配置渠道文件</h4>
+<h4 id="toc_38">7.1 配置渠道文件</h4>
 
 <p>将需要打包的渠道信息配置在JSON文件中，每个渠道必须包含 “channel&quot; 和 ”channelName&quot; 信息，否则可能报错或不会发送对应的广告事件。内容样例如下：</p>
 
@@ -1426,13 +1462,13 @@ return strcasecmp($sign, md5(http_build_query($tmp) . $appKey)) == 0;
 
 <p><span id="72提交打包信息"></p>
 
-<h4 id="toc_38">7.2 提交打包信息</h4>
+<h4 id="toc_39">7.2 提交打包信息</h4>
 
 <p>将打包需要的文件在网页中进行设置，包括母包、文件的输出路径、android签名文件（keystore）、签名文件的别名、签名文件的storePass、配置文件等，然后进行打包。</p>
 
 <p><span id="73TapDBSDK单接处理"></p>
 
-<h4 id="toc_39">7.3 TapDB SDK单接处理</h4>
+<h4 id="toc_40">7.3 TapDB SDK单接处理</h4>
 
 <p>如果需要单独接入TapDB的SDK,可以通过XDSDK.getAdChannelName获取打完渠道包的渠道信息，用例如下：</p>
 
