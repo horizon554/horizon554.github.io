@@ -656,17 +656,61 @@ XDSDK.OnStop();
 </p> 
 
 ### 1.18.TapTap论坛
+导入
+
+namespace com.taptap.sdk
+
 打开论坛
 
 ```
-//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(可选cn、io)
-TapTapSDK.Config config = new TapTapSDK.Config();
-config.appid = "";
-config.orientation = 1;
-config.uri = null;
-config.locale = new System.Globalization.CultureInfo("en-US");
-config.site = "cn";
-TapTapSDK.Instance.OpenTapTapForum(config);
+appid 游戏论坛ID，与TapTap开发者ID不同
+public void OpenTapTapForum(string appid)
+
+```
+
+示例
+
+```
+TapTapSDK.Instance.OpenTapTapForum("123");
+```
+
+**其他部分**
+
+安卓:
+
+1. 确认 /app/manifest/AndroidManifest.xml 文件。
+2. 将 uses-permission 元素添加到清单文件中：
+
+      ```<uses-permission android:name="android.permission.INTERNET"/>```
+      
+3. 添加 Activity元素到清单文件中: 
+ 
+		__请根据游戏屏幕方向设置activity__
+
+    ```xml
+    <activity android:name="com.taptap.sdk.TapTapActivity" 
+        android:exported="false"
+        android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        android:screenOrientation="sensorLandscape"//请保持和游戏屏幕方向相同
+        android:theme="@android:style/Theme.NoTitleBar">
+    </activity>
+    ```
+
+
+iOS:
+
+配置info.plist
+
+```
+<key>NSPhotoLibraryUsageDescription</key>   
+<string>XXXX需要您的同意,才能访问相册</string>
+<key>NSCameraUsageDescription</key>   
+<string>XXXX需要您的同意,才能访问相机</string>
+<key>NSAppTransportSecurity</key>
+<dict>
+<key>NSAllowsArbitraryLoads</key>
+<true/>
+</dict>
 ```
 
 

@@ -708,17 +708,17 @@ obj.title = "title";
 </dict>
 ```
 
+引入头文件
+『#import \<TapTapSDK/TapTapSDK.h\>』
+
 打开论坛
 
 ```
-//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(可选cn、io)
-TTSDKForumConfig *config = [[TTSDKForumConfig alloc] init];
-config.appid = @"";
-config.orientation = TTITKOrientationPortrait;
-config.uri = nil;
-config.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
-config.site = @"cn";
-[TapTapSDK openTapTapForumWithConfig:config];
+//appid 游戏论坛ID，与TapTap开发者ID不同
+[TapTapSDK openTapTapForum:(NSString *)appid];
+
+// 指定帖子地址
+[TapTapSDK openTapTapForum:(NSString *)appid uri:(NSString *)u];
 ```
 
 <span id="6广告部分说明">

@@ -1327,16 +1327,57 @@ XDSDK.OnStop();</code></pre></div>
 
 <h3 id="toc_19">1.18.TapTap论坛</h3>
 
+<p>导入</p>
+
+<p>namespace com.taptap.sdk</p>
+
 <p>打开论坛</p>
 
-<div><pre><code class="language-none">//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(可选cn、io)
-TapTapSDK.Config config = new TapTapSDK.Config();
-config.appid = &quot;&quot;;
-config.orientation = 1;
-config.uri = null;
-config.locale = new System.Globalization.CultureInfo(&quot;en-US&quot;);
-config.site = &quot;cn&quot;;
-TapTapSDK.Instance.OpenTapTapForum(config);</code></pre></div>
+<div><pre><code class="language-none">appid 游戏论坛ID，与TapTap开发者ID不同
+public void OpenTapTapForum(string appid)
+</code></pre></div>
+
+<p>示例</p>
+
+<div><pre><code class="language-none">TapTapSDK.Instance.OpenTapTapForum(&quot;123&quot;);</code></pre></div>
+
+<p><strong>其他部分</strong></p>
+
+<p>安卓:</p>
+
+<ol>
+<li>确认 /app/manifest/AndroidManifest.xml 文件。</li>
+<li><p>将 uses-permission 元素添加到清单文件中：</p>
+
+<p><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</code></p></li>
+</ol>
+
+<ol>
+<li><p>添加 Activity元素到清单文件中: </p>
+
+<div><pre><code class="language-none">__请根据游戏屏幕方向设置activity__</code></pre></div>
+
+<div><pre><code class="language-markup">&lt;activity android:name=&quot;com.taptap.sdk.TapTapActivity&quot; 
+    android:exported=&quot;false&quot;
+    android:configChanges=&quot;keyboard|keyboardHidden|screenLayout|screenSize|orientation&quot;
+    android:screenOrientation=&quot;sensorLandscape&quot;//请保持和游戏屏幕方向相同
+    android:theme=&quot;@android:style/Theme.NoTitleBar&quot;&gt;
+&lt;/activity&gt;</code></pre></div></li>
+</ol>
+
+<p>iOS:</p>
+
+<p>配置info.plist</p>
+
+<div><pre><code class="language-none">&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;   
+&lt;string&gt;XXXX需要您的同意,才能访问相册&lt;/string&gt;
+&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;   
+&lt;string&gt;XXXX需要您的同意,才能访问相机&lt;/string&gt;
+&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+&lt;true/&gt;
+&lt;/dict&gt;</code></pre></div>
 
 <h2 id="toc_20">2.Android</h2>
 

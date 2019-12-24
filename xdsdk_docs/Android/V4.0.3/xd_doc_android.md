@@ -777,14 +777,16 @@ public static void userFeedback()
 打开论坛
 
 ```
-//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(io)
-TapTapSdk.Config config = new TapTapSdk.Config();
-config.appid = "";
-config.orientation = TapTapSdk.ORIENTATION_PORTRAIT;
-config.uri = null;
-config.locale = Locale.US;
-config.site = "cn"
-TapTapSdk.openTapTapForum(MainActivity.this, config);
+// appid 游戏论坛ID，与TapTap开发者ID不同
+public static void openTapTapForum(Activity activity, String app_id)
+
+```
+
+示例
+
+
+```
+TapTapSdk.openTapTapForum(MainActivity.this, "123");
 ```
 
 <span id="6服务端对接">

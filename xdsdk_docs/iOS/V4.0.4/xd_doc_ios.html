@@ -1429,16 +1429,16 @@ obj.title = &quot;title&quot;;
 &lt;true/&gt;
 &lt;/dict&gt;</code></pre></div>
 
+<p>引入头文件
+『#import &lt;TapTapSDK/TapTapSDK.h&gt;』</p>
+
 <p>打开论坛</p>
 
-<div><pre><code class="language-none">//orientation:屏幕方向 uri:目前可传nil locale:论坛语言 site:区分国内和海外版本(可选cn、io)
-TTSDKForumConfig *config = [[TTSDKForumConfig alloc] init];
-config.appid = @&quot;&quot;;
-config.orientation = TTITKOrientationPortrait;
-config.uri = nil;
-config.locale = [[NSLocale alloc] initWithLocaleIdentifier:@&quot;zh_CN&quot;];
-config.site = @&quot;cn&quot;;
-[TapTapSDK openTapTapForumWithConfig:config];</code></pre></div>
+<div><pre><code class="language-none">//appid 游戏论坛ID，与TapTap开发者ID不同
+[TapTapSDK openTapTapForum:(NSString *)appid];
+
+// 指定帖子地址
+[TapTapSDK openTapTapForum:(NSString *)appid uri:(NSString *)u];</code></pre></div>
 
 <p><span id="6广告部分说明"></p>
 
