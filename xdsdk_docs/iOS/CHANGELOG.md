@@ -1,6 +1,34 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 4.0.5 - 2019-12-27
+- 修复SDK内集成TapDB重复统计用户Bug，可能造成新增账号异常数据.
+- 修改TapTapSDK,去除可能和其他SDK可能的文件重复。去除UIWebview.
+- 修改直播组件XDLive,去除UIWebview.新增屏幕方向配置接口
+
+```
+/// 打开论坛
+/// @param appid appid
+/// @param uri 自定义url
+/// @param orientation 指定屏幕方向
++ (void)openXDLive:(NSString *)appid uri:(NSString *)uri orientation:(XDLiveOrientation)orientation;
+```
+
+文件变更：
+
+1.XdComPlatform.framework
+
+2.TapTapSDK.framework
+
+**移除：**
+
+若游戏单接旧版本TapDB(2.1.0以下)，需要继续保留。
+
+1.libTyrantdbGameTracker.a
+
+2.libTyrantdbGameTracker.h
+
+
 ## 4.0.4 - 2019-12-21
 - 修复防沉迷可能造成的crash的bug
 

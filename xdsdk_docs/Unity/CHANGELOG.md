@@ -1,6 +1,61 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 2.0.5 - 2019-12-27（iOS-4.0.5&Android-4.0.3)
+- 修改直播组件XDLive,增加指定屏幕方向打开直播接口
+
+```
+/// 打开论坛
+/// @param appid appid
+/// @param uri 自定义url
+/// @param orientation 指定屏幕方向
+public void OpenXDLive(string appid,string uri,int orientation);
+```
+
+文件变更：
+
+1.XDLive.cs
+
+
+**1.iOS**
+
+- 修复SDK内集成TapDB重复统计用户Bug，可能造成新增账号异常数据.
+- 修改TapTapSDK,去除可能和其他SDK可能的文件重复。去除UIWebview.
+- 修改直播组件XDLive,去除UIWebview.新增屏幕方向配置接口
+
+文件变更：
+
+1.XdComPlatform.framework
+
+2.TapTapSDK.framework
+
+3.XDLive.framework
+
+4.libXDLiveiOSWrapper.a
+
+**移除：**
+
+若游戏单接旧版本TapDB(2.1.0以下)，需要继续保留。
+
+1.libTyrantdbGameTracker.a
+
+2.libTyrantdbGameTracker.h
+
+
+**2.安卓**
+
+- TapDB增加OAID收集.
+- 直播组件XDLive增加屏幕方向接口。
+
+文件变更：
+
+1.xdlive.jar
+
+2.XDLiveForUnity.jar
+
+3.libTapDB.jar
+
+
 ###Unity 2.0.4 - 2019-12-21（iOS-4.0.4&Android-4.0.3)
 **1.iOS**
 
@@ -12,6 +67,7 @@
 1.resources文件夹
 
 2.XdComPlatform.framework
+
 
 ###Unity 2.0.3 - 2019-12-16（iOS-4.0.3&Android-4.0.3)
 **1.iOS**
