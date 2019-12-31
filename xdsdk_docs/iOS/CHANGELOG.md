@@ -20,6 +20,8 @@
 
 2.TapTapSDK.framework
 
+3.XDLive.framework
+
 **移除：**
 
 若游戏单接旧版本TapDB(2.1.0以下)，需要继续保留。
