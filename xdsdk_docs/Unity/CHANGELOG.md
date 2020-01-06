@@ -44,7 +44,7 @@ public void OpenXDLive(string appid,string uri,int orientation);
 
 **2.安卓**
 
-- TapDB增加OAID收集.
+- TapDB增加OAID收集.请阅读附加文档。
 - 直播组件XDLive增加屏幕方向接口。
 
 文件变更：
@@ -53,7 +53,7 @@ public void OpenXDLive(string appid,string uri,int orientation);
 
 2.XDLiveForUnity.jar
 
-3.libTapDB.jar
+3.libTapDB.jar（版本2.1.3）（请先确认项目中是否单接，和单接的版本,决定是否更新）
 
 
 ###Unity 2.0.4 - 2019-12-21（iOS-4.0.4&Android-4.0.3)
