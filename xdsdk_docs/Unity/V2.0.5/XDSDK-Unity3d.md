@@ -1142,6 +1142,7 @@ method：POST
 --- | --- | ---
 order_id | number | 心动平台的订单号，相同订单号表示是同一笔支付
 payment | string | 支付方式，appstore或其它（若回调无该字段，则默认为appstore）
+sub_payment | string | 子支付方式，Production、Sandbox或其他，为Sandbox表示苹果沙盒充值（值可能为空）
 user_id | string | 充值用户ID，注意类型是字符串
 client_id | string | 充值的心动AppID
 app | string | 同client_id
