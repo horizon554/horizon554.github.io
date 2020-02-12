@@ -21,7 +21,7 @@
 
 文件新增：
 
-1.miit\_mdid\_1.0.10.jar
+1.miit\_mdid\_1.0.10.aar
 
 2.supplierconfig.json
 
