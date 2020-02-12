@@ -1,6 +1,33 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+
+###Unity 2.0.6 - 2020-2-12（iOS-4.0.5&Android-4.0.4)
+
+**1.安卓**
+
+- 渠道包工具添加OAID搜集
+- TapDB代码优化，解决和旧版可能存在的冲突
+- TapDB增加OAID收集.默认在libs目录下添加了miit\_mdid\_1.0.10.jar,在assets目录下添加了supplierconfig.json。如项目中已有或之前已添加过造成冲突，可删除。
+- 广告渠道包工具添加OAID搜集，如需使用请先联系XDSDK相关人员和阅读文档。
+
+
+
+文件变更：
+
+1.SDKLib.jar
+
+2.libTapDB.jar (2.1.4)
+
+文件新增：
+
+1.miit\_mdid\_1.0.10.jar
+
+2.supplierconfig.json
+
+
+
+
 ###Unity 2.0.5 - 2019-12-27（iOS-4.0.5&Android-4.0.3)
 - 修改直播组件XDLive,增加指定屏幕方向打开直播接口
 

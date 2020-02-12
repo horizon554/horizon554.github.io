@@ -522,6 +522,15 @@
 
         "Unity3d": [
             {
+                "time": "2020-2-12",
+                "size": "31.2M",
+                "version": "2.0.6",
+                "demo": "https://res.xdcdn.net/xdsdk/Unity/2.0.6/UnityDemo.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/Unity/2.0.6/2.0.6.zip",
+                "doc": "./xdsdk_docs/Unity/V2.0.6/XDSDK-Unity3d.html",
+                "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+            },
+            {
                 "time": "2019-12-27",
                 "size": "31.2M",
                 "version": "2.0.5",
