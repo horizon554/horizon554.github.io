@@ -6,7 +6,6 @@
 
 **1.安卓**
 
-- 渠道包工具添加OAID搜集
 - TapDB代码优化，解决和旧版可能存在的冲突
 - TapDB增加OAID收集.默认在libs目录下添加了miit\_mdid\_1.0.10.jar,在assets目录下添加了supplierconfig.json。如项目中已有或之前已添加过造成冲突，可删除。
 - 广告渠道包工具添加OAID搜集，如需使用请先联系XDSDK相关人员和阅读文档。
