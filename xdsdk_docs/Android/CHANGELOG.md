@@ -1,5 +1,23 @@
 Change Log
 ==========
+## 4.0.4
+
+- 更新 TapDB 依赖库,添加OAID支持
+- 添加渠道包依赖库
+- 更新直播依赖库，支持设置屏幕方向
+- 添加权限声明（仅针对渠道依赖），具体查看说明文档
+
+文件变更：
+
+```
+modified:   libs/SDKLib.jar
+modified:   libs/libTapDB.jar
+modified:   libs/xdlive.jar
+new:   libs/miit_mdid_1.0.10.aar
+new: 	 渠道包附加
+new:	 assets/supplierconfig.json
+```
+
 ## 4.0.3
 
 - 修复支付宝支付跳转到心动登录页而不是扫码页问题
