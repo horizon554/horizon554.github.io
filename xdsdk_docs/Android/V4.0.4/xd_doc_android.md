@@ -769,9 +769,16 @@ method：GET
 成功判断：返回的HTTP Code为200时表示成功，否则失败
 返回数据格式：application/json
 返回值示例：
-{"id":"1""name":"xdname","friendly_name":"xdfriendly_name","client_id":"abc","phone":"1","safety":false,"site":"1"}
-id：用户的ID
-- 注意类型是字符串
+{"id":"1",
+"id_card":"1111",
+"name":"xdname",
+"friendly_name":"xdfriendly_name",
+"client_id":"abc",
+"phone":"1",
+"safety":false,
+"site":"1"}
+id：用户的ID，注意类型是字符串
+id_card：加密的身份证号，可能为空
 name：用户的账号名称
 friendly_name：用户的昵称，如果游戏想要展现用户名称，建议使用该字段
 client_id：该用户在该游戏登录时使用的心动AppID
