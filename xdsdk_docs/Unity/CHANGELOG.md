@@ -1,6 +1,52 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 2.1.0 - 2020-3-10（iOS-4.1.0&Android-4.1.0)
+
+文件变更：
+
+1.XDSDK.cs
+
+
+**1.iOS**
+
+- SDK新增苹果登录，需要配置工程和更换证书。请仔细阅读iOS部分文档，搜索关键字版本号：2.1.0
+- 去除UIWebview.
+- 更新微信SDK1.8.6.2;更新QQ SDK 3.3.7
+- **新增接口handleOpenUniversalLink**，需要在AppDelegate/UnityAppController中调用。请阅读文档
+- info.plist中LSApplicationQueriesSchemes添加一项『weixinULAPI』
+- **在xcode工程中需要添加两项capability**：Associated Domains \ Sign in with apple.
+
+
+文件变更：
+
+1.XdComPlatform.framework
+
+2.TencentOpenAPI.framework
+
+3.libWeChatSDK.a / WechatAuthSDK.h / WXApi.h / WXApiObject.h
+
+4.resource文件夹
+
+
+**2.安卓**
+
+- 更新 TapDB 依赖库
+- 更新 XDSDK 网络库
+- XDSDK 添加苹果登录支持
+
+文件变更：
+
+1.SDKLib.jar
+
+2.libTapDB.jar
+
+3.msa_mdid_1.0.13.aar
+
+移除：
+
+1.miit_mdid_1.0.10.aar
+
 
 ###Unity 2.0.6 - 2020-2-12（iOS-4.0.5&Android-4.0.4)
 
@@ -18,11 +64,12 @@
 
 2.libTapDB.jar (2.1.4)
 
-文件新增：
+**文件新增：**
 
-1.miit\_mdid\_1.0.10.aar
+1.miit\_mdid\_1.0.10.aar  （**放⼊项⽬ libs⽬录下(例例如:app/
+libs )**）
 
-2.supplierconfig.json
+2.supplierconfig.json	（**确保放⼊项目assets ⽂件夹内，配置文件内容⽆需修改**）
 
 
 

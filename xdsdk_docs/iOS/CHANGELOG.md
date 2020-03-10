@@ -1,6 +1,28 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+
+## 4.1.0 - 2020-3-10
+- SDK新增苹果登录，需要配置工程和更换证书。请仔细阅读iOS部分文档，搜索关键字版本号：4.1.0
+- 去除UIWebview.
+- 更新微信SDK1.8.6.2;更新QQ SDK 3.3.7
+- **新增接口handleOpenUniversalLink**，需要在AppDelegate中调用。请阅读文档
+- info.plist中LSApplicationQueriesSchemes添加一项『weixinULAPI』
+- **在xcode工程中需要添加两项capability**：Associated Domains \ Sign in with apple.
+
+
+文件变更：
+
+1.XdComPlatform.framework
+
+2.TencentOpenAPI.framework
+
+3.libWeChatSDK.a
+
+4.resource文件夹
+
+
+
 ## 4.0.5 - 2019-12-27
 - 修复SDK内集成TapDB重复统计用户Bug，可能造成新增账号异常数据.
 - 修改TapTapSDK,去除可能和其他SDK可能的文件重复。去除UIWebview.
