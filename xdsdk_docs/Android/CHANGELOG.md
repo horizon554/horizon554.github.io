@@ -1,5 +1,23 @@
 Change Log
 ==========
+## 4.1.0
+
+- 更新 TapDB 依赖库
+- 更新 XDSDK 网络库
+- XDSDK 添加苹果登录支持
+
+
+文件变更：
+
+```
+modified:   libs/SDKLib.jar
+modified:   libs/libTapDB.jar
+modified:	  res
+delete:   libs/miit_mdid_1.0.10.aar
+new: 	 libs/msa_mdid_1.0.13.aar
+
+```
+
 ## 4.0.4
 
 - 更新 TapDB 依赖库,添加OAID支持
