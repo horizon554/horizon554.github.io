@@ -1,6 +1,23 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+
+###Unity 2.1.1 - 2020-3-11（iOS-4.1.0&Android-4.1.1)
+文件变更：
+
+1.XDSDK.cs
+
+**安卓**
+
+- 登录界面UI调整
+- 登录入口最多显示5个
+
+文件变更：
+
+1.SDKLib.jar
+
+2.res目录
+
 ###Unity 2.1.0 - 2020-3-10（iOS-4.1.0&Android-4.1.0)
 
 文件变更：
@@ -42,6 +59,8 @@
 2.libTapDB.jar
 
 3.msa_mdid_1.0.13.aar
+
+4.res目录
 
 移除：
 
