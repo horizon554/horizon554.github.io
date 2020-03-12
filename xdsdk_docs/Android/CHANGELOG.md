@@ -1,5 +1,17 @@
 Change Log
 ==========
+## 4.1.1
+
+- 更新 XDSDK 登录方式
+
+文件变更：
+
+```
+modified:   libs/SDKLib.jar
+modified:	  res
+
+```
+
 ## 4.1.0
 
 - 更新 TapDB 依赖库
