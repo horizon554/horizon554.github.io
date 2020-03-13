@@ -41,7 +41,7 @@
 
 2.TencentOpenAPI.framework
 
-3.libWeChatSDK.a / WechatAuthSDK.h / WXApi.h / WXApiObject.h
+3.libWeChatSDK.a
 
 4.resource文件夹
 
