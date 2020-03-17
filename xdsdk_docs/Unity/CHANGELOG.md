@@ -6,6 +6,8 @@
 
 1.XDSDK.cs
 
+2.XDSDKImp.cs
+
 **安卓**
 
 - 修复XD登录页点击苹果登录无效bug
