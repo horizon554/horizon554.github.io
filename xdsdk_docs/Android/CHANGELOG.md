@@ -1,5 +1,19 @@
 Change Log
 ==========
+## 4.1.2
+
+- 修复XD登录页点击苹果登录无效bug
+- 修复XD注册完成后跳转错误问题
+- 修复微信扫码登录时二维码未居中问题
+
+文件变更：
+
+```
+modified:   libs/SDKLib.jar
+modified:	  res
+
+```
+
 ## 4.1.1
 
 - 更新 XDSDK 登录方式
