@@ -560,7 +560,7 @@
         "Unity3d": [
             {
                 "time": "2020-3-17",
-                "size": "31.2M",
+                "size": "28.9M",
                 "version": "2.1.2",
                 "demo": "https://res.xdcdn.net/xdsdk/Unity/2.1.2/UnityDemo.zip",
                 "sdk": "https://res.xdcdn.net/xdsdk/Unity/2.1.2/2.1.2.zip",
