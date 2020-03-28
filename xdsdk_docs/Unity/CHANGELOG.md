@@ -2,6 +2,9 @@
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
 ###Unity 2.1.2 - 2020-3-17（iOS-4.1.0&Android-4.1.2)
+- 移除废弃接口openMobileVerifyView
+
+
 文件变更：
 
 1.XDSDK.cs
@@ -52,6 +55,7 @@
 - **新增接口handleOpenUniversalLink**，需要在AppDelegate/UnityAppController中调用。请阅读文档
 - info.plist中LSApplicationQueriesSchemes添加一项『weixinULAPI』
 - **在xcode工程中需要添加两项capability**：Associated Domains \ Sign in with apple.
+- 需在Link binary With Libraries中添加AuthenticationServices.framework
 
 
 文件变更：

@@ -126,6 +126,8 @@ libsqlite3.0.tbd
 libc++.tbd
 libz.tbd
 libicucore.tbd
+// 4.1.0
+AuthenticationServices.framework
 ```
 <span id="43设置url-types">
 

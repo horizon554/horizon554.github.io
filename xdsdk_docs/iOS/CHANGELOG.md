@@ -9,6 +9,7 @@
 - **新增接口handleOpenUniversalLink**，需要在AppDelegate中调用。请阅读文档
 - info.plist中LSApplicationQueriesSchemes添加一项『weixinULAPI』
 - **在xcode工程中需要添加两项capability**：Associated Domains \ Sign in with apple.
+- 需在Link binary With Libraries中添加AuthenticationServices.framework
 
 
 文件变更：

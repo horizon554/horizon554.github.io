@@ -989,6 +989,8 @@ CoreTelephony.framework
 SystemConfiguration.framework
 libiconv.tbd
 libc++.tbd
+// 2.1.0
+AuthenticationServices.framework
 ```
 
 ### 3.3. 设置 URL Types

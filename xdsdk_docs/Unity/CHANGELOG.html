@@ -334,6 +334,10 @@ kbd {
 
 <h3 id="toc_1">Unity 2.1.2 - 2020-3-17（iOS-4.1.0&amp;Android-4.1.2)</h3>
 
+<ul>
+<li>移除废弃接口openMobileVerifyView</li>
+</ul>
+
 <p>文件变更：</p>
 
 <p>1.XDSDK.cs</p>
@@ -388,6 +392,7 @@ kbd {
 <li><strong>新增接口handleOpenUniversalLink</strong>，需要在AppDelegate/UnityAppController中调用。请阅读文档</li>
 <li>info.plist中LSApplicationQueriesSchemes添加一项『weixinULAPI』</li>
 <li><strong>在xcode工程中需要添加两项capability</strong>：Associated Domains \ Sign in with apple.</li>
+<li>需在Link binary With Libraries中添加AuthenticationServices.framework</li>
 </ul>
 
 <p>文件变更：</p>
