@@ -1,6 +1,23 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 2.1.3 - 2020-3-31（iOS-4.1.1&Android-4.1.2)
+
+文件变更：
+
+1.XDSDK.cs
+
+
+**iOS**
+
+- 修复游客升级可能缺少最后一个登录方式的Bug
+
+
+文件变更：
+
+1.XdComPlatform.framework
+
+
 ###Unity 2.1.2 - 2020-3-17（iOS-4.1.0&Android-4.1.2)
 - 移除废弃接口openMobileVerifyView
 
