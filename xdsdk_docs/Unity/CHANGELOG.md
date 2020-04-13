@@ -1,6 +1,23 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 2.1.4 - 2020-4-13（iOS-4.1.2&Android-4.1.2)
+
+文件变更：
+
+1.XDSDK.cs
+
+
+**iOS**
+
+- 修复iOS9以下非游客登录打开用户中心可能崩溃bug
+- 其他优化
+
+
+文件变更：
+
+1.XdComPlatform.framework
+
 ###Unity 2.1.3 - 2020-3-31（iOS-4.1.1&Android-4.1.2)
 
 文件变更：

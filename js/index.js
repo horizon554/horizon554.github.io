@@ -3,6 +3,15 @@
 
         "iOS": [
             {
+                "time": "2020-4-13",
+                "size": "22.2M",
+                "version": "4.1.2",
+                "demo": "https://res.xdcdn.net/xdsdk/iOS/4.1.2/XDSDK_Demo.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/iOS/4.1.2/XDSDK-iOS-4.1.2-2020413.zip",
+                "doc": "./xdsdk_docs/iOS/V4.1.2/xd_doc_ios.html",
+                "changeLog": "./xdsdk_docs/iOS/CHANGELOG.html"
+            },
+            {
                 "time": "2020-3-31",
                 "size": "22.2M",
                 "version": "4.1.1",
@@ -567,6 +576,15 @@
         }, ],
 
         "Unity3d": [
+            {
+                "time": "2020-4-13",
+                "size": "28.9M",
+                "version": "2.1.4",
+                "demo": "https://res.xdcdn.net/xdsdk/Unity/2.1.4/UnityDemo.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/Unity/2.1.4/2.1.4.zip",
+                "doc": "./xdsdk_docs/Unity/V2.1.4/XDSDK-Unity3d.html",
+                "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+            },
             {
                 "time": "2020-3-31",
                 "size": "28.9M",
