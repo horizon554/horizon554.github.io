@@ -378,6 +378,15 @@
 
         "Android": [
             {
+                "time": "2020-04-14",
+                "size": "8.0M",
+                "version": "4.1.3",
+                "demo": "https://res.xdcdn.net/xdsdk/Android/4.1.3/Demo.zip",
+                "sdk": "https://res.xdcdn.net/xdsdk/Android/4.1.3/XDSDK-Android-4.1.3.zip",
+                "doc": "./xdsdk_docs/Android/V4.1.3/xd_doc_android.html",
+                "changeLog": "./xdsdk_docs/Android/CHANGELOG.html"
+            },
+            {
                 "time": "2020-03-17",
                 "size": "8.0M",
                 "version": "4.1.2",
