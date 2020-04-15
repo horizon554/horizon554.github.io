@@ -1,6 +1,22 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 2.1.5 - 2020-4-15（iOS-4.1.2&Android-4.1.3)
+
+文件变更：
+
+1.XDSDK.cs
+
+
+**Android**
+
+- 添加支付宝沙盒测试支持
+
+
+文件变更：
+
+1.SDKLib.jar
+
 ###Unity 2.1.4 - 2020-4-13（iOS-4.1.2&Android-4.1.2)
 
 文件变更：
