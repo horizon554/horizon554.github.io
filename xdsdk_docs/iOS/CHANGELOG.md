@@ -1,6 +1,13 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
+## 4.1.3 - 2020-4-29
+- 支付流程优化
+
+文件变更：
+
+1.XdComPlatform.framework
+
 ## 4.1.2 - 2020-4-13
 - 修复iOS9以下非游客登录打开用户中心可能闪退bug
 - 其他优化

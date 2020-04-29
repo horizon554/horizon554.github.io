@@ -1,6 +1,23 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+
+###Unity 2.1.6 - 2020-4-29（iOS-4.1.3&Android-4.1.3)
+
+文件变更：
+
+1.XDSDK.cs
+
+
+**iOS**
+
+- 支付流程优化
+
+
+文件变更：
+
+1.XdComPlatform.framework
+
 ###Unity 2.1.5 - 2020-4-15（iOS-4.1.2&Android-4.1.3)
 
 文件变更：
