@@ -790,6 +790,7 @@ method：GET
 {"id":"1",
 "id_card":"1111",
 "name":"xdname",
+"adult_type":0,
 "friendly_name":"xdfriendly_name",
 "client_id":"abc",
 "phone":"1",
@@ -798,6 +799,7 @@ method：GET
 id：用户的ID，注意类型是字符串
 id_card：加密的身份证号，可能为空
 name：用户的账号名称
+adult_type: 0.未实名 1. 0-8岁 2. 8-16岁 3. 16-18岁 4. 18+岁
 friendly_name：用户的昵称，如果游戏想要展现用户名称，建议使用该字段
 client_id：该用户在该游戏登录时使用的心动AppID
 phone： 绑定的手机号码
