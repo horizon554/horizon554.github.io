@@ -491,6 +491,8 @@ kbd {
 
 <h4 id="toc_13">4.4.声明相关的Activity及文件配置</h4>
 
+<p>请将配置中项目包名替换成游戏自己的包名，例如 &quot;com.xd.test&quot;</p>
+
 <div><pre><code class="language-diff">&lt;application&gt;
     &lt;activity
         android:name=&quot;com.xd.sdklib.helper.XDStartView&quot;
@@ -512,7 +514,7 @@ kbd {
         android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
 
     &lt;activity-alias
-        android:name=&quot;.wxapi.WXEntryActivity&quot;
+        android:name=&quot;项目包名.wxapi.WXEntryActivity&quot;
         android:exported=&quot;true&quot;
         android:targetActivity=&quot;com.xd.sdklib.helper.WXEntryActivity&quot;/&gt;
 
@@ -545,7 +547,7 @@ kbd {
 
     &lt;!-- 微信支付 --&gt;
     &lt;activity-alias
-        android:name=&quot;.wxapi.WXPayEntryActivity&quot;
+        android:name=&quot;项目包名.wxapi.WXPayEntryActivity&quot;
         android:exported=&quot;true&quot;
         android:targetActivity=&quot;com.pingplusplus.android.PaymentActivity&quot; /&gt;
 
@@ -1312,7 +1314,7 @@ friendly_name：用户的昵称，如果游戏想要展现用户名称，建议�
 client_id：该用户在该游戏登录时使用的心动AppID
 phone： 绑定的手机号码
 safety： 账号是否安全/通过设备二次验证（true：安全，false：不安全）
-site：账号类型, 0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号，8 =&gt; 微信账号，9 =&gt; TapTap账号，注意类型是字符串
+site：账号类型, 0 =&gt; vc账号，1 =&gt; 心动账号，3 =&gt; qq账号，8 =&gt; 微信账号，9 =&gt; TapTap账号，10 =&gt; 苹果账号，注意类型是字符串
 fcm：0/1（0：无需防沉迷，1：需要防沉迷）
 authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名认证）</code></pre></div>
 
