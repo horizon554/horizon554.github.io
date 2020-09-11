@@ -1,6 +1,58 @@
 #Change Log
 
 心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发
+###Unity 2.3.0 - 2020-9-11（iOS-4.3.1&Android-4.3.1)
+
+C#文件变更：
+
+1.
+
+XDSDK.cs
+
+XDSDKImp.cs
+
+2.
+
+TapTapSDK.cs
+
+TapTapSDKImpl.cs
+
+iOSImpl.cs
+
+AndroidImpl.cs
+
+
+
+**iOS**
+
+- 防沉迷优化，支持单机计时。
+- 防沉迷支持游戏主动停止和恢复计时，新增接口GameStop/GameResume。
+- 更新TapTapSDK
+- 新增登录接口，支持游戏方绘制登录按钮后调用。具体使用看文档，关键字2.3.0
+- **资源resouces文件夹新增CommonUI.bundle/TapMomentResources.bundle。需确认都添加到Copy Bundle Resouces中**
+- iOS新增Swift混编，需要添加Swift文件，否则会遇到Swift编译错误
+
+文件变更：
+
+1.XdComPlatform.framework
+
+2.TapTapSDK.framework
+
+3.resouces文件夹
+
+**新增**
+
+1. Blank.swift 
+
+**删除：**
+
+1. XDLive.framework
+2. libXDLiveiOSWrapper.a
+3. libTapTapSDKiOSWrapper.a
+
+
+
+
 
 ###Unity 2.1.7 - 2020-6-09（iOS-4.1.3&Android-4.1.4)
 
