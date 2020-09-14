@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>CHANGELOG</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Change Log</h1>
+
+<p>心动SDK_Unity 的 CHANGELOG 记录每次版本更新日志  面向开发</p>
+
+<h3 id="toc_1">Unity 2.1.7 - 2020-6-09（iOS-4.1.3&amp;Android-4.1.4)</h3>
+
+<p>文件变更：</p>
+
+<p>1.XDSDK.cs</p>
+
+<p><strong>Android</strong></p>
+
+<ul>
+<li>修复提示弹窗多次弹出无法关闭问题</li>
+<li>修复实名认证时姓名无法输入点的问题</li>
+<li>修复未成年登录提示点击后没有登录成功回调的问题(版署审核时)</li>
+<li>添加 Cookie 设置只对 SDK 内生效</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<h3 id="toc_2">Unity 2.1.6 - 2020-4-29（iOS-4.1.3&amp;Android-4.1.3)</h3>
+
+<p>文件变更：</p>
+
+<p>1.XDSDK.cs</p>
+
+<p><strong>iOS</strong></p>
+
+<ul>
+<li>支付流程优化</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.XdComPlatform.framework</p>
+
+<h3 id="toc_3">Unity 2.1.5 - 2020-4-15（iOS-4.1.2&amp;Android-4.1.3)</h3>
+
+<p>文件变更：</p>
+
+<p>1.XDSDK.cs</p>
+
+<p><strong>Android</strong></p>
+
+<ul>
+<li>添加支付宝沙盒测试支持</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<h3 id="toc_4">Unity 2.1.4 - 2020-4-13（iOS-4.1.2&amp;Android-4.1.2)</h3>
+
+<p>文件变更：</p>
+
+<p>1.XDSDK.cs</p>
+
+<p><strong>iOS</strong></p>
+
+<ul>
+<li>修复iOS9以下非游客登录打开用户中心可能崩溃bug</li>
+<li>其他优化</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.XdComPlatform.framework</p>
+
+<h3 id="toc_5">Unity 2.1.3 - 2020-3-31（iOS-4.1.1&amp;Android-4.1.2)</h3>
+
+<p>文件变更：</p>
+
+<p>1.XDSDK.cs</p>
+
+<p><strong>iOS</strong></p>
+
+<ul>
+<li>修复游客升级可能缺少最后一个登录方式的Bug</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.XdComPlatform.framework</p>
+
+<h3 id="toc_6">Unity 2.1.2 - 2020-3-17（iOS-4.1.0&amp;Android-4.1.2)</h3>
+
+<ul>
+<li>移除废弃接口openMobileVerifyView</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.XDSDK.cs</p>
+
+<p>2.XDSDKImp.cs</p>
+
+<p><strong>安卓</strong></p>
+
+<ul>
+<li>修复XD登录页点击苹果登录无效bug</li>
+<li>修复XD注册完成后跳转错误问题</li>
+<li>修复微信扫码登录时二维码未居中问题</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<p>2.res目录</p>
+
+<h3 id="toc_7">Unity 2.1.1 - 2020-3-11（iOS-4.1.0&amp;Android-4.1.1)</h3>
+
+<p>文件变更：</p>
+
+<p>1.XDSDK.cs</p>
+
+<p><strong>安卓</strong></p>
+
+<ul>
+<li>登录界面UI调整</li>
+<li>登录入口最多显示5个</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<p>2.res目录</p>
+
+<h3 id="toc_8">Unity 2.1.0 - 2020-3-10（iOS-4.1.0&amp;Android-4.1.0)</h3>
+
+<p>文件变更：</p>
+
+<p>1.XDSDK.cs</p>
+
+<p><strong>1.iOS</strong></p>
+
+<ul>
+<li>SDK新增苹果登录，需要配置工程和更换证书。请仔细阅读iOS部分文档，搜索关键字版本号：2.1.0</li>
+<li>去除UIWebview.</li>
+<li>更新微信SDK1.8.6.2;更新QQ SDK 3.3.7</li>
+<li><strong>新增接口handleOpenUniversalLink</strong>，需要在AppDelegate/UnityAppController中调用。请阅读文档</li>
+<li>info.plist中LSApplicationQueriesSchemes添加一项『weixinULAPI』</li>
+<li><strong>在xcode工程中需要添加两项capability</strong>：Associated Domains \ Sign in with apple.</li>
+<li>需在Link binary With Libraries中添加AuthenticationServices.framework</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.XdComPlatform.framework</p>
+
+<p>2.TencentOpenAPI.framework</p>
+
+<p>3.libWeChatSDK.a</p>
+
+<p>4.resource文件夹</p>
+
+<p><strong>2.安卓</strong></p>
+
+<ul>
+<li>更新 TapDB 依赖库</li>
+<li>更新 XDSDK 网络库</li>
+<li>XDSDK 添加苹果登录支持</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<p>2.libTapDB.jar</p>
+
+<p>3.msa<em>mdid</em>1.0.13.aar</p>
+
+<p>4.res目录</p>
+
+<p>移除：</p>
+
+<p>1.miit<em>mdid</em>1.0.10.aar</p>
+
+<h3 id="toc_9">Unity 2.0.6 - 2020-2-12（iOS-4.0.5&amp;Android-4.0.4)</h3>
+
+<p><strong>1.安卓</strong></p>
+
+<ul>
+<li>TapDB代码优化，解决和旧版可能存在的冲突</li>
+<li>TapDB增加OAID收集.默认在libs目录下添加了miit_mdid_1.0.10.aar,在assets目录下添加了supplierconfig.json。如项目中已有或之前已添加过造成冲突，可删除。</li>
+<li>广告渠道包工具添加OAID搜集，如需使用请先联系XDSDK相关人员和阅读文档。</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<p>2.libTapDB.jar (2.1.4)</p>
+
+<p><strong>文件新增：</strong></p>
+
+<p>1.miit_mdid_1.0.10.aar  （<strong>放⼊项⽬ libs⽬录下(例例如:app/
+libs )</strong>）</p>
+
+<p>2.supplierconfig.json   （<strong>确保放⼊项目assets ⽂件夹内，配置文件内容⽆需修改</strong>）</p>
+
+<h3 id="toc_10">Unity 2.0.5 - 2019-12-27（iOS-4.0.5&amp;Android-4.0.3)</h3>
+
+<ul>
+<li>修改直播组件XDLive,增加指定屏幕方向打开直播接口</li>
+</ul>
+
+<div><pre><code class="language-none">/// 打开论坛
+/// @param appid appid
+/// @param uri 自定义url
+/// @param orientation 指定屏幕方向
+public void OpenXDLive(string appid,string uri,int orientation);</code></pre></div>
+
+<p>文件变更：</p>
+
+<p>1.XDLive.cs</p>
+
+<p><strong>1.iOS</strong></p>
+
+<ul>
+<li>修复SDK内集成TapDB重复统计用户Bug，可能造成新增账号异常数据.</li>
+<li>修改TapTapSDK,去除可能和其他SDK可能的文件重复。去除UIWebview.</li>
+<li>修改直播组件XDLive,去除UIWebview.新增屏幕方向配置接口</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.XdComPlatform.framework</p>
+
+<p>2.TapTapSDK.framework</p>
+
+<p>3.XDLive.framework</p>
+
+<p>4.libXDLiveiOSWrapper.a</p>
+
+<p><strong>移除：</strong></p>
+
+<p>若游戏单接旧版本TapDB(2.1.0以下)，需要继续保留。</p>
+
+<p>1.libTyrantdbGameTracker.a</p>
+
+<p>2.libTyrantdbGameTracker.h</p>
+
+<p><strong>2.安卓</strong></p>
+
+<ul>
+<li>TapDB增加OAID收集.请阅读附加文档。</li>
+<li>直播组件XDLive增加屏幕方向接口。</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.xdlive.jar</p>
+
+<p>2.XDLiveForUnity.jar</p>
+
+<p>3.libTapDB.jar（版本2.1.3）（请先确认项目中是否单接，和单接的版本,决定是否更新）</p>
+
+<h3 id="toc_11">Unity 2.0.4 - 2019-12-21（iOS-4.0.4&amp;Android-4.0.3)</h3>
+
+<p><strong>1.iOS</strong></p>
+
+<ul>
+<li>修复防沉迷某些情形造成crash的bug。</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.resources文件夹</p>
+
+<p>2.XdComPlatform.framework</p>
+
+<h3 id="toc_12">Unity 2.0.3 - 2019-12-16（iOS-4.0.3&amp;Android-4.0.3)</h3>
+
+<p><strong>1.iOS</strong></p>
+
+<ul>
+<li>修复登录界面可能错位问题</li>
+<li>修复用户中心升级游客升级输入错误账号密码之后，可能无法再调起用户中心问题</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.resources文件夹</p>
+
+<p>2.XdComPlatform.framework</p>
+
+<p><strong>2.安卓</strong></p>
+
+<ul>
+<li>修复支付时跳转网页可能显示心动登录界面问题</li>
+<li>优化实名认证界面提示</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<h3 id="toc_13">Unity 2.0.2 - 2019-12-13（iOS-4.0.2&amp;Android-4.0.2)</h3>
+
+<p><strong>1.iOS</strong></p>
+
+<ul>
+<li>修复登录界面可能错位问题</li>
+<li>修复非主线程调用支付可能crash问题</li>
+<li>实名认证页面支持通过返回键返回上一步</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.resources文件夹</p>
+
+<p>2.XdComPlatform.framework</p>
+
+<p><strong>2.安卓</strong></p>
+
+<ul>
+<li>实名认证页面支持通过返回键返回上一步</li>
+<li>优化用户中心页面显示</li>
+<li>修改实名认证页面用户名称和手机号输入效果</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<p>2.taptap.jar</p>
+
+<p>3.res目录</p>
+
+<p>4.AndroidManifest.xml</p>
+
+<h3 id="toc_14">Unity 2.0.1 - 2019-12-10（iOS-4.0.1&amp;Android-4.0.1)</h3>
+
+<p>1.添加安卓启动（OnResume）暂停(OnStop)接口</p>
+
+<p>文件变更：</p>
+
+<p>1.XDSDK.cs</p>
+
+<p>2.XDSDKImp.cs</p>
+
+<h3 id="toc_15">Unity 2.0.0 - 2019-12-10（iOS-4.0.1&amp;Android-4.0.1)</h3>
+
+<p><strong>1.iOS</strong></p>
+
+<ul>
+<li>添加防沉迷机制</li>
+<li>更新实名认证流程，实名与手机号绑定界面合并。</li>
+<li>SDK内部集成新版TapDB_iOS.framework。如原项目中有单接新版TapDB(2.1.0以上),可删除导入的TapDB_iOS.framework避免造成冲突;</li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.resources文件夹</p>
+
+<p>2.XdComPlatform.framework</p>
+
+<p><strong>2.安卓</strong></p>
+
+<ul>
+<li>添加防沉迷机制</li>
+<li>更新实名认证流程，实名与手机号绑定界面合并。</li>
+<li>修复旧版启动时可能崩溃的问题</li>
+<li>删除单独调用绑定手机号接口</li>
+<li>添加广告渠道包支持（如需要请联系XDSDK支持人员）</li>
+</ul>
+
+<p>注意：</p>
+
+<p>1）如果项目中单接了旧版tapdb(libTyrantdbGameTracker.jar),会与XDSDK中新版tapdb(libTapDB.jar)有文件冲突，删除libs中的libTapDB.jar即可;</p>
+
+<p>2)如果项目使用的集成XDSDK中的tapdb(libTapDB.jar),若项目中旧版
+tapdb(libTyrantdbGameTracker.jar)引起冲突，则删除libTyrantdbGameTracker.jar;</p>
+
+<p>3)如果接入 SDK 的 jar 包后，提示 LocalBroadcastManager 冲突，可以删除 libs 中的 localbroadcast.jar</p>
+
+<p><strong>重要！请确认游戏中的启(onresume)停(onstop)方法调用情况.对防沉迷时长统计有重要影响。</strong></p>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<p>2.SDKLibForUnity.jar</p>
+
+<p>3.增加localbroadcast.jar</p>
+
+<p>4.res目录</p>
+
+<p><strong>3.unity文件变更：</strong></p>
+
+<p>1.XDSDK.cs</p>
+
+<p>2.XDSDKListener.cs</p>
+
+<p>3.XDSDKImp.cs</p>
+
+<p>4.libXDSDKiOSWrapper.a</p>
+
+<h3 id="toc_16">Unity 1.2.15 - 2019-11-01（iOS-3.2.31&amp;Android-3.2.19)</h3>
+
+<p>1.iOS</p>
+
+<ul>
+<li>无更新</li>
+</ul>
+
+<p>2.安卓</p>
+
+<ul>
+<li><p>修复sdk内TapDB统计丢失username问题</p></li>
+<li><p>添加广告SDK，具体使用请看文档第4节。</p></li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.SDKLib.jar</p>
+
+<p>2.SDKLibForUnity.jar</p>
+
+<p>3.XDSDK.cs</p>
+
+<p>4.XDSDKImp.cs</p>
+
+<h3 id="toc_17">Unity 1.2.14 - 2019-10-17（iOS-3.2.31&amp;Android-3.2.18)</h3>
+
+<p>1.iOS</p>
+
+<ul>
+<li>更新心动LOGO.</li>
+</ul>
+
+<p>2.安卓</p>
+
+<ul>
+<li><p>更新心动LOGO.</p></li>
+<li><p>更新支付宝SDK</p></li>
+</ul>
+
+<p>文件变更：</p>
+
+<p>1.resources文件夹</p>
+
+<p>2.XdComPlatform.framework
+- 客服接口UserFeedback优化，直接跳转到当前游戏客服页面</p>
+
+<p>3.SDKLib.jar</p>
+
+<p>4.alipaySdk.jar</p>
+
+<p>5.SDKLibForUnity.jar</p>
+
+<p>6.res目录</p>
+
+<h3 id="toc_18">Unity 1.2.13 - 2019-9-27（iOS-3.2.30&amp;Android-3.2.17)</h3>
+
+<p>1.iOS</p>
+
+<ul>
+<li>适配iOS13</li>
+<li>支付流程优化，具体使用见文档1.9节</li>
+<li>添加新回调，在有未完成订单时触发
+public abstract void RestoredPayment (List<Dictionary<string,string>&gt; resultList)，需要在应用启动后(didfinishLaunch中)调用[XDCore setUpXDStore].</li>
+<li>添加新接口，接收到未完成订单回调时可以调用，恢复订单
+public override void RestoredPayment(Dictionary<string, string> dictionary)</li>
+<li>客服接口UserFeedback优化，直接跳转到当前游戏客服页面</li>
+</ul>
+
+<p>2.安卓</p>
+
+<ul>
+<li>修复修改字体可能造成界面错位问题</li>
+<li>升级支付宝SDK</li>
+<li>客服接口UserFeedback优化</li>
+</ul>
+
+<h3 id="toc_19">Unity 1.2.12 - 2019-8-29（iOS-3.2.29&amp;Android-3.2.15)</h3>
+
+<ul>
+<li>登录流程添加手机号强制绑定(后台配置)</li>
+<li>登录后可单独调起绑定手机界面，接口：openMobileVerifyView（）</li>
+<li>需要更新resource文件夹</li>
+</ul>
+
+<h3 id="toc_20">Unity 1.2.11 - 2019-6-17（iOS-3.2.28&amp;Android-3.2.14)</h3>
+
+<ul>
+<li>修复XDLiveWrapper缺少的构建</li>
+</ul>
+
+<h3 id="toc_21">Unity 1.2.10 - 2019-5-30（iOS-3.2.28&amp;Android-3.2.14)</h3>
+
+<ul>
+<li>更新TapDB及相关SDK（安卓需删除旧版libTyrantdbGameTracker）</li>
+<li>更新xdlive</li>
+</ul>
+
+<h3 id="toc_22">Unity 1.2.9 - 2019-3-20（iOS-3.2.27&amp;Android-3.2.13)</h3>
+
+<ul>
+<li>更新iOS SDK</li>
+<li>增加流量控制</li>
+</ul>
+
+<h3 id="toc_23">Unity 1.2.8 - 2018-12-29（iOS-3.2.26&amp;Android-3.2.13)</h3>
+
+<ul>
+<li>修复实名回调异常</li>
+</ul>
+
+<h3 id="toc_24">Unity 1.2.7 - 2018-12-29（iOS-3.2.26&amp;Android-3.2.13)</h3>
+
+<ul>
+<li>更新 iOS XDSDK</li>
+</ul>
+
+<h3 id="toc_25">Unity 1.2.6 - 2018-12-24（iOS-3.2.25&amp;Android-3.2.13)</h3>
+
+<ul>
+<li>更新 TapTap SDK</li>
+</ul>
+
+<h3 id="toc_26">Unity 1.2.5 - 2018-12-24（iOS-3.2.25&amp;Android-3.2.13)</h3>
+
+<ul>
+<li>增加接口 OpenUserBindView </li>
+<li>增加回调 OnGuestBindFailed 请注意查看文档</li>
+<li>更新 XDLive</li>
+<li>更新 TapTapSDK</li>
+<li>更新 TapDBSDK</li>
+</ul>
+
+<h3 id="toc_27">Unity 1.2.3 - 2018-12-17（iOS-3.2.24&amp;Android-3.2.11)</h3>
+
+<ul>
+<li>更新 XDLive</li>
+</ul>
+
+<h3 id="toc_28">Unity 1.2.2 - 2018-11-30（iOS-3.2.24&amp;Android-3.2.11)</h3>
+
+<ul>
+<li>更新 TapTapSDK</li>
+</ul>
+
+<h3 id="toc_29">Unity 1.2.1 - 2018-08-06（iOS-3.2.21&amp;Android-3.2.11)</h3>
+
+<ul>
+<li>微信分享接口已过期</li>
+<li>增强AndroidSDK稳定性</li>
+</ul>
+
+<h3 id="toc_30">Unity 1.2.0 - 2018-08-01（iOS-3.2.20&amp;Android-3.2.10)</h3>
+
+<ul>
+<li>修复微信分享收不到回调问题</li>
+</ul>
+
+<h3 id="toc_31">Unity 1.1.9 - 2018-07-30（iOS-3.2.20&amp;Android-3.2.10)</h3>
+
+<ul>
+<li>更新Android3.2.10</li>
+<li>微信分享支持jpg </li>
+<li>隐藏微信登录时，微信支付仍然可见</li>
+</ul>
+
+<h3 id="toc_32">Unity 1.1.8 - 2018-07-24（iOS-3.2.20&amp;Android-3.2.9)</h3>
+
+<ul>
+<li>更新微信SDK版本1.8.2.需在工程配置中的‘Other Linker Flags’中加入‘-ObjC’</li>
+<li>更新taptapSDK</li>
+<li>iPad未安装微信显示微信登录入口，点击跳转扫码登录</li>
+<li>素材资源替换</li>
+</ul>
+
+<h3 id="toc_33">Unity 1.1.7 - 2018-07-20（iOS-3.2.19&amp;Android-3.2.9)</h3>
+
+<ul>
+<li>更新taptapSDK</li>
+</ul>
+
+<h3 id="toc_34">Unity 1.1.6 - 2018-07-17（iOS-3.2.19&amp;Android-3.2.8)</h3>
+
+<ul>
+<li>优化内部逻辑（未初始化完成不允许弹出登录界面）</li>
+<li>修复上一版SDK可能造成的taptap登录崩溃问题。</li>
+<li>默认登录入口为：微信、taptap、游客、QQ（注：默认入口隐藏taptap则会添加心动登录入口）。可使用自定义接口覆盖默认登录入口。</li>
+</ul>
+
+<h3 id="toc_35">Unity 1.1.5 - 2018-07-13（iOS-3.2.18&amp;Android-3.2.8)</h3>
+
+<ul>
+<li>可能与其他第三方库冲突的内部函数名修改</li>
+<li>重新添加armv7支持</li>
+</ul>
+
+<h3 id="toc_36">Unity 1.1.4 - 2018-07-04（iOS-3.2.18&amp;Android-3.2.8)</h3>
+
+<ul>
+<li>设备未安装微信则隐藏微信登录入口</li>
+</ul>
+
+<h3 id="toc_37">Unity 1.1.3 - 2018-06-20（iOS-3.2.17&amp;Android-3.2.8)</h3>
+
+<ul>
+<li>更新QQSDK</li>
+<li>增加自定义登录入口功能，请参考使用文档</li>
+</ul>
+
+<h3 id="toc_38">Unity 1.1.2 - 2018-05-16（iOS-3.2.16&amp;Android-3.2.7）</h3>
+
+<ul>
+<li>修复QQ Web无法登录问题</li>
+<li>删除libRMStore.a和XDStore.framework，只需导入XDComPlatform.framework</li>
+</ul>
+
+<h3 id="toc_39">Unity 1.1.1 - 2018-03-09（iOS-3.2.13&amp;Android-3.2.7）</h3>
+
+<ul>
+<li>修改实名认证策略</li>
+</ul>
+
+<h3 id="toc_40">Unity 1.1.0 - 2018-02-06（iOS-3.2.12&amp;Android-3.2.6）</h3>
+
+<ul>
+<li>更新TapTap版本iOS AndroidSDK</li>
+<li>修复安卓8.0设备TapTap闪退</li>
+<li>修复安卓切换后台登录异常</li>
+<li>删除、变更iOS版本可疑关键字方法名类名</li>
+<li>详细变更请参考Android iOS CHANGELOG</li>
+</ul>
+
+<h3 id="toc_41">Unity 1.0.18 - 2018-02-06（iOS-3.2.11&amp;Android-3.2.2）</h3>
+
+<ul>
+<li>删除代码以及注释中alipay相关字符串</li>
+</ul>
+
+<h3 id="toc_42">Unity 1.0.17 - 2018-01-30（iOS-3.2.10&amp;Android-3.2.2）</h3>
+
+<ul>
+<li>修复游客升级实名制流程问题</li>
+<li>新增客服链接配置功能</li>
+</ul>
+
+<h3 id="toc_43">Unity 1.0.16 - 2018-01-29（iOS-3.2.9&amp;Android-3.2.2）</h3>
+
+<ul>
+<li>修复15版本iOS7兼容问题</li>
+</ul>
+
+<h3 id="toc_44">Unity 1.0.15 - 2018-01-29（iOS-3.2.8&amp;Android-3.2.2）</h3>
+
+<ul>
+<li>修复iOS手机二次验证问题，修复苹果审核私有API问题</li>
+</ul>
+
+<h3 id="toc_45">Unity 1.0.14 - 2018-01-08（iOS-3.2.6&amp;Android-3.2.2）</h3>
+
+<ul>
+<li>修复iOS登录页面密码无法输入符号问题</li>
+</ul>
+
+<h3 id="toc_46">Unity 1.0.13 - 2017-12-29（iOS-3.2.5&amp;Android-3.2.2）</h3>
+
+<ul>
+<li>新增用户实名认证接口</li>
+</ul>
+
+<h3 id="toc_47">Unity 1.0.12 - 2017-12-19（iOS-3.2.4&amp;Android-3.2.0）</h3>
+
+<ul>
+<li>iOS第三方输入法问题</li>
+</ul>
+
+<h3 id="toc_48">Unity 1.0.11 - 2017-12-14（iOS-3.2.3&amp;Android-3.2.0）</h3>
+
+<ul>
+<li>统一游客登录未完成状态下，退出登录的回调函数</li>
+</ul>
+
+<h3 id="toc_49">Unity 1.0.10 - 2017-12-13（iOS-3.2.2&amp;Android-3.2.0）</h3>
+
+<ul>
+<li>更新 iOS SDK</li>
+<li>修复游客支付实名认证过程中，回调异常问题</li>
+</ul>
+
+<h3 id="toc_50">Unity 1.0.9 - 2017-11-27（iOS-3.2.1&amp;Android-3.2.0）</h3>
+
+<ul>
+<li>更新 iOS SDK</li>
+<li>修复包验证参数缺失</li>
+<li>适配iPhoneX</li>
+</ul>
+
+<h3 id="toc_51">Unity 1.0.8 - 2017-10-20（iOS-3.2.0&amp;Android-3.2.0）</h3>
+
+<ul>
+<li>更新 iOS&amp;Android SDK 新增强制实名制功能</li>
+</ul>
+
+<h3 id="toc_52">Unity 1.0.7 - 2017-09-19（iOS-3.1.6&amp;Android-3.1.5）</h3>
+
+<ul>
+<li>更新 iOS SDK 修复游客登录回调流程问题</li>
+</ul>
+
+<h3 id="toc_53">Unity 1.0.6 - 2017-09-14（iOS-3.1.5&amp;Android-3.1.5）</h3>
+
+<ul>
+<li>更新 iOS SDK 修复1.x版本SDK兼容问题</li>
+</ul>
+
+<h3 id="toc_54">Unity 1.0.5 - 2017-09-12（iOS-3.1.4&amp;Android-3.1.5）</h3>
+
+<ul>
+<li>更新 iOS SDK</li>
+<li>修复 iOS 游客账号可能丢失的问题</li>
+</ul>
+
+<h3 id="toc_55">Unity 1.0.4 - 2017-09-04（iOS-3.1.3&amp;Android-3.1.5）</h3>
+
+<ul>
+<li>更新 Android SDK</li>
+</ul>
+
+<h3 id="toc_56">Unity 1.0.3 - 2017-08-30（iOS-3.1.3&amp;Android-3.1.4）</h3>
+
+<ul>
+<li>更新 Android&amp;iOS SDK</li>
+<li>修复 Android&amp;iOS 手机二次验证问题</li>
+<li>修复 iOS用户注册问题</li>
+</ul>
+
+<h3 id="toc_57">Unity 1.0.2 - 2017-08-21（iOS-3.1.2&amp;Android-3.1.3）</h3>
+
+<ul>
+<li>更新 Android SDK</li>
+</ul>
+
+<h3 id="toc_58">Unity 1.0.1 - 2017-08-15（iOS-3.1.2&amp;Android-3.1.3）</h3>
+
+<ul>
+<li>新增微信分享接口</li>
+<li>更新 iOS&amp;Android SDK</li>
+</ul>
+
+<h3 id="toc_59">Unity 1.0.0 - 2017-08-07（iOS-3.1.1&amp;Android-3.1.2）</h3>
+
+<ul>
+<li>v1.0.0 SDK 发布</li>
+</ul>
+
+
+
+
+</body>
+
+</html>
