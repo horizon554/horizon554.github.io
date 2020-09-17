@@ -1140,6 +1140,7 @@ Enable Bitcode = NO
 
 <p style="color:red">在编译选项‘Other Linker Flags’中加入「-ObjC」和 「-all_load」。</p>
 
+**Swift Language Version 设置为 Swift 5**
 
 ##### 完成以上配置即可进行编译打包。
 

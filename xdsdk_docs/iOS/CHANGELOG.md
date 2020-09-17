@@ -1,14 +1,23 @@
 #Change Log
 
 心动SDK 的 CHANGELOG 记录每次版本更新日志  面向开发
-## 4.1.3 - 2020-9-17
-- 添加隐私协议支持及打开指定协议页面
-- 添加新版 UI 支持
-- 优化防沉迷设置
+## 4.3.1 - 2020-9-17
+- 添加隐私协议支持及打开指定协议页面，具体使用见文档.接口：openProtocolWithType
+- 防沉迷优化，支持单机计时。
+- 防沉迷支持游戏主动停止和恢复计时，新增接口GameStop/GameResume。
+- 更新TapTapSDK
+- 新增登录接口，支持游戏方绘制登录按钮后调用。具体使用看文档，关键字4.3.1
+- **资源resouces文件夹新增CommonUI.bundle/TapMomentResources.bundle。需确认都添加到Copy Bundle Resouces中**
+
+**重要:4.3.1版本加入Swift混编，如编译遇到Swift编译报错，可加入一个Swift空文件解决。libs文件夹中已提供，将项目Build Setting中Swift Language Version 设置为Swift 5**
 
 文件变更：
-- XdComPlatform.framework
-- Resource 文件夹
+
+1.XdComPlatform.framework
+
+2.TapTapSDK.framework
+
+3.resouces文件夹
 
 ## 4.1.3 - 2020-4-29
 - 支付流程优化

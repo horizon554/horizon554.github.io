@@ -443,7 +443,7 @@ kbd {
 
 <p style="color:red">在编译选项‘Other Linker Flags’中加入「-ObjC」和 「-all_load」。</p>
 
-<p><strong>重要:4.3.1版本加入Swift混编，如编译遇到Swift编译报错，可加入一个Swift空文件解决。libs文件夹中已提供</strong></p>
+<p><strong>重要:4.3.1版本加入Swift混编，如编译遇到Swift编译报错，可加入一个Swift空文件解决。libs文件夹中已提供，将项目Build Setting中Swift Language Version 设置为Swift 5</strong></p>
 
 <h4 id="toc_10">4.1.获取SDK</h4>
 
@@ -763,7 +763,10 @@ public static void GuestLogin()
                                         Quantity：商品数量
  */
 - (void)restoredPayment:(nonnull NSArray*)paymentInfos;
-</code></pre></div>
+
+
+/* 用户同意隐私协议 **/
+- (void)onAgreeProtocol;</code></pre></div>
 
 <p><span id="53初始化sdk"></p>
 
@@ -1523,9 +1526,22 @@ obj.title = &quot;title&quot;;
 + (void)gameStop;
 </code></pre></div>
 
+<h4 id="toc_32">5.16. 协议</h4>
+
+<div><pre><code class="language-none">/// 打开协议页面
+/// @param type 0用户协议， 1游戏协议， 2隐私协议
++ (void)openProtocolWithType:(NSInteger)type;
+
+/// 回调 `XDCallback`
+/// 手动打开协议界面成功
+- (void)onOpenProtocolSuccess;
+
+/// 手动打开协议界面失败
+- (void)onOpenProtocolFail;</code></pre></div>
+
 <p><span id="6广告部分说明"></p>
 
-<h3 id="toc_32">6.广告部分说明</h3>
+<h3 id="toc_33">6.广告部分说明</h3>
 
 <p>XDSDK内部集成了部分主要渠道广告SDK，包括今日头条巨量广告平台SDK（TTTracker.framework，版本2.0.6），和腾讯广点通SDK（GDTActionSDK.framework，版本1.4.9）。必要事件（如注册）会在SDK内部发送，充值事件由XDSDK服务端发送事件到相应平台。游戏不用做额外对接工作。</p>
 
@@ -1539,11 +1555,11 @@ obj.title = &quot;title&quot;;
 
 <p><span id="7服务端对接"></p>
 
-<h3 id="toc_33">7.服务端对接</h3>
+<h3 id="toc_34">7.服务端对接</h3>
 
 <p><span id="71获取用户信息"></p>
 
-<h4 id="toc_34">7.1.获取用户信息</h4>
+<h4 id="toc_35">7.1.获取用户信息</h4>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1609,7 +1625,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 
 <p><span id="72处理支付回调"></p>
 
-<h4 id="toc_35">7.2.处理支付回调</h4>
+<h4 id="toc_36">7.2.处理支付回调</h4>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>
