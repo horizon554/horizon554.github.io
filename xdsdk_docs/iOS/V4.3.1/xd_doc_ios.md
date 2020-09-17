@@ -382,6 +382,9 @@ public static void GuestLogin()
  */
 - (void)restoredPayment:(nonnull NSArray*)paymentInfos;
 
+
+/* 用户同意隐私协议 **/
+- (void)onAgreeProtocol;
 ```
 
 <span id="53初始化sdk">
@@ -812,7 +815,19 @@ XDSDK集成防沉迷相关功能，支持单机与联网游戏。
 
 ```
 
+#### 5.16. 协议
+```
+/// 打开协议页面
+/// @param type 0用户协议， 1游戏协议， 2隐私协议
++ (void)openProtocolWithType:(NSInteger)type;
 
+/// 回调 `XDCallback`
+/// 手动打开协议界面成功
+- (void)onOpenProtocolSuccess;
+
+/// 手动打开协议界面失败
+- (void)onOpenProtocolFail;
+```
 <span id="6广告部分说明">
 ### 6.广告部分说明
 XDSDK内部集成了部分主要渠道广告SDK，包括今日头条巨量广告平台SDK（TTTracker.framework，版本2.0.6），和腾讯广点通SDK（GDTActionSDK.framework，版本1.4.9）。必要事件（如注册）会在SDK内部发送，充值事件由XDSDK服务端发送事件到相应平台。游戏不用做额外对接工作。
