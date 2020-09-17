@@ -496,6 +496,15 @@ kbd {
 ///                                        Quantity：商品数量
 public override void RestoredPayment(List&lt;Dictionary&lt;string,string&gt;&gt; resultList){
     }
+    
+    //用户同意所有协议
+    public override void OnProtocolAgreed() {}
+
+    //打开协议成功
+    public override void OnProtocolOpenSucceed() {}
+    
+    //打开协议失败
+    public override void OnProtocolOpenFailed(string msg) {}
 
 }</code></pre></div>
 
@@ -505,11 +514,13 @@ public override void RestoredPayment(List&lt;Dictionary&lt;string,string&gt;&gt;
 
 <h3 id="toc_4">1.3.配置登录选项</h3>
 
+<h4 id="toc_5">1.3.1 默认配置 (旧版接口）</h4>
+
 <p>心动SDK提供配置QQ、微信登录、游客登录的显示与隐藏以及登录方式。</p>
 
 <p>如不进行配置，SDK将默认显示QQ、微信、游客登录。QQ和微信的登录方式默认为App授权登录，心动SDK会根据QQ和微信的安装情况，将QQ和微信登录方式切换为Web登录，或者不提供对应的登录功能。</p>
 
-<p style="color:red">请勿直接复制以下代码，根据游戏实际需求选择调用。(以下API为旧接口，建议直接使用自定义入口顺序功能)</p>
+<p style="color:red">请勿直接复制以下代码，根据游戏实际需求选择调用。(以下API为旧接口，建议直接使用自定义登录顺序功能)</p>
 
 <div><pre><code class="language-none">XDSDK.HideGuest()   //隐藏游客登录
 XDSDK.HideWX()      //隐藏微信登录
@@ -519,19 +530,20 @@ XDSDK.SetQQWeb()    //设置QQ为Web登录方式
 XDSDK.SetWXWeb()    //设置微信为Web 扫码登录方式
 XDSDK.HideTapTap()  //隐藏TapTap登录，使用心动登录</code></pre></div>
 
+<h4 id="toc_6">1.3.2 自定义登录顺序</h4>
+
 <p style="color:red">SDK版本1.1.3添加了新接口，自定义登录按钮及顺序。可以在SDK初始化之前调用。具体说明如下：</p>
 
 <p style="color:red">SDK版本2.1.0添加了新入口：苹果登录</p>
 
-<p>自定义登录入口。共五种，其中主要两种，次要两种。</p>
+<p>自定义登录入口。共五种，其中主要两种，次要两种。
+默认显示为：</p>
 
-<p>1、默认显示为：</p>
+<p>iOS: 微信、QQ、游客、苹果、TapTap</p>
 
-<p>iOS:微信、QQ、游客、苹果、TapTap</p>
+<p>安卓: 微信、TapTap、游客、苹果、QQ  </p>
 
-<p>安卓:微信、TapTap、游客、苹果、QQ</p>
-
-<p>2、各登录方式对应名称如下：</p>
+<p>各登录方式对应名称如下：</p>
 
 <ul>
 <li> 微信登录：WX_LOGIN，</li>
@@ -546,8 +558,8 @@ XDSDK.HideTapTap()  //隐藏TapTap登录，使用心动登录</code></pre></div
 
 <p style="color:red">SDK 在iOS12及以下、安卓中使用web实现苹果登录，但是若游戏iOS版未上架appstore，无法使用web版苹果登录，游戏需在iOS应用上架之后，才打开iOS12系统及以下和安卓的苹果登录入口。</p>
 
-<p>3、例，传入的数组。
- {&quot;APPLE_LOGIN&quot;,&quot;WX_LOGIN&quot;,&quot;TAPTAP_LOGIN&quot;,&quot;GUEST_LOGIN&quot;,&quot;QQ_LOGIN&quot;}</p>
+<p>例，传入的数组。
+ {&ldquo;APPLE_LOGIN&rdquo;,&ldquo;WX_LOGIN&rdquo;,&ldquo;TAPTAP_LOGIN&rdquo;,&ldquo;GUEST_LOGIN&rdquo;,&ldquo;QQ_LOGIN&rdquo;}</p>
 
 <p>注：</p>
 
@@ -559,13 +571,15 @@ XDSDK.HideTapTap()  //隐藏TapTap登录，使用心动登录</code></pre></div
 <div><pre><code class="language-none">// 自定义登录按钮及顺序
 XDSDK.SetLoginEntries({&quot;APPLE_LOGIN&quot;,&quot;WX_LOGIN&quot;,&quot;TAPTAP_LOGIN&quot;,&quot;GUEST_LOGIN&quot;,&quot;QQ_LOGIN&quot;});</code></pre></div>
 
-<p>4、自定义登录入口</p>
+<h4 id="toc_7">1.3.3 自定义登录入口</h4>
 
 <p style="color:red">XDSDK 2.3.0开始，支持游戏自定义登录入口。入口素材由平台提供</p>
 
+<p>素材地址：<a href="../XDSDK%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F(%E5%A4%A7%E9%99%86)_2020.zip">XDSDK登录方式素材</a>  </p>
+
 <p>增加自定义登录接口（iOS:AutoLogin/TapTapLogin/AppleLogin/GuestLogin,Android:AutoLogin/TapTapLogin），游戏绘制登录按钮后调用.</p>
 
-<p><strong>调用方法 ：</strong> 调用autologin，根据登录回调看是否自动登录成功，如果自动登录失败，回调信息为『自动登录失败』，如果没有成功就显示登录界面，用户点击不同登录按钮然后调用对应登录:taptaplogin等。</p>
+<p><strong>调用方法 ：</strong> 调用Autologin，根据登录回调看是否自动登录成功，如果自动登录失败，回调信息为『自动登录失败』，如果没有成功就显示登录界面，用户点击不同登录按钮然后调用对应登录:TapTapLogin等。</p>
 
 <p><strong>（自定义绘制登录按钮时，点击防沉迷切换账号按钮会回调登录取消）</strong></p>
 
@@ -585,7 +599,7 @@ public static void GuestLogin()
 
 <p><img src="img/5.jpg"></img></p>
 
-<h3 id="toc_5">1.4.初始化SDK</h3>
+<h3 id="toc_8">1.4.初始化SDK</h3>
 
 <p>初始化心动SDK，调用该接口是调用其它功能接口的必要条件。</p>
 
@@ -629,7 +643,7 @@ public static void InitSDK(string appid, int aOrientation, string channel, strin
 <p style="color:red">已经单独接入TapDB的项目请勿开启内置TapDB统计功能</p>
 <p style="color:red">其他注意事项请参考文档TapDB部分或与平台联系</p>
 
-<h3 id="toc_6">1.5.登录</h3>
+<h3 id="toc_9">1.5.登录</h3>
 
 <p>调用该接口进行登录。</p>
 
@@ -669,7 +683,7 @@ XDSDK.Login();
 
 <p style="color:red">XDSDK 4.2.0之后，新版用户中心显示角色信息，需要额外调用接口设置角色信息</p>
 
-<h4 id="toc_7">1.5.1 角色</h4>
+<h4 id="toc_10">1.5.1 角色</h4>
 
 <div><pre><code class="language-none">角色登录成功之后，设置当前角色信息；角色登出后，清空当前角色信息
 
@@ -679,7 +693,7 @@ public static void SetRole(string roleId,string roleName,string roleAvatar)
 public static void ClearRole()
 ```</code></pre></div>
 
-<h3 id="toc_8">1.6.获取Access Token</h3>
+<h3 id="toc_11">1.6.获取Access Token</h3>
 
 <p>调用该接口获取当前登录用户的access token。</p>
 
@@ -690,7 +704,7 @@ public static void ClearRole()
 XDSDK.GetAccessToken()
 </code></p>
 
-<h3 id="toc_9">1.7.获取当前登录状态</h3>
+<h3 id="toc_12">1.7.获取当前登录状态</h3>
 
 <div><pre><code class="language-none">public static bool IsLoggedIn()</code></pre></div>
 
@@ -699,7 +713,7 @@ XDSDK.GetAccessToken()
 XDSDK.IsLoggedIn()
 </code></p>
 
-<h3 id="toc_10">1.8.打开用户中心</h3>
+<h3 id="toc_13">1.8.打开用户中心</h3>
 
 <p>调用该接口打开用户中心界面，用户可以在该界面进行登出和登录操作，游戏注意正确处理回调。在未登录状态，无法打开用户中心。在用户中心中，用户可进行登出操作，此时交互界面将消失。游戏需要提供引导用户重新进行登录的操作界面。</p>
 
@@ -713,7 +727,7 @@ public static bool OpenUserCenter()</code></pre></div>
 XDSDK.OpenUserCenter()
 </code></p>
 
-<h3 id="toc_11">1.9.发起支付</h3>
+<h3 id="toc_14">1.9.发起支付</h3>
 
 <p style='color:red'>不保证在任何情况下都能收到回调，请勿直接使用SDK返回的支付结果作为最终判定订单状态的依据。
 为了收到支付回调，需要在应用启动后就设置好支付相关功能。
@@ -769,7 +783,7 @@ public static bool Pay(Dictionary&lt;string, string&gt; info)</code></pre></div>
 </tr>
 <tr>
 <td>Role_Id</td>
-<td>否</td>
+<td>是</td>
 <td>支付角色ID，服务端支付回调会包含该字段</td>
 </tr>
 <tr>
@@ -780,7 +794,7 @@ public static bool Pay(Dictionary&lt;string, string&gt; info)</code></pre></div>
 <tr>
 <td>EXT</td>
 <td>否</td>
-<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：info.Add(&quot;EXT&quot;, &quot;{&quot;payCallbackCode&quot;:2}&quot;);</td>
+<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：info.Add(&ldquo;EXT&rdquo;, &ldquo;{&quot;payCallbackCode&rdquo;:2}&ldquo;);</td>
 </tr>
 </tbody>
 </table>
@@ -877,7 +891,7 @@ public static bool RestorePay(Dictionary&lt;string, string&gt; info)
 </tr>
 <tr>
 <td>Role_Id</td>
-<td>否</td>
+<td>是</td>
 <td>支付角色ID，服务端支付回调会包含该字段</td>
 </tr>
 <tr>
@@ -888,7 +902,7 @@ public static bool RestorePay(Dictionary&lt;string, string&gt; info)
 <tr>
 <td>EXT</td>
 <td>否</td>
-<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@&quot;{\&quot;payCallbackCode\&quot;:1}&quot; forKey:@&quot;EXT&quot;];</td>
+<td>额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@&rdquo;{\&ldquo;payCallbackCode\&rdquo;:1}&ldquo; forKey:@&quot;EXT&rdquo;];</td>
 </tr>
 </tbody>
 </table>
@@ -934,7 +948,7 @@ info.Add(&quot;Product_Name&quot;, &quot;648大礼包&quot;);
 info.Add(&quot;EXT&quot;, &quot;{\&quot;payCallbackCode\&quot;:2}&quot;);（）
 XDSDK.Pay (info);</code></pre></div>
 
-<h3 id="toc_12">1.10.登出</h3>
+<h3 id="toc_15">1.10.登出</h3>
 
 <p>需要注销当前登录用户时调用，该操作不会出现登录界面。</p>
 
@@ -963,7 +977,7 @@ XDSDK.Pay (info);</code></pre></div>
 XDSDK.Logout();
 </code></p>
 
-<h3 id="toc_13">1.11.游客升级</h3>
+<h3 id="toc_16">1.11.游客升级</h3>
 
 <p>当游客账号升级成功时,会触发下列回调。<br/>
 后续如需使用token，务必使用回调给的新token。但已生效的会话无需处理。</p>
@@ -984,7 +998,7 @@ XDSDK.Logout();
 </tbody>
 </table>
 
-<h3 id="toc_14">1.12.退出</h3>
+<h3 id="toc_17">1.12.退出</h3>
 
 <p>调用该方法时，弹出确认框供用户选择是否退出。</p>
 
@@ -1016,7 +1030,7 @@ XDSDK.Logout();
 </tbody>
 </table>
 
-<h3 id="toc_15">1.13.微信分享（微信分享功能即将停止维护，建议单独接入）</h3>
+<h3 id="toc_18">1.13.微信分享（微信分享功能即将停止维护，建议单独接入）</h3>
 
 <p>调用心动SDK的微信分享功能。</p>
 
@@ -1285,7 +1299,7 @@ xdsdk.XDSDK.Share (content);</code></pre></div>
 注意：分享过程中，若用户选择留在微信，则不会产生分享回调。游戏不应当完全依赖分享回调。
 </p> 
 
-<h3 id="toc_16">1.14.实名认证</h3>
+<h3 id="toc_19">1.14.实名认证</h3>
 
 <p>调用该方法时，弹出实名认证窗口。</p>
 
@@ -1321,7 +1335,7 @@ xdsdk.XDSDK.Share (content);</code></pre></div>
 注意：实名认证结果以服务端authoriz_state参数为准（见4.1）。
 </p> 
 
-<h3 id="toc_17">1.15.游客绑定</h3>
+<h3 id="toc_20">1.15.游客绑定</h3>
 
 <p>调用该方法时，弹出游客绑定窗口。</p>
 
@@ -1353,7 +1367,7 @@ xdsdk.XDSDK.Share (content);</code></pre></div>
 </tbody>
 </table>
 
-<h3 id="toc_18">1.16.客服</h3>
+<h3 id="toc_21">1.16.客服</h3>
 
 <p>调用该方法时，弹出客服窗口。</p>
 
@@ -1363,7 +1377,7 @@ xdsdk.XDSDK.Share (content);</code></pre></div>
 
 <div><pre><code class="language-none">XDSDK.UserFeedback();</code></pre></div>
 
-<h3 id="toc_19">1.17.TapDB</h3>
+<h3 id="toc_22">1.17.TapDB</h3>
 
 <div><pre><code class="language-none">public static void SetLevel(int level)
 
@@ -1398,7 +1412,7 @@ XDSDK.OnStop();</code></pre></div>
 5.如果需要自行接入TapDB，请在SDK初始化方法中enableTapDB参数填写false。
 </p> 
 
-<h3 id="toc_20">1.18.TapTap论坛</h3>
+<h3 id="toc_23">1.18.TapTap论坛</h3>
 
 <p>导入</p>
 
@@ -1452,7 +1466,7 @@ public void OpenTapTapForum(string appid)
 &lt;true/&gt;
 &lt;/dict&gt;</code></pre></div>
 
-<h3 id="toc_21">1.19.XDLive直播</h3>
+<h3 id="toc_24">1.19.XDLive直播</h3>
 
 <p>XDSDK中包含了游戏直播相关组件。</p>
 
@@ -1493,7 +1507,7 @@ public override void OnXDLiveOpen();
 // 直播关闭
 public override void OnXDLiveClosed();</code></pre></div>
 
-<h3 id="toc_22">1.20.防沉迷</h3>
+<h3 id="toc_25">1.20.防沉迷</h3>
 
 <p>unity 2.3.0版本优化防沉迷，支持单机游戏和联网游戏。
 提供停止计时和恢复计时接口。游戏根据需求自行调用。</p>
@@ -1504,7 +1518,15 @@ public static void GameStop();
 public static void GameResume ();
 </code></pre></div>
 
-<h2 id="toc_23">2.Android</h2>
+<h3 id="toc_26">1.21.打开协议页面</h3>
+
+<p>游戏需要打开协议的内容时，可以调用该接口，示例如下：</p>
+
+<div><pre><code class="language-none">xdsdk.XDSDK.OpenProtocol(xdsdk.XDSDK.ProtocolType.PROTOCOL_TYPE_GAME);</code></pre></div>
+
+<p>参数为协议类型，包括  PROTOCOL_TYPE_USER(用户协议),PROTOCOL_TYPE_GAME(游戏协议),PROTOCOL_TYPE_PRIVACY(隐私协议)</p>
+
+<h2 id="toc_27">2.Android</h2>
 
 <p style = "color : red"> 
 如果游戏打包后无法在AndroidP的机型上使用</br>
@@ -1517,7 +1539,16 @@ public static void GameResume ();
 
 <div><pre><code class="language-none">&lt;uses-library android:name=&quot;org.apache.http.legacy&quot; android:required=&quot;false&quot;/&gt;</code></pre></div>
 
-<h3 id="toc_24">2.1.按需要修改AndroidManifest</h3>
+<p>另外需要在 AndroidManifest.xml中 application 标签内添加: android:usesCleartextTraffic=&ldquo;true&rdquo; ，例如：</p>
+
+<div><pre><code class="language-none">    &lt;application 
+     …
+      android:usesCleartextTraffic=&quot;true&quot;
+     …
+    &gt;
+    </code></pre></div>
+
+<h3 id="toc_28">2.1.按需要修改AndroidManifest</h3>
 
 <p> 可以根据需要,参照如下示例修改Plugins/Android/AndroidManifest.xml。
 </p>
@@ -1549,83 +1580,86 @@ public static void GameResume ();
         android:debuggable=&quot;true&quot;&gt;
 
         &lt;activity
-            android:name=&quot;com.xd.sdklib.helper.XDStartView&quot;
-            android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
-            android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot; /&gt;
-        &lt;activity
-            android:name=&quot;com.xd.sdklib.helper.XDViewActivity&quot;
-            android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
-            android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot; /&gt;
-        &lt;activity
-            android:name=&quot;com.xd.sdklib.helper.XDPayActivity&quot;
-            android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
-            android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot; /&gt;
-        &lt;activity
-            android:name=&quot;com.xd.sdklib.helper.XDWebView&quot;
-            android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
-        &lt;activity
-            android:name=&quot;com.xd.sdklib.helper.WXEntryActivity&quot;
-            android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
+        android:name=&quot;com.xd.sdklib.helper.XDStartView&quot;
+        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; 
+        android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot; /&gt;
+    &lt;activity
+        android:name=&quot;com.xd.sdklib.helper.XDPayActivity&quot;
+        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+        android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;  /&gt;
+    &lt;activity
+        android:name=&quot;com.xd.sdklib.helper.XDViewActivity&quot;
+        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+        android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot; /&gt;
+    &lt;activity
+        android:name=&quot;com.xd.sdklib.helper.XDWebView&quot;
+        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
+    &lt;activity
+        android:name=&quot;com.xd.sdklib.helper.WXEntryActivity&quot;
+        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
 
-        &lt;!-- 微信登录 --&gt;
-        &lt;activity-alias
-            android:name=&quot;.wxapi.WXEntryActivity&quot;
-            android:label=&quot;@string/app_name&quot;
-            android:exported=&quot;true&quot;
-            android:targetActivity=&quot;com.xd.sdklib.helper.WXEntryActivity&quot;/&gt;
+    &lt;activity-alias
+        android:name=&quot;项目包名.wxapi.WXEntryActivity&quot;
+        android:exported=&quot;true&quot;
+        android:targetActivity=&quot;com.xd.sdklib.helper.WXEntryActivity&quot;/&gt;
 
-        &lt;!-- Ping++ SDK --&gt;
-        &lt;activity
-            android:name=&quot;com.pingplusplus.android.PaymentActivity&quot;
-            android:configChanges=&quot;orientation|screenSize&quot;
-            android:launchMode=&quot;singleTop&quot;
-            android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
-
-        &lt;!-- 支付宝 --&gt;
-        &lt;activity
-            android:name=&quot;com.alipay.sdk.app.H5PayActivity&quot;
-            android:configChanges=&quot;orientation|keyboardHidden|navigation&quot;
-            android:exported=&quot;false&quot;
-            android:screenOrientation=&quot;portrait&quot; /&gt;
-        &lt;activity
-            android:name=&quot;com.alipay.sdk.auth.AuthActivity&quot;
-            android:configChanges=&quot;orientation|keyboardHidden|navigation&quot;
-            android:exported=&quot;false&quot;
-            android:screenOrientation=&quot;portrait&quot; /&gt;
-
-        &lt;!-- 微信支付 --&gt;
-        &lt;activity-alias
-            android:name=&quot;.wxapi.WXPayEntryActivity&quot;
-            android:exported=&quot;true&quot;
-            android:targetActivity=&quot;com.pingplusplus.android.PaymentActivity&quot; /&gt;
-
-
-        &lt;!-- QQ登录 --&gt;
-        &lt;activity
-            android:name=&quot;com.tencent.tauth.AuthActivity&quot;
-            android:noHistory=&quot;true&quot;
-            android:launchMode=&quot;singleTask&quot; &gt;
-        &lt;/activity&gt;
-
-        &lt;!-- TapTap登录 --&gt;
-        &lt;activity
+    &lt;!-- Ping++ SDK --&gt;
+    &lt;activity
+        android:name=&quot;com.pingplusplus.android.PaymentActivity&quot;
+        android:configChanges=&quot;orientation|screenSize&quot;
+        android:launchMode=&quot;singleTop&quot;
+        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
+        
+     &lt;!-- TapTap登录 --&gt;
+    &lt;activity
             android:name=&quot;com.taptap.sdk.TapTapActivity&quot;
             android:exported=&quot;false&quot;
-            android:screenOrientation=&quot;portrait&quot;
             android:configChanges=&quot;keyboard|keyboardHidden|screenLayout|screenSize|orientation&quot;
-            android:theme=&quot;@android:style/Theme.NoTitleBar&quot; /&gt;
+            android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
 
-        &lt;activity
-            android:name=&quot;com.tencent.connect.common.AssistActivity&quot;
-            android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot;
-            android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot; /&gt;
+    &lt;activity
+            android:name=&quot;com.taptap.forum.TapTapActivity&quot;
+            android:configChanges=&quot;keyboard|keyboardHidden|screenLayout|screenSize|orientation&quot;
+            android:exported=&quot;false&quot;
+            android:theme=&quot;@android:style/Theme.NoTitleBar.Fullscreen&quot; /&gt;
             
-        &lt;!-- XDLive --&gt;
-         &lt;provider android:authorities=&quot;游戏包名+.com.squareup.picasso&quot; android:exported=&quot;false&quot; android:name=&quot;com.squareup.picasso.PicassoProvider&quot;/&gt;
+    &lt;!-- 支付宝 --&gt;
+    &lt;activity
+        android:name=&quot;com.alipay.sdk.app.H5PayActivity&quot;
+        android:configChanges=&quot;orientation|keyboardHidden|navigation&quot;
+        android:exported=&quot;false&quot;
+        android:screenOrientation=&quot;portrait&quot; /&gt;
+    &lt;activity
+        android:name=&quot;com.alipay.sdk.auth.AuthActivity&quot;
+        android:configChanges=&quot;orientation|keyboardHidden|navigation&quot;
+        android:exported=&quot;false&quot;
+        android:screenOrientation=&quot;portrait&quot; /&gt;
+
+    &lt;!-- 微信支付 --&gt;
+    &lt;activity-alias
+        android:name=&quot;项目包名.wxapi.WXPayEntryActivity&quot;
+        android:exported=&quot;true&quot;
+        android:targetActivity=&quot;com.pingplusplus.android.PaymentActivity&quot; /&gt;
+
+    &lt;!-- QQ登录 --&gt;
+    &lt;activity
+        android:name=&quot;com.tencent.tauth.AuthActivity&quot;
+        android:noHistory=&quot;true&quot;
+        android:launchMode=&quot;singleTask&quot; /&gt;
+    &lt;activity
+        android:name=&quot;com.tencent.connect.common.AssistActivity&quot;
+        android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot;
+        android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot; /&gt;
+        
+    &lt;!-- 文件配置 --&gt;    
+    &lt;provider 
+        android:authorities=&quot;项目包名.com.squareup.picasso&quot; 
+        android:exported=&quot;false&quot; 
+        android:name=&quot;com.squareup.picasso.PicassoProvider&quot;/&gt;
     &lt;/application&gt;
 &lt;/manifest&gt;</code></pre></div>
 
-<h3 id="toc_25">2.2.生成APK</h3>
+<h3 id="toc_29">2.2.生成APK</h3>
 
 <p>在Unity中生成APK，或将工程导出至Android Studio进行打包。</p>
 
@@ -1633,7 +1667,7 @@ public static void GameResume ();
 
 <p><img src="img/2.png"></img></p>
 
-<h3 id="toc_26">2.3.接入微信分享</h3>
+<h3 id="toc_30">2.3.接入微信分享</h3>
 
 <p>心动SDK提供的分享功能已过期，即将停止维护，请尽量自行接入分享。</p>
 <p style="color:red">微信分享的微信AppID必须使用心动提供的微信AppID，否则会导致微信登录失败</p>
@@ -1656,11 +1690,11 @@ public static void GameResume ();
     android:screenOrientation=&quot;portrait&quot;/&gt;
     </code></pre></div>
 
-<h2 id="toc_27">3.iOS</h2>
+<h2 id="toc_31">3.iOS</h2>
 
 <p>用Unity导出Xcode工程并打开</p>
 
-<h3 id="toc_28">3.1. 导入SDK文件</h3>
+<h3 id="toc_32">3.1. 导入SDK文件</h3>
 
 <p>从心动平台处获取SDK资源文件，其中主要的文件或目录用途如下。</p>
 
@@ -1682,7 +1716,7 @@ public static void GameResume ();
 
 <p>将以上文件导入Xcode工程。</p>
 
-<h3 id="toc_29">3.2. 添加系统依赖库</h3>
+<h3 id="toc_33">3.2. 添加系统依赖库</h3>
 
 <div><pre><code class="language-none">libz.tbd
 libsqlite3.0.tbd
@@ -1701,7 +1735,7 @@ libc++.tbd
 // 2.1.0
 AuthenticationServices.framework</code></pre></div>
 
-<h3 id="toc_30">3.3. 设置 URL Types</h3>
+<h3 id="toc_34">3.3. 设置 URL Types</h3>
 
 <p>需要在Xcode中设置多个URL Types，URL Types主要是需要设置URL Schemes，其它选项可任意填写。按照下面表格的内容填写，注意替换其中的各项AppID。</p>
 
@@ -1743,7 +1777,7 @@ AuthenticationServices.framework</code></pre></div>
 </tbody>
 </table>
 
-<h3 id="toc_31">3.4. 配置 info.plist</h3>
+<h3 id="toc_35">3.4. 配置 info.plist</h3>
 
 <p>修改项目的info.plist，在<dict>节点中添加下列内容。修改的内容主要为了保证QQ和微信登录能够正常运行。</p>
 
@@ -1773,7 +1807,7 @@ AuthenticationServices.framework</code></pre></div>
 &lt;/dict&gt;
 </code></pre></div>
 
-<h3 id="toc_32">3.5.配置工程capability</h3>
+<h3 id="toc_36">3.5.配置工程capability</h3>
 
 <p>更新SDK 2.1.0之后，
 <p style="color:red">需要在xcode工程中添加两项capability：Associated Domains \ Sign in with apple.</p></p>
@@ -1785,7 +1819,7 @@ AuthenticationServices.framework</code></pre></div>
 <p>Associated Domains添加一项，格式为『applinks + 域名』如「applinks:www.xd.com」。
 <p style="color:red">域名为游戏官网地址，请联系平台方确认</p></p>
 
-<h3 id="toc_33">3.6. 处理第三方应用跳回事件</h3>
+<h3 id="toc_37">3.6. 处理第三方应用跳回事件</h3>
 
 <p style="color:red">
 在UnityAppController.mm中增加如下两个方法，如果已经存在这些方法，在其中追加相应的处理代码即可。请务必添加下列代码，否则将影响第三方登录的授权回调。
@@ -1812,7 +1846,7 @@ AuthenticationServices.framework</code></pre></div>
     return [XDCore handleOpenUniversalLink:userActivity];
 }</code></pre></div>
 
-<h3 id="toc_34">3.6. Buid Settings</h3>
+<h3 id="toc_38">3.6. Buid Settings</h3>
 
 <p>Enable Bitcode = NO</p>
 
@@ -1820,15 +1854,15 @@ AuthenticationServices.framework</code></pre></div>
 
 <p><strong>Swift Language Version 设置为 Swift 5</strong></p>
 
-<h5 id="toc_35">完成以上配置即可进行编译打包。</h5>
+<h5 id="toc_39">完成以上配置即可进行编译打包。</h5>
 
-<h2 id="toc_36">4. 广告部分说明</h2>
+<h2 id="toc_40">4. 广告部分说明</h2>
 
 <p>XDSDK内部集成了部分主要渠道广告SDK，包括今日头条巨量广告平台SDK，和腾讯广点通SDK。必要事件（如注册）会在SDK内部发送，充值事件由XDSDK服务端发送事件到相应平台。游戏不用做额外对接工作。</p>
 
 <p>需要接入相应平台的SDK请联系XDSDK后端配置广告参数。</p>
 
-<h3 id="toc_37">4.1 iOS</h3>
+<h3 id="toc_41">4.1 iOS</h3>
 
 <p>今日头条：TTTracker.framework，版本2.0.6</p>
 
@@ -1842,7 +1876,7 @@ AuthenticationServices.framework</code></pre></div>
 
 <p>2.build setting 中Other Link Flag 中添加-ObjC。</p>
 
-<h3 id="toc_38">4.2 Android</h3>
+<h3 id="toc_42">4.2 Android</h3>
 
 <p>今日头条：版本2.0.6</p>
 
@@ -1860,9 +1894,9 @@ AuthenticationServices.framework</code></pre></div>
         public static string GetAdChannelName()
 </code></pre></div>
 
-<h2 id="toc_39">5. 服务端对接</h2>
+<h2 id="toc_43">5. 服务端对接</h2>
 
-<h3 id="toc_40">5.1 获取用户信息</h3>
+<h3 id="toc_44">5.1 获取用户信息</h3>
 
 <p>游戏服务端使用客户端获取的access token，按照下面的方式获取用户信息。</p>
 
@@ -1919,7 +1953,7 @@ authoriz_state：0/1/2/3/4（实名状态,0未实名，&gt;0 都表示已实名�
 </tbody>
 </table>
 
-<h3 id="toc_41">5.2.    处理支付回调</h3>
+<h3 id="toc_45">5.2.    处理支付回调</h3>
 
 <p>游戏服务端需要提供一个能够处理支付回调的接口，这个接口是申请心动AppID时需要的。处理逻辑中，需要使用一个密钥进行加密验证，该密钥即为心动AppKey。
 当心动平台处有充值成功时，心动服务端会通知到支付回调接口，信息如下。</p>

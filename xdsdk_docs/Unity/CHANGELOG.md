@@ -5,21 +5,15 @@
 
 C#文件变更：
 
-1.
+* XDSDK.cs
+* XDSDKImp.cs
+* XDCallback.cs
+* XDSDKListener.cs
 
-XDSDK.cs
-
-XDSDKImp.cs
-
-2.
-
-TapTapSDK.cs
-
-TapTapSDKImpl.cs
-
-iOSImpl.cs
-
-AndroidImpl.cs
+* TapTapSDK.cs
+* TapTapSDKImpl.cs
+* iOSImpl.cs
+* AndroidImpl.cs
 
 
 
@@ -36,11 +30,11 @@ AndroidImpl.cs
 
 文件变更：
 
-1.XdComPlatform.framework
+1. XdComPlatform.framework
 
-2.TapTapSDK.framework
+2. TapTapSDK.framework
 
-3.resouces文件夹
+3. resouces文件夹
 
 **新增**
 
@@ -52,7 +46,34 @@ AndroidImpl.cs
 2. libXDLiveiOSWrapper.a
 3. libTapTapSDKiOSWrapper.a
 
+**Android**  
 
+- 添加隐私协议支持及打开指定协议页面 
+- 添加自定义登录入口，支持自动登录和 TapTap 登录
+- 添加新版 UI 支持
+- 添加角色设置接口
+- 优化防沉迷设置,主动停止和恢复计时，新增接口GameStop/GameResume
+
+文件变更：
+
+```
+modified:		libs/SDKLib.jar
+modified:		libs/libTapDB.jar
+modified:		libs/taptap.jar
+modified:		libs/SDKLibForUnity.jar
+modified:		libs/XDTrafficControlForUnity.jar
+modified:		res
+modified:		AndroidManifest.xml
+
+new:			taptapForum.jar
+new:			skynet-1.0.5.aar
+new:			anti-addiction-1.0.0.aar
+new:			constraint-layout-1.1.3.aar
+new:			constraint-layout-solver-1.1.3.jar
+new:			gson-2.6.2.jar
+
+
+```
 
 
 

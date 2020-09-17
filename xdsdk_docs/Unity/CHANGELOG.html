@@ -336,21 +336,16 @@ kbd {
 
 <p>C#文件变更：</p>
 
-<p>1.</p>
-
-<p>XDSDK.cs</p>
-
-<p>XDSDKImp.cs</p>
-
-<p>2.</p>
-
-<p>TapTapSDK.cs</p>
-
-<p>TapTapSDKImpl.cs</p>
-
-<p>iOSImpl.cs</p>
-
-<p>AndroidImpl.cs</p>
+<ul>
+<li>XDSDK.cs</li>
+<li>XDSDKImp.cs</li>
+<li>XDCallback.cs</li>
+<li><p>XDSDKListener.cs</p></li>
+<li><p>TapTapSDK.cs</p></li>
+<li><p>TapTapSDKImpl.cs</p></li>
+<li><p>iOSImpl.cs</p></li>
+<li><p>AndroidImpl.cs</p></li>
+</ul>
 
 <p><strong>iOS</strong></p>
 
@@ -367,11 +362,11 @@ kbd {
 
 <p>文件变更：</p>
 
-<p>1.XdComPlatform.framework</p>
-
-<p>2.TapTapSDK.framework</p>
-
-<p>3.resouces文件夹</p>
+<ol>
+<li><p>XdComPlatform.framework</p></li>
+<li><p>TapTapSDK.framework</p></li>
+<li><p>resouces文件夹</p></li>
+</ol>
 
 <p><strong>新增</strong></p>
 
@@ -386,6 +381,35 @@ kbd {
 <li>libXDLiveiOSWrapper.a</li>
 <li>libTapTapSDKiOSWrapper.a</li>
 </ol>
+
+<p><strong>Android</strong>  </p>
+
+<ul>
+<li>添加隐私协议支持及打开指定协议页面 </li>
+<li>添加自定义登录入口，支持自动登录和 TapTap 登录</li>
+<li>添加新版 UI 支持</li>
+<li>添加角色设置接口</li>
+<li>优化防沉迷设置,主动停止和恢复计时，新增接口GameStop/GameResume</li>
+</ul>
+
+<p>文件变更：</p>
+
+<div><pre><code class="language-none">modified:       libs/SDKLib.jar
+modified:       libs/libTapDB.jar
+modified:       libs/taptap.jar
+modified:       libs/SDKLibForUnity.jar
+modified:       libs/XDTrafficControlForUnity.jar
+modified:       res
+modified:       AndroidManifest.xml
+
+new:            taptapForum.jar
+new:            skynet-1.0.5.aar
+new:            anti-addiction-1.0.0.aar
+new:            constraint-layout-1.1.3.aar
+new:            constraint-layout-solver-1.1.3.jar
+new:            gson-2.6.2.jar
+
+</code></pre></div>
 
 <h3 id="toc_2">Unity 2.1.7 - 2020-6-09（iOS-4.1.3&amp;Android-4.1.4)</h3>
 

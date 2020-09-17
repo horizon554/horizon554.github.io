@@ -1,5 +1,32 @@
 Change Log
 ==========
+## 4.3.1
+
+- 添加隐私协议支持及打开指定协议页面
+- 添加自定义登录入口，支持自动登录和 TapTap 登录
+- 添加新版 UI 支持
+- 添加角色设置接口
+- 优化防沉迷设置
+
+文件变更：
+
+```
+modified:		libs/SDKLib.jar
+modified:		libs/libTapDB.jar
+modified:		libs/taptap.jar
+modified:		res
+modified:		AndroidManifest.xml
+
+new:			taptapForum.jar
+new:			skynet-1.0.5.aar
+new:			anti-addiction-1.0.0.aar
+new:			constraint-layout-1.1.3.aar
+new:			constraint-layout-solver-1.1.3.jar
+new:			gson-2.6.2.jar
+
+
+```
+
 ## 4.1.4
 
 - 修复提示弹窗多次弹出无法关闭问题
