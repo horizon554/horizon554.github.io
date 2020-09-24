@@ -129,6 +129,15 @@ public class XDSDKHandler : XDCallback {
 ///                                        Quantity：商品数量
 public override void RestoredPayment(List<Dictionary<string,string>> resultList){
     }
+    
+    //用户同意所有协议
+    public override void OnProtocolAgreed() {}
+
+	//打开协议成功
+    public override void OnProtocolOpenSucceed() {}
+    
+	//打开协议失败
+    public override void OnProtocolOpenFailed(string msg) {}
 
 }
 ```
@@ -141,11 +150,13 @@ XDSDK.SetCallback (new XDSDKHandler ());
 
 ### 1.3.配置登录选项
 
+#### 1.3.1 默认配置 (旧版接口）
+
 <p>心动SDK提供配置QQ、微信登录、游客登录的显示与隐藏以及登录方式。</p>
 
 <p>如不进行配置，SDK将默认显示QQ、微信、游客登录。QQ和微信的登录方式默认为App授权登录，心动SDK会根据QQ和微信的安装情况，将QQ和微信登录方式切换为Web登录，或者不提供对应的登录功能。</p>
 
-<p style="color:red">请勿直接复制以下代码，根据游戏实际需求选择调用。(以下API为旧接口，建议直接使用自定义入口顺序功能)</p>
+<p style="color:red">请勿直接复制以下代码，根据游戏实际需求选择调用。(以下API为旧接口，建议直接使用自定义登录顺序功能)</p>
 
 ```
 XDSDK.HideGuest()	//隐藏游客登录
@@ -156,21 +167,22 @@ XDSDK.SetQQWeb()	//设置QQ为Web登录方式
 XDSDK.SetWXWeb()	//设置微信为Web 扫码登录方式
 XDSDK.HideTapTap()	//隐藏TapTap登录，使用心动登录
 ```
+
+#### 1.3.2 自定义登录顺序
+ 
 <p style="color:red">SDK版本1.1.3添加了新接口，自定义登录按钮及顺序。可以在SDK初始化之前调用。具体说明如下：</p>
 
 <p style="color:red">SDK版本2.1.0添加了新入口：苹果登录</p>
 
 
  自定义登录入口。共五种，其中主要两种，次要两种。
+默认显示为：
+
+iOS: 微信、QQ、游客、苹果、TapTap
+
+安卓: 微信、TapTap、游客、苹果、QQ  
  
-
-1、默认显示为：
-
-iOS:微信、QQ、游客、苹果、TapTap
-
-安卓:微信、TapTap、游客、苹果、QQ
- 
-2、各登录方式对应名称如下：
+ 各登录方式对应名称如下：
  
 -  微信登录：WX_LOGIN，
 -  taptap登录：TAPTAP_LOGIN，
@@ -183,7 +195,7 @@ iOS:微信、QQ、游客、苹果、TapTap
 
 <p style="color:red">SDK 在iOS12及以下、安卓中使用web实现苹果登录，但是若游戏iOS版未上架appstore，无法使用web版苹果登录，游戏需在iOS应用上架之后，才打开iOS12系统及以下和安卓的苹果登录入口。</p>
  
-3、例，传入的数组。
+例，传入的数组。
  {"APPLE\_LOGIN","WX\_LOGIN","TAPTAP\_LOGIN","GUEST\_LOGIN","QQ\_LOGIN"}
 
 注：
@@ -196,13 +208,15 @@ iOS:微信、QQ、游客、苹果、TapTap
 XDSDK.SetLoginEntries({"APPLE_LOGIN","WX_LOGIN","TAPTAP_LOGIN","GUEST_LOGIN","QQ_LOGIN"});
 ```
 
-4、自定义登录入口
+#### 1.3.3 自定义登录入口
 
 <p style="color:red">XDSDK 2.3.0开始，支持游戏自定义登录入口。入口素材由平台提供</p>
 
+素材地址：[XDSDK登录方式素材](../XDSDK登录方式(大陆)_2020.zip)  
+
 增加自定义登录接口（iOS:AutoLogin/TapTapLogin/AppleLogin/GuestLogin,Android:AutoLogin/TapTapLogin），游戏绘制登录按钮后调用.
 
-**调用方法 ：** 调用autologin，根据登录回调看是否自动登录成功，如果自动登录失败，回调信息为『自动登录失败』，如果没有成功就显示登录界面，用户点击不同登录按钮然后调用对应登录:taptaplogin等。
+**调用方法 ：** 调用Autologin，根据登录回调看是否自动登录成功，如果自动登录失败，回调信息为『自动登录失败』，如果没有成功就显示登录界面，用户点击不同登录按钮然后调用对应登录:TapTapLogin等。
 
 **（自定义绘制登录按钮时，点击防沉迷切换账号按钮会回调登录取消）**
 
@@ -368,7 +382,7 @@ Product_Name | 是 |商品名称，建议以游戏名称开头，方便财务对
 Product_Id | 是 | 商品ID
 Product_Price | 是 | 商品价格（单位分）
 Sid | 是 |所在服务器ID，不能有特殊字符，服务端支付回调会包含该字段
-Role_Id | 否 | 支付角色ID，服务端支付回调会包含该字段
+Role_Id | 是 | 支付角色ID，服务端支付回调会包含该字段
 OrderId | 否 | 游戏侧订单号，服务端支付回调会包含该字段
 EXT | 否 |额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：info.Add("EXT", "{\"payCallbackCode\":2}");
 
@@ -438,7 +452,7 @@ Product_Name | 是 |商品名称，建议以游戏名称开头，方便财务对
 Product_Id | 是 | 商品ID，到AppStore购买的商品
 Product_Price | 是 | 商品价格（单位分），对于AppStore支付，该字段没有用处，但是需要传递真实金额，有多处需要用到
 Sid | 是 |所在服务器ID，不能有特殊字符，服务端支付回调会包含该字段
-Role_Id | 否 | 支付角色ID，服务端支付回调会包含该字段
+Role_Id | 是 | 支付角色ID，服务端支付回调会包含该字段
 OrderId | 否 | 游戏侧订单号，服务端支付回调会包含该字段
 EXT | 否 | 额外信息，最长512个字符，服务端支付回调会包含该字段。可用于标记区分充值回调地址，如需使用该功能，请联系平台进行配置。代码示例：[prdInfo setObject:@"{\\"payCallbackCode\\":1}" forKey:@"EXT"];
 
@@ -851,7 +865,13 @@ public static void GameResume ();
 
 ```
 
+### 1.21.打开协议页面
+游戏需要打开协议的内容时，可以调用该接口，示例如下：
 
+```
+xdsdk.XDSDK.OpenProtocol(xdsdk.XDSDK.ProtocolType.PROTOCOL_TYPE_GAME);
+```
+参数为协议类型，包括  PROTOCOL\_TYPE\_USER(用户协议),PROTOCOL\_TYPE\_GAME(游戏协议),PROTOCOL\_TYPE\_PRIVACY(隐私协议)
 
 ## 2.Android
 
@@ -864,6 +884,17 @@ public static void GameResume ();
 
 ```
 <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
+
+另外需要在 AndroidManifest.xml中 application 标签内添加: android:usesCleartextTraffic="true" ，例如：
+
+```
+    <application 
+     …
+      android:usesCleartextTraffic="true"
+     …
+    >
+    
 ```
 
 ### 2.1.按需要修改AndroidManifest
@@ -899,79 +930,82 @@ public static void GameResume ();
         android:debuggable="true">
 
         <activity
-            android:name="com.xd.sdklib.helper.XDStartView"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
-        <activity
-            android:name="com.xd.sdklib.helper.XDViewActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
-        <activity
-            android:name="com.xd.sdklib.helper.XDPayActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
-        <activity
-            android:name="com.xd.sdklib.helper.XDWebView"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-        <activity
-            android:name="com.xd.sdklib.helper.WXEntryActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        android:name="com.xd.sdklib.helper.XDStartView"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+        android:configChanges="orientation|keyboardHidden|screenSize" />
+    <activity
+        android:name="com.xd.sdklib.helper.XDPayActivity"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+        android:configChanges="orientation|keyboardHidden|screenSize"  />
+    <activity
+        android:name="com.xd.sdklib.helper.XDViewActivity"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+        android:configChanges="orientation|keyboardHidden|screenSize" />
+    <activity
+        android:name="com.xd.sdklib.helper.XDWebView"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+    <activity
+        android:name="com.xd.sdklib.helper.WXEntryActivity"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
-        <!-- 微信登录 -->
-        <activity-alias
-            android:name=".wxapi.WXEntryActivity"
-            android:label="@string/app_name"
-            android:exported="true"
-            android:targetActivity="com.xd.sdklib.helper.WXEntryActivity"/>
+    <activity-alias
+        android:name="项目包名.wxapi.WXEntryActivity"
+        android:exported="true"
+        android:targetActivity="com.xd.sdklib.helper.WXEntryActivity"/>
 
-        <!-- Ping++ SDK -->
-        <activity
-            android:name="com.pingplusplus.android.PaymentActivity"
-            android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-
-        <!-- 支付宝 -->
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.alipay.sdk.auth.AuthActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-
-        <!-- 微信支付 -->
-        <activity-alias
-            android:name=".wxapi.WXPayEntryActivity"
-            android:exported="true"
-            android:targetActivity="com.pingplusplus.android.PaymentActivity" />
-
-
-        <!-- QQ登录 -->
-        <activity
-            android:name="com.tencent.tauth.AuthActivity"
-            android:noHistory="true"
-            android:launchMode="singleTask" >
-        </activity>
-
-        <!-- TapTap登录 -->
-        <activity
+    <!-- Ping++ SDK -->
+    <activity
+        android:name="com.pingplusplus.android.PaymentActivity"
+        android:configChanges="orientation|screenSize"
+        android:launchMode="singleTop"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        
+     <!-- TapTap登录 -->
+    <activity
             android:name="com.taptap.sdk.TapTapActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:theme="@android:style/Theme.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
-        <activity
-            android:name="com.tencent.connect.common.AssistActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
+    <activity
+            android:name="com.taptap.forum.TapTapActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
             
-        <!-- XDLive -->
-         <provider android:authorities="游戏包名+.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+    <!-- 支付宝 -->
+    <activity
+        android:name="com.alipay.sdk.app.H5PayActivity"
+        android:configChanges="orientation|keyboardHidden|navigation"
+        android:exported="false"
+        android:screenOrientation="portrait" />
+    <activity
+        android:name="com.alipay.sdk.auth.AuthActivity"
+        android:configChanges="orientation|keyboardHidden|navigation"
+        android:exported="false"
+        android:screenOrientation="portrait" />
+
+    <!-- 微信支付 -->
+    <activity-alias
+        android:name="项目包名.wxapi.WXPayEntryActivity"
+        android:exported="true"
+        android:targetActivity="com.pingplusplus.android.PaymentActivity" />
+
+    <!-- QQ登录 -->
+    <activity
+        android:name="com.tencent.tauth.AuthActivity"
+        android:noHistory="true"
+        android:launchMode="singleTask" />
+    <activity
+        android:name="com.tencent.connect.common.AssistActivity"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar"
+        android:configChanges="orientation|keyboardHidden|screenSize" />
+        
+    <!-- 文件配置 -->    
+    <provider 
+		android:authorities="项目包名.com.squareup.picasso" 
+		android:exported="false" 
+		android:name="com.squareup.picasso.PicassoProvider"/>
     </application>
 </manifest>
 ```
