@@ -97,7 +97,7 @@
 
 <p style="color:red">在编译选项‘Other Linker Flags’中加入「-ObjC」和 「-all_load」。</p>
 
-**重要:4.3.1版本加入Swift混编，如编译遇到Swift编译报错，可加入一个Swift空文件解决。libs文件夹中已提供，将项目Build Setting中Swift Language Version 设置为Swift 5**
+**重要:4.3.1版本加入Swift混编，如编译遇到Swift编译报错，可加入一个Swift空文件解决。libs文件夹中已提供，将项目Build Setting中Swift Language Version 设置为Swift 5;BuildSetting中,Always Embed Swift Standard Libraries设置为YES**
 
 #### 4.1.获取SDK
 

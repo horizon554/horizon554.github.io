@@ -27,6 +27,7 @@ C#文件变更：
 - **资源resouces文件夹新增CommonUI.bundle/TapMomentResources.bundle。需确认都添加到Copy Bundle Resouces中**
 - iOS新增Swift混编，需要添加Swift文件，否则会遇到Swift编译错误，SDK中已包含Blank.swift
 - **Build Setting 中。将Swift Language Version 设置为Swift 5**
+- **BuildSetting中,Always Embed Swift Standard Libraries设置为YES**
 
 文件变更：
 

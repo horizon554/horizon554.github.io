@@ -1195,6 +1195,8 @@ Enable Bitcode = NO
 
 **Swift Language Version 设置为 Swift 5**
 
+**BuildSetting中,Always Embed Swift Standard Libraries设置为YES**
+
 ##### 完成以上配置即可进行编译打包。
 
 ## 4. 广告部分说明
