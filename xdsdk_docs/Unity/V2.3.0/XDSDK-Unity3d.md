@@ -1011,7 +1011,26 @@ xdsdk.XDSDK.OpenProtocol(xdsdk.XDSDK.ProtocolType.PROTOCOL_TYPE_GAME);
 ```
 
 
-### 2.2.生成APK
+### 2.2.防沉迷设置
+
+Android 防沉迷依赖于 XDSDK.OnResume 和 XDSDK.OnStop 接口，所以游戏应确保这两个接口接入正常，在 unity 中接入示例：
+
+```
+void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+			xdsdk.XDSDK.OnStop();
+        }
+        else
+        {
+			xdsdk.XDSDK.OnResume();
+        }
+    }
+```
+如果游戏将项目导出为 Android 原生工程，也可以在主 Activity 中的`onResume`和`onStop`中调用原生对应接口 `XDSDK.onResume`和`XDSDK.onStop`。两种接入方式选择一个即可。
+
+### 2.3.生成APK
 
 <p>在Unity中生成APK，或将工程导出至Android Studio进行打包。</p>
 
@@ -1021,7 +1040,7 @@ xdsdk.XDSDK.OpenProtocol(xdsdk.XDSDK.ProtocolType.PROTOCOL_TYPE_GAME);
 <img src="img/2.png"></img>
 
 
-### 2.3.接入微信分享
+### 2.4.接入微信分享
 
 <p>心动SDK提供的分享功能已过期，即将停止维护，请尽量自行接入分享。</p>
 <p style="color:red">微信分享的微信AppID必须使用心动提供的微信AppID，否则会导致微信登录失败</p>
