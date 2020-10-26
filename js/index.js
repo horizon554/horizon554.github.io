@@ -2,6 +2,16 @@
     var sdkList = {
 
         "iOS": [
+          {
+                "time": "2020-10-26",
+                "size": "22.2M",
+                "version": "4.3.2",
+                "demo": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/sdk/ios/v4.3.2/XDSDK_Demo.zip",
+                "sdk": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/tree/master/sdk/ios/v4.3.2",
+                "doc": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/ios_doc.md",
+                "changeLog": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/ios_changelog.md"
+            },
+
             {
                 "time": "2020-9-17",
                 "size": "22.2M",
@@ -396,6 +406,16 @@
 
         "Android": [
             {
+                "time": "2020-10-26",
+                "size": "9.5M",
+                "version": "4.3.2",
+                "demo": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/sdk/android/v4.3.2/Demo.zip",
+                "sdk": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/tree/master/sdk/android/v4.3.2/XDSDK-Android-4.3.2",
+                "doc": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/android_doc.md",
+                "changeLog": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/android_changelog.md"
+            },
+
+            {
                 "time": "2020-09-17",
                 "size": "9.5M",
                 "version": "4.3.1",
@@ -622,13 +642,13 @@
 
         "Unity3d": [
             {
-                "time": "2020-9-17",
+                "time": "2020-10-26",
                 "size": "26.3M",
-                "version": "2.3.0",
-                "demo": "https://res.xdcdn.net/xdsdk/Unity/2.3.0/UnityDemo.zip",
-                "sdk": "https://res.xdcdn.net/xdsdk/Unity/2.3.0/2.3.0.zip",
-                "doc": "./xdsdk_docs/Unity/V2.3.0/XDSDK-Unity3d.html",
-                "changeLog": "./xdsdk_docs/Unity/CHANGELOG.html"
+                "version": "2.3.1",
+                "demo": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/tree/master/sdk/unity/v2.3.1/demo",
+                "sdk": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/tree/master/sdk/unity/v2.3.1",
+                "doc": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/unity_doc.md",
+                "changeLog": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/unity_changelog.md"
             },
             {
                 "time": "2020-6-09",
