@@ -2,6 +2,15 @@
     var sdkList = {
 
         "iOS": [
+            {
+                "time": "2020-11-06",
+                "size": "22.6M",
+                "version": "4.3.4",
+                "demo": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/sdk/ios/v4.3.4/XDSDK_Demo.zip",
+                "sdk": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/tree/master/sdk/ios/v4.3.4",
+                "doc": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/ios_doc.md",
+                "changeLog": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/ios_changelog.md"
+            },
           {
                 "time": "2020-10-26",
                 "size": "22.2M",
@@ -641,6 +650,15 @@
         }, ],
 
         "Unity3d": [
+            {
+                "time": "2020-11-06",
+                "size": "26.3M",
+                "version": "2.3.3",
+                "demo": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/tree/master/sdk/unity/v2.3.3/demo",
+                "sdk": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/tree/master/sdk/unity/v2.3.3",
+                "doc": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/unity_doc.md",
+                "changeLog": "https://git.gametaptap.com/tds-public/xd-sdk-4/-/blob/master/doc/unity_changelog.md"
+            },
             {
                 "time": "2020-10-26",
                 "size": "26.3M",
